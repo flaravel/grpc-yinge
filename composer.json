@@ -1,0 +1,25 @@
+{
+    "name": "yinge/grpc-lib",
+    "description": "grpc lib for YINGE Group",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "oygza",
+            "email": "oygza.zh@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "ext-json": "*",
+        "grpc/grpc": "^1.27",
+        "ext-grpc": "*",
+        "google/protobuf": "^3.11",
+        "start-point/etcd-php": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yinge\\Grpc\\": "src/"
+        }
+    }
+}

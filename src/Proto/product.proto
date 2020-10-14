@@ -1,0 +1,168 @@
+syntax = "proto3";
+
+package Product;
+
+option php_metadata_namespace = "Yinge\\Grpc\\Product\\GPBMetadata";
+option php_namespace = "Yinge\\Grpc\\Product";
+option go_package = "/grpc";
+
+service Product {
+  // spu列表
+  rpc GetSpuList(SpuListReq) returns(SpuListResp){}
+
+  //  根据分类id查询 支持查询软删除数据
+  rpc GetCategoryList(CategoryReq) returns (CategoryListResp){}
+
+  // 根据筛选条件 获取sku列表
+  rpc GetSkuList(SkuRequest) returns (SkuResult) {}
+
+  // 根据分类id 获取属性与属性值
+  rpc GetAttrAndValByCId(GetAttrAndValRequest) returns (GetAttrAndValResponse){}
+
+  // 创建第三方商品
+  rpc CreateThirdPartySku(ThirdPartySkuRequest) returns (Sku){}
+
+  // 获取spu详情
+  rpc GetSpuDetail(SpuDetailReq) returns(SpuDetailRep) {}
+
+  // 获取sku详情
+  rpc GetSkuDetail(SkuDetailReq) returns(SkuDetailRep) {}
+}
+
+message SpuDetailReq{
+  repeated int64 spuIds = 1;
+}
+
+message SkuDetailReq {
+  repeated int64 skuIds = 1;
+}
+
+message SpuDetailRep {
+  repeated Spu spuInfo = 1;
+}
+
+message SkuDetailRep {
+  repeated Sku skuInfo = 1;
+}
+
+// spu列表请求参数
+message SpuListReq {
+  uint64 cid = 1;
+  PageParam pageParam = 2;
+  bool noPage = 3; // 不分页标识
+  string keyword = 4;
+}
+
+// spu 列表返回
+message SpuListResp {
+  repeated Spu items = 1;
+  int64 total = 2;
+}
+
+// 查询分类列表返回参数
+message CategoryListResp {
+  string name = 1;
+  repeated Category items = 2;
+  int64 total = 3;
+}
+
+// 分类列表请求参数
+message CategoryReq {
+  PageParam pageParam = 1;
+  bool noPage = 2; // 不分页标识
+  string keyword = 3;
+}
+
+// 查询分页参数
+message PageParam {
+  int64 page = 1;
+  int64 pageSize = 2;
+}
+
+
+// 根据分类id 获取属性与属性值请求
+message GetAttrAndValRequest {
+  PageParam pageParam = 1;
+  uint64 categoryId = 2;
+}
+
+message GetAttrAndValResponse {
+  repeated AttrAndValRelation attrAndVal = 1;
+}
+
+// sku 列表请求参数
+message SkuRequest {
+  int64 spuId = 1;
+  PageParam pageParam = 2;
+  bool noPage = 3; // 不分页标识
+  repeated AttrAndValFlat attrParam = 4;
+  repeated int64 exceptList = 5;
+  bool hiddenAttr = 6;
+}
+
+// sku 列表返回参数
+message SkuResult {
+  repeated Sku items = 1;
+  int64 total = 2;
+}
+
+// sku 基础参数
+message Sku {
+  uint64 skuId = 1;
+  uint64 spuId = 2;
+  string spuName = 3;
+  string skuName = 4;
+  repeated AttrAndValFlat attrList = 5;
+  // 生产编码
+  string produceCode = 6;
+  uint64 cid = 7;
+}
+
+// 分类基础参数
+message Category {
+  uint64 cid = 1;
+  string name = 2;
+}
+
+// spu 基础参数
+message Spu {
+  uint64 spuId = 1;
+  string spuName = 2;
+  uint64 categoryId = 3;
+  string categoryName = 4;
+  string shortName = 5;
+  uint64 skuCount = 6;
+
+  repeated AttrAndValRelation attrList = 7;
+  int64 productType = 8;
+}
+
+// 属性与属性值关联[扁平[
+message AttrAndValFlat {
+  Attr attr = 1;
+  AttrVal attrVal = 2;
+}
+
+// 属性与属性值关联 [关联]
+message AttrAndValRelation {
+  Attr attr = 1;
+  repeated AttrVal attrVal = 2;
+}
+
+// 属性-参数
+message Attr {
+  uint64 attrId = 1;
+  string attrName = 2;
+}
+// 属性值-参数
+message AttrVal {
+  uint64 valId = 3;
+  string valName = 4;
+}
+
+// 第三方sku请求
+message ThirdPartySkuRequest {
+  string skuName = 1;
+  string spuName = 2;
+}
+

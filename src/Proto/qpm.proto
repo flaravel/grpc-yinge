@@ -1,0 +1,402 @@
+syntax = "proto3";
+
+package Qpm;
+
+option php_metadata_namespace = "Yinge\\Grpc\\Qpm\\GPBMetadata";
+option php_namespace = "Yinge\\Grpc\\Qpm";
+
+service QpmService {
+    rpc FindOrder(OrderInfo) returns (ScmOrderResponse) {}
+    rpc CreateOrder (OrderInfo) returns (DispatchResponse) {}
+    rpc SyncOrderStatus(SyncStatusRequest) returns (Response) {}
+    rpc UpdateAddress(OrderInfo) returns (Response) {}
+    rpc CancelOrder(OrderCancelRequest) returns (Response) {}
+    rpc ChangeOrderFactory(OrderFactoryChangeRequest) returns (OrderFactoryChangeResponse) {}
+    rpc ReplaceOrderExpress(OrderExpressReplaceRequest) returns (Response) {}
+    rpc GetSkus(ProductSearchRequest) returns (ProductSearchResponse) {}
+    rpc GetSkuGroups(ProductSearchRequest) returns (ProductSearchResponse) {}
+    rpc GetSkuDetail(ProductSearchRequest) returns (ProductSearchResponse) {}
+    rpc SupportFactory(SupportFactoryRequest) returns (SupportFactoryResponse) {}
+    rpc GetSortingBatch(OrderInfo) returns (SortingBatchResponse) {}
+    rpc PushOrderEvent(OrderEvent) returns (Response) {}
+    rpc ShippingTraceUpdate(ShippingTrace) returns (Response) {}
+    rpc TryDispatchOrder(TryDispatchRequest) returns (TryDispatchResponse) {}
+    rpc UpdateOrderItem(UpdateOrderItemRequest) returns (Response) {}
+    rpc SubAccountAuth(SubAccountAuthRequest) returns (SubAccountResponse) {}
+    rpc CheckSkuCost(SkuCostCheckRequest) returns (SkuCostCheckResponse) {}
+    rpc CheckSkuConfigs(SkuConfigCheckRequest) returns (SkuConfigCheckResponse) {}
+    rpc ProduceRules(ProduceRulesRequest) returns (ProduceRulesResponse) {}
+    rpc FactoryExpress(FactoryExpressRequest) returns (FactoryExpressResponse) {}
+
+
+    // 物料列表
+    rpc MaterielList(MListReq) returns(MListResp) {}
+    // 入库物料
+    rpc StoreMateriel(StoreMaterielReq) returns(Response) {}
+    // 入库物料历史记录
+    rpc StoreMaterielHistory(SMHReq) returns (SMHResp) {}
+    // 获取工厂可生产spu
+    rpc FactoryProduceSpuList(SpuListReq) returns (FactoryProduceResp) {}
+    // 获取工厂可生产sku
+    rpc FactoryProduceSkuList(SkuListReq) returns (FactoryProduceResp) {}
+    //拉取次品订单数最多的25个spu
+    rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
+}
+
+
+message SpuListReq {
+    int64 factoryId = 1;
+}
+
+message FactoryProduceResp  {
+    repeated ProduceSpuOrSku items = 1;
+}
+
+message SkuListReq {
+    int64 factoryId = 1;
+    int64 spuId = 2;
+}
+
+message ProduceSpuOrSku {
+    int64 id = 1;
+    string name = 2;
+}
+
+
+// 物料列表请求参数
+message MListReq {
+    int64 page = 1;
+    int64 pageSize =2;
+    int64 spuId = 3;
+    int64 skuId = 4;
+    string keyword = 5;
+    int64 factoryId = 6;
+}
+
+// 物料列表返回参数
+message MListResp {
+    repeated BaseMateriel items = 1;
+    int64 total = 2;
+}
+
+// 物料数据基础返回
+message BaseMateriel {
+    int64 id = 1;
+    string code = 2;
+    string name = 3;
+    int64 stockThreshold = 4;
+    int64 stockTotal = 5;
+}
+
+// 入库物料请求参数
+message StoreMaterielReq {
+    repeated int64 mids = 1;
+    int64 storeNum = 2;
+    int32 storeType = 3;
+    string cert = 4;
+    int64 factoryId = 5;
+}
+
+
+// 入库历史请求参数
+message SMHReq {
+    int64 page = 1;
+    int64 pageSize =2;
+    int64 spuId = 3;
+    string startAt = 4;
+    string endAt = 5;
+    int64 factoryId = 6;
+    int64 mid = 7;
+}
+// 入库历史返回参数
+message SMHResp {
+    repeated BaseMaterielHistory items = 1;
+    int64 total = 2;
+}
+
+// 基础物料入库记录结构
+message BaseMaterielHistory {
+    int64 id = 1;
+    int64 mid = 2;
+    int64 factoryId = 3;
+    int64 storeNum = 4;
+    int64 storeType = 5;
+    string cert = 6;
+    int64 beforeStoreTotal = 7;
+    int64 afterStoreTotal = 8;
+    BaseMateriel materiels = 9;
+    string createdAt = 10;
+}
+
+message FactoryExpressRequest {
+    int32 factoryId = 1;
+    int32 productId = 2;
+}
+
+message FactoryExpressResponse {
+    int32 count = 1;
+    repeated FactoryExpressItem expresses = 2;
+}
+
+message FactoryExpressItem {
+    string express = 1;
+    string code = 2;
+    int32 rate = 3;
+}
+
+message ProduceRulesRequest {
+    int32 factoryId = 1;
+    int32 productId = 2;
+    int32 skuId = 3;
+}
+
+message ProduceRulesResponse {
+    int32 count = 1;
+    repeated ProduceRuleItem rules = 2;
+}
+
+message ProduceRuleItem {
+    int32 factoryId = 1;
+    int32 productId = 2;
+    int32 skuId = 3;
+    bool isInitiative = 4;
+    bool isStop = 5;
+}
+
+message TryDispatchRequest {
+    int64 orderId = 1;
+}
+
+message TryDispatchResponse {
+    int32 factoryId = 1;
+    string expressCompany = 2 ;
+    string expressNumber = 3;
+}
+
+message IdRequest {
+    int32 id = 1;
+}
+
+message SupportFactoryRequest {
+    int32 id = 1;
+    bool onlyProduceEnabled = 2;
+    bool onlyAutoDispatchEnabled = 3;
+}
+
+message UpdateOrderItemRequest {
+    int32 orderId = 1;
+    OrderItems productList = 2;
+    bool push = 3;
+}
+
+message DispatchResponse {
+    int32 code = 1;
+    string msg = 2;
+    int32 factoryId = 3;
+    string deliveryInfo = 4;
+}
+
+message SupportFactoryResponse {
+    repeated FactoryRule rules = 1;
+}
+message FactoryRule {
+    int32 skuId = 1;
+    int32 factoryId = 2;
+    string factoryName = 3;
+    float rate = 4;
+    string produceCode = 5;
+    string produceName = 6;
+}
+
+
+message OrderInfo {
+    int32 orderId = 1;
+    int32 packageId = 2;
+    int32 factoryId = 3;
+    string addressInfo = 4;
+    string expressInfo = 6;
+    OrderItems productList = 5;
+    int32 id = 7;
+    int32 deliver_id = 8;
+    int32 produceStatus = 9;
+    string extra = 10;
+    string extends = 11;
+}
+
+message OrderCancelRequest {
+    int32 orderId = 1;
+    Operator operator = 3;
+}
+
+message OrderFactoryChangeRequest {
+    string orderIds = 1;
+    int32 originFactoryId = 2;
+    int32 newFactoryId = 3;
+    int32 isCountCost = 4;
+    string reason = 5;
+    Operator operator = 6;
+}
+
+message OrderFactoryChangeResponse {
+    int32 code = 1;
+    string msg = 2;
+    string failedOrderIds = 3;
+}
+
+message OrderExpressReplaceRequest {
+    int32 orderId = 1;
+    string expressCode = 2;
+    string expressNo = 3;
+    Operator operator = 4;
+    int32 branchId = 5;
+    int32 waybillProvider = 6;
+}
+
+message Operator {
+    int32 operationUserId = 1; // 操作人id
+    int32 operationUserType = 2; // 操作人类型
+    string operationUserName = 3; //操作人姓名
+}
+
+message OrderItems {
+    repeated OrderItem items = 1;
+}
+
+message OrderItem {
+    int32 produceId = 1;
+    int32 skuId = 2;
+    string detail = 3;
+}
+
+message SyncStatusRequest {
+    int32 orderId = 1;
+    int32 orderStatus = 2;
+    int32 produceStatus = 3;
+    int32 shippingStatus = 4;
+    int32 deliveryStatus = 5;
+}
+
+message Response {
+    int32 code = 1;
+    string msg = 2;
+}
+
+message ProductSearchRequest {
+    int32 id = 1;
+    int32 searchType = 2; // 1：搜索sku_group，2: 搜索sku, 3: 获取sku详细信息
+}
+message ProductSearchResponse {
+    int32 code = 1;
+    string msg = 2;
+    repeated GroupItem groupItems = 3;
+    repeated SkuItem skuItems = 4;
+}
+
+//yinge查询scm订单 响应
+message ScmOrderResponse {
+    int32 code = 1;
+    string msg = 2;
+    ScmOrder scmOrder = 3;
+}
+
+message ScmOrder {
+    int32 id = 1;
+    int32 orderId = 2;
+    int32 packingId = 3;
+    int32 deliverId = 4;
+    int32 factoryId = 5;
+    int32 productionStatus = 6;
+    int32 orderStatus = 7;
+    string addressInfo = 8;
+}
+
+message GroupItem {
+    int32 id = 1;
+    string name = 2;
+}
+
+message SkuItem {
+    int32 id = 1;
+    string name = 2;
+    string price = 3;
+    string coverImage = 4;
+    int32 status = 5;
+    int32 groupId = 6;
+    string groupName = 7;
+}
+
+message SortingBatchResponse {
+    int32 code = 1;
+    string msg = 2;
+    SortingBatch batch = 3;
+}
+
+message SortingBatch {
+    int32 batchId = 1;
+    string batchNo = 2;
+    int32 produceFactoryId = 3;
+    int32 sortingFactoryId = 4;
+}
+
+message OrderEvent {
+    int32 orderId = 1;
+    string eventType = 2;
+    string params = 3;
+    Operator operator = 4;
+}
+
+message ShippingTrace {
+    string mailNo = 1;
+    string logisticsGmtModified = 2;
+    string lastLogisticDetail = 3;
+    string logisticsStatus = 4;
+}
+
+// 用于不同方法
+message SubAccountAuthRequest {
+    int32 factoryId = 1;
+    int32 roleId = 2;
+    string name = 3;
+    int32 subAccountId = 4;
+    repeated int32 authIds = 5;
+    string funcName = 6;
+    string phone = 7;
+    string captcha = 8;
+    int32 page = 9;
+    int32 pageSize = 10;
+    string nickname = 11;
+    bool listView = 12;
+    string channel = 13;
+}
+
+message SubAccountResponse {
+    int32 code = 1;
+    string msg = 2;
+    bool result = 3;
+    string data = 4; // 返回数据可能为N维数组 用json处理
+}
+
+
+message SkuCostCheckRequest {
+    int32 skuId = 1;
+}
+
+message SkuCostCheckResponse {
+    int32 code = 1;
+    string msg = 2;
+}
+
+message SkuConfigCheckRequest {
+    string skuData = 1;
+}
+
+message SkuConfigCheckResponse {
+    Response response = 1;
+    string errSkuData = 2;
+}
+
+message DefectiveSearchRequest {}
+message DefectiveSpuResponse {
+    Response response = 1;
+    string data = 2;
+}
