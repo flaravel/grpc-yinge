@@ -147,6 +147,9 @@ class Client
         $this->retryCount = 0;
     }
 
+    /**
+     *
+     */
     public function __destruct()
     {
         try {
