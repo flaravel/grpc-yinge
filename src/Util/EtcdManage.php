@@ -29,10 +29,11 @@ class EtcdManage {
     private $client = null;
 
     public static function getInstance(string $prefix) {
-        if (null ==  self::$instance) {
-            self::$instance = new self($prefix);
+        $_instance = self::$instance[$prefix] ?? null;
+        if (null == $_instance) {
+            self::$instance[$prefix] = new self($prefix);
         }
-        return self::$instance;
+        return self::$instance[$prefix];
     }
 
     private function __construct (string $prefix) {
