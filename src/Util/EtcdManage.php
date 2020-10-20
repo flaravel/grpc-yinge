@@ -24,8 +24,8 @@ class EtcdManage {
     private $currentPrefix = '';
 
     /** @var array ip黑名单 不注册服务地址 */
-    private $ipBlackList = [
-        '172.16.162.59'
+    private $ipIgnoreList = [
+        '172.16.162.59' // webtest环境
     ];
 
     /**
@@ -56,7 +56,7 @@ class EtcdManage {
      */
     public function registerServer() {
         $serverIp = $this->getCurrentIp();
-        if (in_array($serverIp,$this->ipBlackList)) {
+        if (in_array($serverIp,$this->ipIgnoreList)) {
             return true;
         }
         // $ok 为一个数组，没有是否成功标识，一般返回header 则认为成功
