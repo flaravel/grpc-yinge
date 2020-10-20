@@ -23,6 +23,11 @@ class EtcdManage {
     /** @var string  */
     private $currentPrefix = '';
 
+    /** @var array ip黑名单 不注册服务地址 */
+    private $ipBlackList = [
+        '172.16.162.59'
+    ];
+
     /**
      * @var Client|null
      */
@@ -51,6 +56,9 @@ class EtcdManage {
      */
     public function registerServer() {
         $serverIp = $this->getCurrentIp();
+        if (in_array($serverIp,$this->ipBlackList)) {
+            return true;
+        }
         // $ok 为一个数组，没有是否成功标识，一般返回header 则认为成功
         $ok = $this->client->put($this->currentPrefix.$serverIp,$serverIp.":".self::DefaultGrpcPort);
         return $ok ? true : false;
