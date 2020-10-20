@@ -35,6 +35,18 @@ class BaseMateriel extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 stockTotal = 5;</code>
      */
     protected $stockTotal = 0;
+    /**
+     * Generated from protobuf field <code>int64 yingeStoreTotal = 6;</code>
+     */
+    protected $yingeStoreTotal = 0;
+    /**
+     * Generated from protobuf field <code>int64 factoryStoreTotal = 7;</code>
+     */
+    protected $factoryStoreTotal = 0;
+    /**
+     * Generated from protobuf field <code>int64 consume = 8;</code>
+     */
+    protected $consume = 0;
 
     /**
      * Constructor.
@@ -47,6 +59,9 @@ class BaseMateriel extends \Google\Protobuf\Internal\Message
      *     @type string $name
      *     @type int|string $stockThreshold
      *     @type int|string $stockTotal
+     *     @type int|string $yingeStoreTotal
+     *     @type int|string $factoryStoreTotal
+     *     @type int|string $consume
      * }
      */
     public function __construct($data = NULL) {
@@ -160,6 +175,72 @@ class BaseMateriel extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->stockTotal = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 yingeStoreTotal = 6;</code>
+     * @return int|string
+     */
+    public function getYingeStoreTotal()
+    {
+        return $this->yingeStoreTotal;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 yingeStoreTotal = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setYingeStoreTotal($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->yingeStoreTotal = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 factoryStoreTotal = 7;</code>
+     * @return int|string
+     */
+    public function getFactoryStoreTotal()
+    {
+        return $this->factoryStoreTotal;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 factoryStoreTotal = 7;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setFactoryStoreTotal($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->factoryStoreTotal = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 consume = 8;</code>
+     * @return int|string
+     */
+    public function getConsume()
+    {
+        return $this->consume;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 consume = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setConsume($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->consume = $var;
 
         return $this;
     }

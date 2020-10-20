@@ -35,6 +35,10 @@ class StoreMaterielReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 factoryId = 5;</code>
      */
     protected $factoryId = 0;
+    /**
+     * Generated from protobuf field <code>int64 stockType = 6;</code>
+     */
+    protected $stockType = 0;
 
     /**
      * Constructor.
@@ -47,6 +51,7 @@ class StoreMaterielReq extends \Google\Protobuf\Internal\Message
      *     @type int $storeType
      *     @type string $cert
      *     @type int|string $factoryId
+     *     @type int|string $stockType
      * }
      */
     public function __construct($data = NULL) {
@@ -160,6 +165,28 @@ class StoreMaterielReq extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->factoryId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 stockType = 6;</code>
+     * @return int|string
+     */
+    public function getStockType()
+    {
+        return $this->stockType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 stockType = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setStockType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->stockType = $var;
 
         return $this;
     }

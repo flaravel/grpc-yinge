@@ -55,6 +55,10 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string createdAt = 10;</code>
      */
     protected $createdAt = '';
+    /**
+     * Generated from protobuf field <code>int64 stockType = 11;</code>
+     */
+    protected $stockType = 0;
 
     /**
      * Constructor.
@@ -72,6 +76,7 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      *     @type int|string $afterStoreTotal
      *     @type \Yinge\Grpc\Qpm\BaseMateriel $materiels
      *     @type string $createdAt
+     *     @type int|string $stockType
      * }
      */
     public function __construct($data = NULL) {
@@ -305,6 +310,28 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->createdAt = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 stockType = 11;</code>
+     * @return int|string
+     */
+    public function getStockType()
+    {
+        return $this->stockType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 stockType = 11;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setStockType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->stockType = $var;
 
         return $this;
     }

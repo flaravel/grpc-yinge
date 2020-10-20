@@ -39,6 +39,10 @@ class MListReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 factoryId = 6;</code>
      */
     protected $factoryId = 0;
+    /**
+     * Generated from protobuf field <code>string time = 7;</code>
+     */
+    protected $time = '';
 
     /**
      * Constructor.
@@ -52,6 +56,7 @@ class MListReq extends \Google\Protobuf\Internal\Message
      *     @type int|string $skuId
      *     @type string $keyword
      *     @type int|string $factoryId
+     *     @type string $time
      * }
      */
     public function __construct($data = NULL) {
@@ -187,6 +192,28 @@ class MListReq extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->factoryId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string time = 7;</code>
+     * @return string
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * Generated from protobuf field <code>string time = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTime($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->time = $var;
 
         return $this;
     }

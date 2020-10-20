@@ -71,6 +71,7 @@ message MListReq {
     int64 skuId = 4;
     string keyword = 5;
     int64 factoryId = 6;
+    string time = 7;
 }
 
 // 物料列表返回参数
@@ -86,6 +87,9 @@ message BaseMateriel {
     string name = 3;
     int64 stockThreshold = 4;
     int64 stockTotal = 5;
+    int64 yingeStoreTotal = 6;
+    int64 factoryStoreTotal = 7;
+    int64 consume = 8;
 }
 
 // 入库物料请求参数
@@ -95,6 +99,7 @@ message StoreMaterielReq {
     int32 storeType = 3;
     string cert = 4;
     int64 factoryId = 5;
+    int64 stockType = 6;
 }
 
 
@@ -126,6 +131,7 @@ message BaseMaterielHistory {
     int64 afterStoreTotal = 8;
     BaseMateriel materiels = 9;
     string createdAt = 10;
+    int64  stockType = 11;
 }
 
 message FactoryExpressRequest {
