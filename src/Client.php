@@ -86,6 +86,14 @@ class Client
         /** @var mixed|UnaryCall $call */
         $call = call_user_func_array([$this->currentClient,$method],$params);
         [$response,$status] = $call->wait();
+        \Log::info('[---request grpc info---]',[
+            'request_host'=>$this->currentHost,
+            'request_etcd_prefix'=>$this->currentEtcdPrefix,
+            'request_method'=>$method,
+            'request_service'=>$this->service,
+            'response'=>$response,
+            'status'=>$status,
+        ]);
         // 这类错重试可能可以正常，可能是服务端reload/restart 或是主动关闭连接等
         if ($status->code == \Grpc\STATUS_UNAVAILABLE) {
             if ($this->canRetry()) {
