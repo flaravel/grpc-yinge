@@ -48,7 +48,15 @@ class EtcdManage {
     }
 
     private function __construct (string $prefix) {
-        if (!in_array($prefix,[self::DefaultServerPCPrefix,self::DefaultServerQpmPrefix])) {
+        $allowPrefix = [
+            self::DefaultServerPCPrefix,
+            self::DefaultServerQpmPrefix,
+            self::QAPrefix.self::DefaultServerPCPrefix,
+            self::QAPrefix.self::DefaultServerQpmPrefix,
+            self::WebTestPrefix.self::DefaultServerPCPrefix,
+            self::WebTestPrefix.self::DefaultServerQpmPrefix,
+        ];
+        if (!in_array($prefix,$allowPrefix)) {
             throw new GrpcException('invalid etcd prefix');
         }
         $this->currentPrefix = $prefix;
