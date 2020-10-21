@@ -15,6 +15,12 @@ class EtcdManage {
     /** @var string qpm */
     const DefaultServerQpmPrefix = '/grpc/server/qpm/';
 
+    /** @var string webtest 前缀 */
+    const WebTestPrefix = '/webtest';
+
+    /** @var string qa前缀 */
+    const QAPrefix = '/qa';
+
     /** @var int 默认grpc端口 */
     const DefaultGrpcPort = 5200;
 

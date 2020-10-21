@@ -5,6 +5,7 @@ namespace Yinge\Grpc;
 use Exception;
 use Grpc\BaseStub;
 use Grpc\UnaryCall;
+use Illuminate\Support\Facades\App;
 use Yinge\Grpc\Product\ProductClient;
 use Yinge\Grpc\Qpm\QpmServiceClient;
 use Yinge\Grpc\Util\EtcdManage;
@@ -54,6 +55,14 @@ class Client
                 throw new GrpcException('invalid grpc class');
                 break;
         }
+
+        if (App::environment('webtest')) {
+            $etcdPrefix = EtcdManage::WebTestPrefix.$etcdPrefix;
+        }
+        if (App::environment('qa')) {
+            $etcdPrefix = EtcdManage::QAPrefix.$etcdPrefix;
+        }
+
         $this->currentEtcdPrefix = $etcdPrefix;
         $this->hostsPool = EtcdManage::getInstance($etcdPrefix)->getAllServer();
         $this->newClient();
