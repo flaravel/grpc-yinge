@@ -1,7 +1,10 @@
 syntax = "proto3";
 
 import "finance_transaction.proto";
-package finance;
+option php_metadata_namespace = "Yinge\\Grpc\\Finance\\GPBMetadata";
+option php_namespace = "Yinge\\Grpc\\Finance";
+
+package Finance;
 
 service Merchant {
   rpc MerchantList(MerchantQuery) returns (MerchantListResponse) {}

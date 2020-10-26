@@ -1,7 +1,9 @@
 syntax = "proto3";
 
-package finance;
+package Finance;
 
+option php_metadata_namespace = "Yinge\\Grpc\\Finance\\GPBMetadata";
+option php_namespace = "Yinge\\Grpc\\Finance";
 
 message SplitRequest {
   message SplitSubOrder {
