@@ -6,7 +6,7 @@ readonly TMP_FILE_PATH
 PROTO_FILE_PATH=$PROJECT_BASE_PATH"/Proto"
 
 # protobuf pool
-PROTOBUF_POOL=("Qpm" "Product")
+PROTOBUF_POOL=("Qpm" "Product" "Finance")
 
 CleanOldFile() {
   _curt_file=$PROJECT_BASE_PATH"/"$1
@@ -16,7 +16,7 @@ CleanOldFile() {
 }
 
 GenerateGrpcCode() {
-  _proto_file_path=$PROTO_FILE_PATH"/"${1,}".proto"
+  _proto_file_path=$PROTO_FILE_PATH"/"${1}".proto"
   _generate_file_path=$TMP_FILE_PATH"/Yinge/Grpc/"$1
   protoc --proto_path=$PROTO_FILE_PATH --php_out=$TMP_FILE_PATH --grpc_out=$TMP_FILE_PATH --plugin=protoc-gen-grpc=/usr/local/bin/grpc_php_plugin $_proto_file_path
 

@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+import "finance_transaction.proto";
+package finance;
+
+service Merchant {
+  rpc MerchantList(MerchantQuery) returns (MerchantListResponse) {}
+  rpc NewMerchant(MerchantInfo) returns (EmptyResponse) {}
+  rpc BindAccount(BindRequest) returns (EmptyResponse) {}
+
+  rpc AutoSplit(SplitRequest) returns(EmptyResponse) {}
+  rpc Refund(RefundRequest) returns(EmptyResponse) {}
+
+
+}
+
+
+
+message MerchantQuery {
+  int64 type = 1;
+  int64 id = 2;
+  int64 page = 3;
+}
+
+message MerchantListResponse {
+  message Account {
+    int64 unsettledAmount = 1;
+    int64 withdrawable = 2;
+    int64 realTotalAmount = 3;
+    int64 realWithdrawable = 4;
+    int64 realFrozen = 5;
+  }
+  message BankBind {
+    int64 bankId = 1;
+    string bankName = 2;
+    string accountName = 3;
+    string accountNo = 4;
+    string mobile = 5;
+    int64 status = 6;
+  }
+  message Items {
+    MerchantInfo baseInfo = 1;
+    Account account = 2;
+    repeated BankBind bankBounded = 3;
+  }
+
+  repeated Items list = 1;
+}
+
+message MerchantInfo {
+  int64 id = 1;
+  string name = 2;
+  MerchantType type = 3;
+}
+
+
+enum MerchantType
+{
+  Factory = 0;
+  Express = 1;
+}
+
+message BindRequest {
+  int64 globalType = 1;
+  string globalId = 2;
+  string accountName = 3;
+  string accountNo = 4;
+  int64 bankId = 5;
+  string mobile = 6;
+  int64 method = 7;
+  int64 merchantId = 8;
+}
+
+message EmptyResponse {
+}
