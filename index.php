@@ -2,8 +2,8 @@
 
 require "./vendor/autoload.php";
 
-/** @var \Yinge\Grpc\Qpm\ScmServiceClient $client */
-$client = new \Yinge\Grpc\Client(\Yinge\Grpc\Product\ProductClient::class);
+/** @var \Yinge\Grpc\Qpm\QpmServiceClient $client */
+$client = new \Yinge\Grpc\Client(\Yinge\Grpc\Qpm\QpmServiceClient::class);
 
 $req = new \Yinge\Grpc\Qpm\MListReq();
 $req->setFactoryId(1123);

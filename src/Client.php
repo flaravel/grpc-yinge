@@ -5,9 +5,10 @@ namespace Yinge\Grpc;
 use Exception;
 use Grpc\BaseStub;
 use Grpc\UnaryCall;
-use Illuminate\Support\Facades\App;
+//use Illuminate\Support\Facades\App;
 use Yinge\Grpc\Product\ProductClient;
 use Yinge\Grpc\Qpm\QpmServiceClient;
+use Yinge\Grpc\Util\EtcdConstant;
 use Yinge\Grpc\Util\EtcdManage;
 
 class Client
@@ -21,7 +22,6 @@ class Client
 
     /** @var float  */
     const WAIT_SECONDS = 0.2;
-
 
     /** @var BaseStub $service */
     private $service = null;
@@ -41,15 +41,16 @@ class Client
     /** @var string  */
     private $currentEtcdPrefix = '';
 
+    private $etcdIns = null;
+
     public function __construct(string $service) {
         $this->service = $service;
-        $etcdPrefix = '';
         switch ($service) {
             case QpmServiceClient::class:
-                $etcdPrefix = EtcdManage::DefaultServerQpmPrefix;
+                $etcdPrefix = EtcdConstant::DefaultServerQpmPrefix;
                 break;
             case ProductClient::class:
-                $etcdPrefix = EtcdManage::DefaultServerPCPrefix;
+                $etcdPrefix = EtcdConstant::DefaultServerPCPrefix;
                 break;
             default:
                 throw new GrpcException('invalid grpc class');
@@ -57,14 +58,14 @@ class Client
         }
 
         if (App::environment('webtest')) {
-            $etcdPrefix = EtcdManage::WebTestPrefix.$etcdPrefix;
+            $etcdPrefix = EtcdConstant::EnvWebTestPrefix.$etcdPrefix;
         }
         if (App::environment('qa')) {
-            $etcdPrefix = EtcdManage::QAPrefix.$etcdPrefix;
+            $etcdPrefix = EtcdConstant::EnvQAPrefix.$etcdPrefix;
         }
 
         $this->currentEtcdPrefix = $etcdPrefix;
-        $this->hostsPool = EtcdManage::getInstance($etcdPrefix)->getAllServer();
+        $this->etcdIns = EtcdManage::getInstance($this->currentEtcdPrefix);
         $this->newClient();
     }
 
@@ -79,14 +80,11 @@ class Client
      * @return mixed|string
      */
     public function getHost() {
-        if (!$this->hostsPool) {
-            throw new GrpcException('empty grpc client address');
-        }
-        $host = EtcdManage::getInstance($this->currentEtcdPrefix)->selectServer($this->hostsPool);
+        $host = $this->etcdIns->getHost();
         if (!$host) {
             throw new GrpcException('failed to get grpc client');
         }
-        unset($this->hostsPool[array_search($host,$this->hostsPool)]);
+        $this->etcdIns->delServer($host);
         $this->currentHost = $host;
         return $host;
     }
@@ -153,9 +151,6 @@ class Client
      * @return bool
      */
     private function canResetConn() {
-        if (!$this->hostsPool) {
-            return false;
-        }
         $this->newClient();
         return true;
     }
