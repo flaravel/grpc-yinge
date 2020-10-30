@@ -76,14 +76,17 @@ class Client
 
     /**
      * 获取host
+     * @param bool $needDel
      * @return mixed|string
      */
-    public function getHost() {
+    public function getHost(bool $needDel = false) {
         $host = $this->etcdIns->getHost();
         if (!$host) {
             throw new GrpcException('failed to get grpc client');
         }
-        $this->etcdIns->delServer($host);
+        if ($needDel) {
+            $this->etcdIns->delServer($host);
+        }
         $this->currentHost = $host;
         return $host;
     }
@@ -106,7 +109,7 @@ class Client
 //                \Log::warning(sprintf('sleep and reconnect and try request again... (%d)', $this->retryCount));
                 echo (sprintf('sleep and reconnect and try request again... (%d)', $this->retryCount)).PHP_EOL;
                 usleep(self::WAIT_SECONDS * 1000 * 1000);
-                $this->newClient();
+                $this->newClient(true);
                 return $this->__call($method, $params);
             } elseif ($this->canResetConn()) {
 //                \Log::warning('retry failed, reset conn now...');
@@ -137,8 +140,8 @@ class Client
         return $response;
     }
 
-    public function newClient() {
-        $this->currentClient =  new $this->service($this->getHost(),$this->getChannelOpts());
+    public function newClient(bool $needDel = false) {
+        $this->currentClient =  new $this->service($this->getHost($needDel),$this->getChannelOpts());
     }
 
     private function canRetry() {
@@ -150,7 +153,7 @@ class Client
      * @return bool
      */
     private function canResetConn() {
-        $this->newClient();
+        $this->newClient(true);
         return true;
     }
 
