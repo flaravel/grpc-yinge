@@ -23,9 +23,6 @@ class WeightedRoundRobin implements HostInterface
 
     public function init(array $services)
     {
-        if (!$services) {
-            throw new \Exception('empty grpc address list');
-        }
         foreach ($services as $ip => $weight) {
             $this->services[] = [
                 'ip' => $ip,
@@ -42,13 +39,7 @@ class WeightedRoundRobin implements HostInterface
      */
     public function updateHosts(array $hosts)
     {
-        foreach ($hosts as $ip => $weight) {
-            $this->services[] = [
-                'ip' => $ip,
-                'weight' => $weight,
-            ];
-        }
-        $this->total = count($this->services);
+        $this->init($hosts);
     }
 
     public function next()
