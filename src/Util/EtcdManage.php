@@ -106,8 +106,16 @@ class EtcdManage {
     private function getWeight() {
         $hostname = gethostname();
         $prefix = self::EtcdWeightConfPrefix.$hostname;
-        $weight = $this->client->get($prefix);
-        return $weight ?: 0;
+        $res = $this->client->getKeysWithPrefix($prefix);
+
+        if (!$res) {
+            return 0;
+        }
+        $kvs = $res['kvs'] ?? [];
+        if (!$kvs) {
+            return 0;
+        }
+        return $kvs[0]['value'] ?? 0;
     }
 
 
