@@ -10,7 +10,8 @@ use Yinge\Grpc\GrpcException;
  * Class WeightedRoundRobin
  * @package Yinge\Grpc\Util
  */
-class WeightedRoundRobin implements HostInterface {
+class WeightedRoundRobin implements HostInterface
+{
 
     /** @var array 服务列表 */
     private $services = array();
@@ -39,8 +40,15 @@ class WeightedRoundRobin implements HostInterface {
      * 更新hosts
      * @param array $hosts
      */
-    public function updateHosts(array $hosts) {
-        $this->init($hosts);
+    public function updateHosts(array $hosts)
+    {
+        foreach ($hosts as $ip => $weight) {
+            $this->services[] = [
+                'ip' => $ip,
+                'weight' => $weight,
+            ];
+        }
+        $this->total = count($this->services);
     }
 
     public function next()
