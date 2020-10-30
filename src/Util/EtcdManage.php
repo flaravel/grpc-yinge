@@ -8,6 +8,43 @@ use Yinge\Grpc\Util\Algorithm\WeightedRoundRobin;
 
 class EtcdManage {
 
+
+
+    /** @var string etcd 网关地址 */
+    const ETCD_GATEWAY = 'etcd.yinge.tech:2379';
+    /** @var int 默认grpc端口 */
+    const DefaultGrpcPort = 5200;
+
+    /** @var string product center  */
+    const DefaultServerPCPrefix = '/v1/grpc/server/pc/';
+    /** @var string qpm */
+    const DefaultServerQpmPrefix = '/v1/grpc/server/qpm/';
+
+    /** @var string webtest环境 前缀 */
+    const EnvWebTestPrefix = '/webtest';
+    /** @var string qa环境 前缀 */
+    const EnvQAPrefix = '/qa';
+
+    /** @var string etcd 权重配置 */
+    const EtcdWeightConfPrefix = '/grpc/weight/config/';
+
+    /** @var string[] 服务注册 ip忽略列表 */
+    const IpIgnoreList = [
+        '172.16.162.59' // webtest环境
+    ];
+
+    /** @var string[] 准许的前缀 */
+    const AllowPrefixList = [
+        self::DefaultServerPCPrefix,
+        self::DefaultServerQpmPrefix,
+        self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
+        self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
+
+        self::EnvQAPrefix.self::DefaultServerPCPrefix,
+        self::EnvQAPrefix.self::DefaultServerQpmPrefix,
+    ];
+
+
     /** @var null|EtcdManage  */
     private static $instance = null;
 
@@ -34,11 +71,11 @@ class EtcdManage {
     }
 
     private function __construct (string $prefix) {
-        if (!in_array($prefix,EtcdConstant::AllowPrefixList)) {
+        if (!in_array($prefix,self::AllowPrefixList)) {
             throw new GrpcException('invalid etcd prefix');
         }
         $this->currentPrefix = $prefix;
-        $this->client = new Client(EtcdConstant::ETCD_GATEWAY,'v3alpha');
+        $this->client = new Client(self::ETCD_GATEWAY,'v3alpha');
 
         $this->robin = new WeightedRoundRobin();
         $this->hosts = $this->getAllServer();
@@ -52,11 +89,11 @@ class EtcdManage {
      */
     public function registerServer() {
         $serverIp = $this->getCurrentIp();
-        if (in_array($serverIp,EtcdConstant::IpIgnoreList)) {
+        if (in_array($serverIp,self::IpIgnoreList)) {
             return true;
         }
         $weight = $this->getWeight();
-        $value = $serverIp.":".EtcdConstant::DefaultGrpcPort. '#'.$weight;
+        $value = $serverIp.":".self::DefaultGrpcPort. '#'.$weight;
         // $ok 为一个数组，没有是否成功标识，一般返回header 则认为成功
         $ok = $this->client->put($this->currentPrefix.$serverIp,$value);
         return $ok ? true : false;
@@ -68,7 +105,7 @@ class EtcdManage {
      */
     private function getWeight() {
         $hostname = gethostname();
-        $prefix = EtcdConstant::EtcdWeightConfPrefix.$hostname;
+        $prefix = self::EtcdWeightConfPrefix.$hostname;
         $weight = $this->client->get($prefix);
         return $weight ?: 0;
     }

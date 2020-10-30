@@ -5,10 +5,9 @@ namespace Yinge\Grpc;
 use Exception;
 use Grpc\BaseStub;
 use Grpc\UnaryCall;
-//use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\App;
 use Yinge\Grpc\Product\ProductClient;
 use Yinge\Grpc\Qpm\QpmServiceClient;
-use Yinge\Grpc\Util\EtcdConstant;
 use Yinge\Grpc\Util\EtcdManage;
 
 class Client
@@ -47,10 +46,10 @@ class Client
         $this->service = $service;
         switch ($service) {
             case QpmServiceClient::class:
-                $etcdPrefix = EtcdConstant::DefaultServerQpmPrefix;
+                $etcdPrefix = EtcdManage::DefaultServerQpmPrefix;
                 break;
             case ProductClient::class:
-                $etcdPrefix = EtcdConstant::DefaultServerPCPrefix;
+                $etcdPrefix = EtcdManage::DefaultServerPCPrefix;
                 break;
             default:
                 throw new GrpcException('invalid grpc class');
@@ -58,10 +57,10 @@ class Client
         }
 
         if (App::environment('webtest')) {
-            $etcdPrefix = EtcdConstant::EnvWebTestPrefix.$etcdPrefix;
+            $etcdPrefix = EtcdManage::EnvWebTestPrefix.$etcdPrefix;
         }
         if (App::environment('qa')) {
-            $etcdPrefix = EtcdConstant::EnvQAPrefix.$etcdPrefix;
+            $etcdPrefix = EtcdManage::EnvQAPrefix.$etcdPrefix;
         }
 
         $this->currentEtcdPrefix = $etcdPrefix;
