@@ -70,17 +70,7 @@ class UpdateOrderItemRequest extends \Google\Protobuf\Internal\Message
      */
     public function getProductList()
     {
-        return isset($this->productList) ? $this->productList : null;
-    }
-
-    public function hasProductList()
-    {
-        return isset($this->productList);
-    }
-
-    public function clearProductList()
-    {
-        unset($this->productList);
+        return $this->productList;
     }
 
     /**

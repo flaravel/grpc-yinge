@@ -19,6 +19,8 @@ class EtcdManage {
     const DefaultServerPCPrefix = '/v1/grpc/server/pc/';
     /** @var string qpm */
     const DefaultServerQpmPrefix = '/v1/grpc/server/qpm/';
+    /** @var string qpm */
+    const DefaultServerFnPrefix = '/v1/grpc/server/fn/';
 
     /** @var string webtest环境 前缀 */
     const EnvWebTestPrefix = '/webtest';
@@ -37,6 +39,7 @@ class EtcdManage {
     const AllowPrefixList = [
         self::DefaultServerPCPrefix,
         self::DefaultServerQpmPrefix,
+        self::DefaultServerFnPrefix,
         self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
 

@@ -9,20 +9,24 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>Finance.MerchantListResponse.Items</code>
+ * Generated from protobuf message <code>finance.MerchantListResponse.Items</code>
  */
 class Items extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.Finance.MerchantInfo baseInfo = 1;</code>
+     * Generated from protobuf field <code>.finance.MerchantInfo baseInfo = 1;</code>
      */
     protected $baseInfo = null;
     /**
-     * Generated from protobuf field <code>.Finance.MerchantListResponse.Account account = 2;</code>
+     * Generated from protobuf field <code>.finance.AccountBalance account = 2;</code>
      */
     protected $account = null;
     /**
-     * Generated from protobuf field <code>repeated .Finance.MerchantListResponse.BankBind bankBounded = 3;</code>
+     * Generated from protobuf field <code>.finance.AuthInfo authInfo = 3;</code>
+     */
+    protected $authInfo = null;
+    /**
+     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.BankBind bankBounded = 4;</code>
      */
     private $bankBounded;
 
@@ -33,7 +37,8 @@ class Items extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Yinge\Grpc\Finance\MerchantInfo $baseInfo
-     *     @type \Yinge\Grpc\Finance\MerchantListResponse\Account $account
+     *     @type \Yinge\Grpc\Finance\AccountBalance $account
+     *     @type \Yinge\Grpc\Finance\AuthInfo $authInfo
      *     @type \Yinge\Grpc\Finance\MerchantListResponse\BankBind[]|\Google\Protobuf\Internal\RepeatedField $bankBounded
      * }
      */
@@ -43,26 +48,16 @@ class Items extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.Finance.MerchantInfo baseInfo = 1;</code>
+     * Generated from protobuf field <code>.finance.MerchantInfo baseInfo = 1;</code>
      * @return \Yinge\Grpc\Finance\MerchantInfo
      */
     public function getBaseInfo()
     {
-        return isset($this->baseInfo) ? $this->baseInfo : null;
-    }
-
-    public function hasBaseInfo()
-    {
-        return isset($this->baseInfo);
-    }
-
-    public function clearBaseInfo()
-    {
-        unset($this->baseInfo);
+        return $this->baseInfo;
     }
 
     /**
-     * Generated from protobuf field <code>.Finance.MerchantInfo baseInfo = 1;</code>
+     * Generated from protobuf field <code>.finance.MerchantInfo baseInfo = 1;</code>
      * @param \Yinge\Grpc\Finance\MerchantInfo $var
      * @return $this
      */
@@ -75,39 +70,51 @@ class Items extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.Finance.MerchantListResponse.Account account = 2;</code>
-     * @return \Yinge\Grpc\Finance\MerchantListResponse\Account
+     * Generated from protobuf field <code>.finance.AccountBalance account = 2;</code>
+     * @return \Yinge\Grpc\Finance\AccountBalance
      */
     public function getAccount()
     {
-        return isset($this->account) ? $this->account : null;
-    }
-
-    public function hasAccount()
-    {
-        return isset($this->account);
-    }
-
-    public function clearAccount()
-    {
-        unset($this->account);
+        return $this->account;
     }
 
     /**
-     * Generated from protobuf field <code>.Finance.MerchantListResponse.Account account = 2;</code>
-     * @param \Yinge\Grpc\Finance\MerchantListResponse\Account $var
+     * Generated from protobuf field <code>.finance.AccountBalance account = 2;</code>
+     * @param \Yinge\Grpc\Finance\AccountBalance $var
      * @return $this
      */
     public function setAccount($var)
     {
-        GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\MerchantListResponse\Account::class);
+        GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\AccountBalance::class);
         $this->account = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .Finance.MerchantListResponse.BankBind bankBounded = 3;</code>
+     * Generated from protobuf field <code>.finance.AuthInfo authInfo = 3;</code>
+     * @return \Yinge\Grpc\Finance\AuthInfo
+     */
+    public function getAuthInfo()
+    {
+        return $this->authInfo;
+    }
+
+    /**
+     * Generated from protobuf field <code>.finance.AuthInfo authInfo = 3;</code>
+     * @param \Yinge\Grpc\Finance\AuthInfo $var
+     * @return $this
+     */
+    public function setAuthInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\AuthInfo::class);
+        $this->authInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.BankBind bankBounded = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getBankBounded()
@@ -116,7 +123,7 @@ class Items extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .Finance.MerchantListResponse.BankBind bankBounded = 3;</code>
+     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.BankBind bankBounded = 4;</code>
      * @param \Yinge\Grpc\Finance\MerchantListResponse\BankBind[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

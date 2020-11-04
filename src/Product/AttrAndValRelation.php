@@ -45,17 +45,7 @@ class AttrAndValRelation extends \Google\Protobuf\Internal\Message
      */
     public function getAttr()
     {
-        return isset($this->attr) ? $this->attr : null;
-    }
-
-    public function hasAttr()
-    {
-        return isset($this->attr);
-    }
-
-    public function clearAttr()
-    {
-        unset($this->attr);
+        return $this->attr;
     }
 
     /**

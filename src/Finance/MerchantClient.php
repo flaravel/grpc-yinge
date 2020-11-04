@@ -20,11 +20,10 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\MerchantQuery $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
      */
     public function MerchantList(\Yinge\Grpc\Finance\MerchantQuery $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/Finance.Merchant/MerchantList',
+        return $this->_simpleRequest('/finance.Merchant/MerchantList',
         $argument,
         ['\Yinge\Grpc\Finance\MerchantListResponse', 'decode'],
         $metadata, $options);
@@ -34,11 +33,10 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\MerchantInfo $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
      */
     public function NewMerchant(\Yinge\Grpc\Finance\MerchantInfo $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/Finance.Merchant/NewMerchant',
+        return $this->_simpleRequest('/finance.Merchant/NewMerchant',
         $argument,
         ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
         $metadata, $options);
@@ -48,13 +46,25 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\BindRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
      */
     public function BindAccount(\Yinge\Grpc\Finance\BindRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/Finance.Merchant/BindAccount',
+        return $this->_simpleRequest('/finance.Merchant/BindAccount',
         $argument,
         ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Finance\WithdrawRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function Withdraw(\Yinge\Grpc\Finance\WithdrawRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/Withdraw',
+        $argument,
+        ['\Yinge\Grpc\Finance\AccountBalance', 'decode'],
         $metadata, $options);
     }
 
@@ -62,11 +72,10 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SplitRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
      */
     public function AutoSplit(\Yinge\Grpc\Finance\SplitRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/Finance.Merchant/AutoSplit',
+        return $this->_simpleRequest('/finance.Merchant/AutoSplit',
         $argument,
         ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
         $metadata, $options);
@@ -76,13 +85,25 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\RefundRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
      */
     public function Refund(\Yinge\Grpc\Finance\RefundRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/Finance.Merchant/Refund',
+        return $this->_simpleRequest('/finance.Merchant/Refund',
         $argument,
         ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Finance\BillsQuery $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function Bills(\Yinge\Grpc\Finance\BillsQuery $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/Bills',
+        $argument,
+        ['\Yinge\Grpc\Finance\BillList', 'decode'],
         $metadata, $options);
     }
 

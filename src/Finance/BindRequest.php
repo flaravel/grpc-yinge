@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>Finance.BindRequest</code>
+ * Generated from protobuf message <code>finance.BindRequest</code>
  */
 class BindRequest extends \Google\Protobuf\Internal\Message
 {

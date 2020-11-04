@@ -119,17 +119,7 @@ class OrderEvent extends \Google\Protobuf\Internal\Message
      */
     public function getOperator()
     {
-        return isset($this->operator) ? $this->operator : null;
-    }
-
-    public function hasOperator()
-    {
-        return isset($this->operator);
-    }
-
-    public function clearOperator()
-    {
-        unset($this->operator);
+        return $this->operator;
     }
 
     /**

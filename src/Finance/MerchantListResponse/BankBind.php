@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>Finance.MerchantListResponse.BankBind</code>
+ * Generated from protobuf message <code>finance.MerchantListResponse.BankBind</code>
  */
 class BankBind extends \Google\Protobuf\Internal\Message
 {
@@ -34,7 +34,15 @@ class BankBind extends \Google\Protobuf\Internal\Message
      */
     protected $mobile = '';
     /**
-     * Generated from protobuf field <code>int64 status = 6;</code>
+     * Generated from protobuf field <code>int64 idType = 6;</code>
+     */
+    protected $idType = 0;
+    /**
+     * Generated from protobuf field <code>string idNumber = 7;</code>
+     */
+    protected $idNumber = '';
+    /**
+     * Generated from protobuf field <code>int64 status = 8;</code>
      */
     protected $status = 0;
 
@@ -49,6 +57,8 @@ class BankBind extends \Google\Protobuf\Internal\Message
      *     @type string $accountName
      *     @type string $accountNo
      *     @type string $mobile
+     *     @type int|string $idType
+     *     @type string $idNumber
      *     @type int|string $status
      * }
      */
@@ -168,7 +178,51 @@ class BankBind extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 status = 6;</code>
+     * Generated from protobuf field <code>int64 idType = 6;</code>
+     * @return int|string
+     */
+    public function getIdType()
+    {
+        return $this->idType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 idType = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setIdType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->idType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string idNumber = 7;</code>
+     * @return string
+     */
+    public function getIdNumber()
+    {
+        return $this->idNumber;
+    }
+
+    /**
+     * Generated from protobuf field <code>string idNumber = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setIdNumber($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->idNumber = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 status = 8;</code>
      * @return int|string
      */
     public function getStatus()
@@ -177,7 +231,7 @@ class BankBind extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 status = 6;</code>
+     * Generated from protobuf field <code>int64 status = 8;</code>
      * @param int|string $var
      * @return $this
      */
