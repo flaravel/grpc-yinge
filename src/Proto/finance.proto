@@ -10,7 +10,15 @@ service Merchant {
   rpc MerchantList(MerchantQuery) returns (MerchantListResponse) {}
   rpc NewMerchant(MerchantInfo) returns (EmptyResponse) {}
   rpc BindAccount(BindRequest) returns (EmptyResponse) {}
-  rpc Withdraw(WithdrawRequest) returns (AccountBalance) {}
+  rpc WithdrawList(WithdrawListRequest) returns (WithdrawListResponse) {}
+  // 后台审核提现
+  rpc WithdrawReport(WithdrawReportRequest) returns (EmptyResponse) {}
+  // 发起提现申请
+  rpc Withdraw(WithdrawRequest) returns (EmptyResponse) {}
+
+  rpc SplitRules(SplitRulesRequest) returns (SplitRulesResponse){}
+  // 查找没有配置分账比例的spu
+  rpc NoSplitSpu(IdList) returns (IdList) {}
 
   rpc AutoSplit(SplitRequest) returns(EmptyResponse) {}
   rpc Refund(RefundRequest) returns(EmptyResponse) {}
@@ -18,6 +26,64 @@ service Merchant {
   rpc Bills(BillsQuery) returns(BillList) {}
 
 }
+
+
+
+message SplitRulesRequest{
+  int64 spuId = 1;
+  int64 page = 2;
+  int64 pageSize = 3;
+}
+
+message SplitRulesResponse{
+  message SplitRule {
+    map<int64, int64> rules = 1;
+    int64 startTime = 2;
+    int64 stopTime = 3;
+    int64 status = 4;
+  }
+
+  repeated SplitRule list = 1;
+  int64 total = 2;
+}
+
+
+message IdList {
+  repeated int64 list = 1;
+}
+
+message WithdrawReportRequest {
+  int64 id = 1;
+  int64 status = 2;
+  string remark = 3;
+}
+
+message WithdrawListRequest {
+  int64 merchantType = 1;
+  int64 originId = 2;
+  int64 startTime = 3;
+  int64 stopTime = 4;
+  int64 status = 5;
+  int64 page = 6;
+  int64 pageSize = 7;
+}
+
+message WithdrawListResponse {
+  message WithdrawDetail {
+    int64 id = 1;
+    MerchantInfo merchantInfo = 2;
+    int64 amount = 3;
+    int64 status = 4;
+    int64 applyAt = 5;
+    string remark = 6;
+    BankBind bankBounded = 7;
+  }
+
+  repeated WithdrawDetail list = 1;
+  int64 total = 2;
+
+}
+
 
 message BillsQuery {
   int64 merchantId = 1;
@@ -68,17 +134,18 @@ message AccountBalance {
   int64 realFrozen = 5;
 }
 
+message BankBind {
+  int64 bankId = 1;
+  string bankName = 2;
+  string accountName = 3;
+  string accountNo = 4;
+  string mobile = 5;
+  int64 idType = 6;
+  string idNumber = 7;
+  int64 status = 8;
+}
+
 message MerchantListResponse {
-  message BankBind {
-    int64 bankId = 1;
-    string bankName = 2;
-    string accountName = 3;
-    string accountNo = 4;
-    string mobile = 5;
-    int64 idType = 6;
-    string idNumber = 7;
-    int64 status = 8;
-  }
   message Items {
     MerchantInfo baseInfo = 1;
     AccountBalance account = 2;

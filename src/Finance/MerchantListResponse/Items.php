@@ -26,7 +26,7 @@ class Items extends \Google\Protobuf\Internal\Message
      */
     protected $authInfo = null;
     /**
-     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.BankBind bankBounded = 4;</code>
+     * Generated from protobuf field <code>repeated .finance.BankBind bankBounded = 4;</code>
      */
     private $bankBounded;
 
@@ -39,7 +39,7 @@ class Items extends \Google\Protobuf\Internal\Message
      *     @type \Yinge\Grpc\Finance\MerchantInfo $baseInfo
      *     @type \Yinge\Grpc\Finance\AccountBalance $account
      *     @type \Yinge\Grpc\Finance\AuthInfo $authInfo
-     *     @type \Yinge\Grpc\Finance\MerchantListResponse\BankBind[]|\Google\Protobuf\Internal\RepeatedField $bankBounded
+     *     @type \Yinge\Grpc\Finance\BankBind[]|\Google\Protobuf\Internal\RepeatedField $bankBounded
      * }
      */
     public function __construct($data = NULL) {
@@ -114,7 +114,7 @@ class Items extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.BankBind bankBounded = 4;</code>
+     * Generated from protobuf field <code>repeated .finance.BankBind bankBounded = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getBankBounded()
@@ -123,13 +123,13 @@ class Items extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.BankBind bankBounded = 4;</code>
-     * @param \Yinge\Grpc\Finance\MerchantListResponse\BankBind[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .finance.BankBind bankBounded = 4;</code>
+     * @param \Yinge\Grpc\Finance\BankBind[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setBankBounded($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Yinge\Grpc\Finance\MerchantListResponse\BankBind::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Yinge\Grpc\Finance\BankBind::class);
         $this->bankBounded = $arr;
 
         return $this;

@@ -56,6 +56,34 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Yinge\Grpc\Finance\WithdrawListRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function WithdrawList(\Yinge\Grpc\Finance\WithdrawListRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/WithdrawList',
+        $argument,
+        ['\Yinge\Grpc\Finance\WithdrawListResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 后台审核提现
+     * @param \Yinge\Grpc\Finance\WithdrawReportRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function WithdrawReport(\Yinge\Grpc\Finance\WithdrawReportRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/WithdrawReport',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 发起提现申请
      * @param \Yinge\Grpc\Finance\WithdrawRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -64,7 +92,34 @@ class MerchantClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/finance.Merchant/Withdraw',
         $argument,
-        ['\Yinge\Grpc\Finance\AccountBalance', 'decode'],
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Finance\SplitRulesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SplitRules(\Yinge\Grpc\Finance\SplitRulesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SplitRules',
+        $argument,
+        ['\Yinge\Grpc\Finance\SplitRulesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 查找没有配置分账比例的spu
+     * @param \Yinge\Grpc\Finance\IdList $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function NoSplitSpu(\Yinge\Grpc\Finance\IdList $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/NoSplitSpu',
+        $argument,
+        ['\Yinge\Grpc\Finance\IdList', 'decode'],
         $metadata, $options);
     }
 
