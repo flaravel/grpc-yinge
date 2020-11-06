@@ -37,10 +37,11 @@ message SplitRulesRequest{
 
 message SplitRulesResponse{
   message SplitRule {
-    map<int64, int64> rules = 1;
-    int64 startTime = 2;
-    int64 stopTime = 3;
-    int64 status = 4;
+    int64 spuId = 1;
+    map<int64, int64> rules = 2;
+    int64 startTime = 3;
+    int64 stopTime = 4;
+    int64 status = 5;
   }
 
   repeated SplitRule list = 1;

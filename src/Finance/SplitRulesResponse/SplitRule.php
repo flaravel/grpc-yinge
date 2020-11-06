@@ -14,19 +14,23 @@ use Google\Protobuf\Internal\GPBUtil;
 class SplitRule extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>map<int64, int64> rules = 1;</code>
+     * Generated from protobuf field <code>int64 spuId = 1;</code>
+     */
+    protected $spuId = 0;
+    /**
+     * Generated from protobuf field <code>map<int64, int64> rules = 2;</code>
      */
     private $rules;
     /**
-     * Generated from protobuf field <code>int64 startTime = 2;</code>
+     * Generated from protobuf field <code>int64 startTime = 3;</code>
      */
     protected $startTime = 0;
     /**
-     * Generated from protobuf field <code>int64 stopTime = 3;</code>
+     * Generated from protobuf field <code>int64 stopTime = 4;</code>
      */
     protected $stopTime = 0;
     /**
-     * Generated from protobuf field <code>int64 status = 4;</code>
+     * Generated from protobuf field <code>int64 status = 5;</code>
      */
     protected $status = 0;
 
@@ -36,6 +40,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
+     *     @type int|string $spuId
      *     @type array|\Google\Protobuf\Internal\MapField $rules
      *     @type int|string $startTime
      *     @type int|string $stopTime
@@ -48,7 +53,29 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<int64, int64> rules = 1;</code>
+     * Generated from protobuf field <code>int64 spuId = 1;</code>
+     * @return int|string
+     */
+    public function getSpuId()
+    {
+        return $this->spuId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 spuId = 1;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSpuId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->spuId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<int64, int64> rules = 2;</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getRules()
@@ -57,7 +84,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<int64, int64> rules = 1;</code>
+     * Generated from protobuf field <code>map<int64, int64> rules = 2;</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -70,7 +97,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 startTime = 2;</code>
+     * Generated from protobuf field <code>int64 startTime = 3;</code>
      * @return int|string
      */
     public function getStartTime()
@@ -79,7 +106,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 startTime = 2;</code>
+     * Generated from protobuf field <code>int64 startTime = 3;</code>
      * @param int|string $var
      * @return $this
      */
@@ -92,7 +119,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 stopTime = 3;</code>
+     * Generated from protobuf field <code>int64 stopTime = 4;</code>
      * @return int|string
      */
     public function getStopTime()
@@ -101,7 +128,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 stopTime = 3;</code>
+     * Generated from protobuf field <code>int64 stopTime = 4;</code>
      * @param int|string $var
      * @return $this
      */
@@ -114,7 +141,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 status = 4;</code>
+     * Generated from protobuf field <code>int64 status = 5;</code>
      * @return int|string
      */
     public function getStatus()
@@ -123,7 +150,7 @@ class SplitRule extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 status = 4;</code>
+     * Generated from protobuf field <code>int64 status = 5;</code>
      * @param int|string $var
      * @return $this
      */
