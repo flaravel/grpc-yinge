@@ -82,7 +82,11 @@ class Client
     public function getHost(bool $needDel = false) {
         $host = $this->etcdIns->getHost();
         if (!$host) {
-            throw new GrpcException('failed to get grpc client');
+            $msgPackage = [
+                'needDel'=>$needDel,
+                'hosts'=>$this->etcdIns->getHosts()
+            ];
+            throw new GrpcException('failed to get grpc client : '.json_encode($msgPackage));
         }
         if ($needDel) {
             $this->etcdIns->delServer($host);

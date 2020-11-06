@@ -172,5 +172,13 @@ class EtcdManage {
         return gethostByname(gethostname());
     }
 
+    /**
+     * @return array
+     */
+    public function getHosts(): array
+    {
+        return $this->hosts;
+    }
+
 
 }
