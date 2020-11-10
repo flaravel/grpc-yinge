@@ -284,4 +284,18 @@ class MerchantClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 查询分账明细
+     * @param \Yinge\Grpc\Finance\SplitQueryRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SplitDetails(\Yinge\Grpc\Finance\SplitQueryRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SplitDetails',
+        $argument,
+        ['\Yinge\Grpc\Finance\SplitDetailsResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }
