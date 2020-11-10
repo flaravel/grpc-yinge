@@ -41,6 +41,14 @@ class BillsQuery extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 pageSize = 7;</code>
      */
     protected $pageSize = 0;
+    /**
+     * Generated from protobuf field <code>int64 originId = 8;</code>
+     */
+    protected $originId = 0;
+    /**
+     * Generated from protobuf field <code>int64 merchantType = 9;</code>
+     */
+    protected $merchantType = 0;
 
     /**
      * Constructor.
@@ -55,6 +63,8 @@ class BillsQuery extends \Google\Protobuf\Internal\Message
      *     @type int|string $category
      *     @type int|string $page
      *     @type int|string $pageSize
+     *     @type int|string $originId
+     *     @type int|string $merchantType
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +222,50 @@ class BillsQuery extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->pageSize = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 originId = 8;</code>
+     * @return int|string
+     */
+    public function getOriginId()
+    {
+        return $this->originId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 originId = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setOriginId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->originId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 merchantType = 9;</code>
+     * @return int|string
+     */
+    public function getMerchantType()
+    {
+        return $this->merchantType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 merchantType = 9;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMerchantType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->merchantType = $var;
 
         return $this;
     }

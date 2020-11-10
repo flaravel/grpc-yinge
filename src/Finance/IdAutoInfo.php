@@ -9,34 +9,30 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>finance.AuthInfo</code>
+ * Generated from protobuf message <code>finance.IdAutoInfo</code>
  */
-class AuthInfo extends \Google\Protobuf\Internal\Message
+class IdAutoInfo extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>int64 id = 1;</code>
      */
     protected $id = 0;
     /**
-     * Generated from protobuf field <code>string name = 2;</code>
+     * Generated from protobuf field <code>int64 merchantType = 2;</code>
+     */
+    protected $merchantType = 0;
+    /**
+     * Generated from protobuf field <code>string name = 3;</code>
      */
     protected $name = '';
-    /**
-     * Generated from protobuf field <code>string mobile = 3;</code>
-     */
-    protected $mobile = '';
     /**
      * Generated from protobuf field <code>string idNumber = 4;</code>
      */
     protected $idNumber = '';
     /**
-     * Generated from protobuf field <code>int64 authTime = 5;</code>
+     * Generated from protobuf field <code>string mobile = 5;</code>
      */
-    protected $authTime = 0;
-    /**
-     * Generated from protobuf field <code>int64 status = 6;</code>
-     */
-    protected $status = 0;
+    protected $mobile = '';
 
     /**
      * Constructor.
@@ -45,11 +41,10 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $id
+     *     @type int|string $merchantType
      *     @type string $name
-     *     @type string $mobile
      *     @type string $idNumber
-     *     @type int|string $authTime
-     *     @type int|string $status
+     *     @type string $mobile
      * }
      */
     public function __construct($data = NULL) {
@@ -80,7 +75,29 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 2;</code>
+     * Generated from protobuf field <code>int64 merchantType = 2;</code>
+     * @return int|string
+     */
+    public function getMerchantType()
+    {
+        return $this->merchantType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 merchantType = 2;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMerchantType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->merchantType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string name = 3;</code>
      * @return string
      */
     public function getName()
@@ -89,7 +106,7 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 2;</code>
+     * Generated from protobuf field <code>string name = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -97,28 +114,6 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->name = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string mobile = 3;</code>
-     * @return string
-     */
-    public function getMobile()
-    {
-        return $this->mobile;
-    }
-
-    /**
-     * Generated from protobuf field <code>string mobile = 3;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setMobile($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->mobile = $var;
 
         return $this;
     }
@@ -146,45 +141,23 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 authTime = 5;</code>
-     * @return int|string
+     * Generated from protobuf field <code>string mobile = 5;</code>
+     * @return string
      */
-    public function getAuthTime()
+    public function getMobile()
     {
-        return $this->authTime;
+        return $this->mobile;
     }
 
     /**
-     * Generated from protobuf field <code>int64 authTime = 5;</code>
-     * @param int|string $var
+     * Generated from protobuf field <code>string mobile = 5;</code>
+     * @param string $var
      * @return $this
      */
-    public function setAuthTime($var)
+    public function setMobile($var)
     {
-        GPBUtil::checkInt64($var);
-        $this->authTime = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>int64 status = 6;</code>
-     * @return int|string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Generated from protobuf field <code>int64 status = 6;</code>
-     * @param int|string $var
-     * @return $this
-     */
-    public function setStatus($var)
-    {
-        GPBUtil::checkInt64($var);
-        $this->status = $var;
+        GPBUtil::checkString($var, True);
+        $this->mobile = $var;
 
         return $this;
     }

@@ -41,6 +41,10 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.BankBind bankBounded = 7;</code>
      */
     protected $bankBounded = null;
+    /**
+     * Generated from protobuf field <code>int64 handlingFee = 8;</code>
+     */
+    protected $handlingFee = 0;
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
      *     @type int|string $applyAt
      *     @type string $remark
      *     @type \Yinge\Grpc\Finance\BankBind $bankBounded
+     *     @type int|string $handlingFee
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +217,28 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\BankBind::class);
         $this->bankBounded = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 handlingFee = 8;</code>
+     * @return int|string
+     */
+    public function getHandlingFee()
+    {
+        return $this->handlingFee;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 handlingFee = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setHandlingFee($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->handlingFee = $var;
 
         return $this;
     }

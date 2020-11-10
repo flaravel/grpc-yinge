@@ -147,7 +147,8 @@ class EtcdManage {
      * @return array|string|string[]
      */
     public function getAllServer() {
-        $res = $this->client->getKeysWithPrefix($this->currentPrefix);
+        $res['kvs'] = json_decode('[{"key":"\/v1\/grpc\/server\/fn\/127.0.0.1","create_revision":"621","mod_revision":"624","version":"2","value":"127.0.0.1:15200#100"}]', true);
+//        $res = $this->client->getKeysWithPrefix($this->currentPrefix);
         if (!$res) {
             return [];
         }

@@ -7,27 +7,112 @@ import "finance_transaction.proto";
 package finance;
 
 service Merchant {
+  rpc SingleMerchant(SingleMerchantQuery) returns (MerchantListResponse.Items) {}
   rpc MerchantList(MerchantQuery) returns (MerchantListResponse) {}
   rpc NewMerchant(MerchantInfo) returns (EmptyResponse) {}
-  rpc BindAccount(BindRequest) returns (EmptyResponse) {}
+  rpc Bills(BillsQuery) returns(BillList) {}
   rpc WithdrawList(WithdrawListRequest) returns (WithdrawListResponse) {}
   // 后台审核提现
   rpc WithdrawReport(WithdrawReportRequest) returns (EmptyResponse) {}
   // 发起提现申请
   rpc Withdraw(WithdrawRequest) returns (EmptyResponse) {}
+  // 实名验证
+  rpc IdAuthInfo(SingleMerchantQuery) returns (AuthInfo) {}
+  rpc IdAuthConfirm(IdAutoInfo) returns(EmptyResponse) {}
 
+  // 发起分账
+  rpc AutoSplit(SplitRequest) returns(EmptyResponse) {}
+  rpc Refund(RefundRequest) returns(EmptyResponse) {}
+  // 分账规则
   rpc SplitRules(SplitRulesRequest) returns (SplitRulesResponse){}
   // 查找没有配置分账比例的spu
   rpc NoSplitSpu(IdList) returns (IdList) {}
+  rpc BatchUpdateSplitRules(BatchRules) returns (BatchUpdateResult) {}
+  // 分账比例修改历史
+  rpc SplitRuleHistory(SplitRuleHistoryRequest) returns (SplitRuleHistories) {}
 
-  rpc AutoSplit(SplitRequest) returns(EmptyResponse) {}
-  rpc Refund(RefundRequest) returns(EmptyResponse) {}
-
-  rpc Bills(BillsQuery) returns(BillList) {}
+  rpc BankList(EmptyResponse) returns (BankListResponse) {}
+  // 绑定银行卡
+  rpc BindAccount(BindRequest) returns (EmptyResponse) {}
+  rpc UnbindAccount(UnbindRequest) returns (EmptyResponse) {}
+  rpc ReportBindCode(ReportBindCodeRequest) returns (EmptyResponse) {}
+  rpc ReportBindAmount(ReportBindAmountRequest) returns (EmptyResponse) {}
 
 }
 
+message ReportBindCodeRequest{
+  int64 id = 1;
+  int64 merchantType = 2;
+  string code = 3;
+}
 
+message ReportBindAmountRequest{
+  int64 id = 1;
+  int64 merchantType = 2;
+  int64 amount = 3;
+}
+
+message BankListResponse {
+  message Item {
+    int64 id = 1;
+    string name = 2;
+    string fullName = 3;
+    string code = 4;
+  }
+
+  repeated Item list = 1;
+}
+
+
+message IdAutoInfo {
+  int64 id = 1;
+  int64 merchantType = 2;
+  string name = 3;
+  string idNumber = 4;
+  string mobile = 5;
+}
+
+
+message SingleMerchantQuery {
+  int64 originId = 1;
+  int64 merchantType = 2;
+}
+
+message SplitRuleHistoryRequest{
+  int64 spuId = 1;
+  int64 startTime = 2;
+  int64 stopTime = 3;
+  int64 page = 4;
+  int64 pageSize = 5;
+}
+
+message SplitRuleHistories{
+  message UpdateHistory{
+    int64 id = 1;
+    int64 spuId = 2;
+    map<int64, int64> rules = 3;
+    int64 operator = 4;
+    int64 method = 5;
+    int64 createdAt = 6;
+  }
+
+  repeated UpdateHistory list = 1;
+  int64 total = 2;
+}
+
+
+
+message BatchRules {
+  repeated int64 ids = 1;
+  map<int64, int64> rules = 2;
+  int64 operator = 3;
+  int64 method = 4;
+}
+
+message BatchUpdateResult {
+  int64 succ = 1;
+  int64 fail = 2;
+}
 
 message SplitRulesRequest{
   int64 spuId = 1;
@@ -67,6 +152,7 @@ message WithdrawListRequest {
   int64 status = 5;
   int64 page = 6;
   int64 pageSize = 7;
+  int64 id = 8;
 }
 
 message WithdrawListResponse {
@@ -78,6 +164,7 @@ message WithdrawListResponse {
     int64 applyAt = 5;
     string remark = 6;
     BankBind bankBounded = 7;
+    int64 handlingFee = 8;
   }
 
   repeated WithdrawDetail list = 1;
@@ -94,6 +181,8 @@ message BillsQuery {
   int64 category = 5;
   int64 page = 6;
   int64 pageSize = 7;
+  int64 originId = 8;
+  int64 merchantType = 9;
 }
 
 message BillList {
@@ -171,6 +260,7 @@ message AuthInfo {
   string mobile = 3;
   string idNumber = 4;
   int64 authTime = 5;
+  int64 status = 6;
 }
 
 
@@ -188,7 +278,14 @@ message BindRequest {
   int64 bankId = 5;
   string mobile = 6;
   int64 method = 7;
-  int64 merchantId = 8;
+  int64 originId = 8;
+  int64 merchantType = 9;
+}
+
+message UnbindRequest {
+  int64 acctId = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
 }
 
 message EmptyResponse {

@@ -42,9 +42,13 @@ class BindRequest extends \Google\Protobuf\Internal\Message
      */
     protected $method = 0;
     /**
-     * Generated from protobuf field <code>int64 merchantId = 8;</code>
+     * Generated from protobuf field <code>int64 originId = 8;</code>
      */
-    protected $merchantId = 0;
+    protected $originId = 0;
+    /**
+     * Generated from protobuf field <code>int64 merchantType = 9;</code>
+     */
+    protected $merchantType = 0;
 
     /**
      * Constructor.
@@ -59,7 +63,8 @@ class BindRequest extends \Google\Protobuf\Internal\Message
      *     @type int|string $bankId
      *     @type string $mobile
      *     @type int|string $method
-     *     @type int|string $merchantId
+     *     @type int|string $originId
+     *     @type int|string $merchantType
      * }
      */
     public function __construct($data = NULL) {
@@ -222,23 +227,45 @@ class BindRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 merchantId = 8;</code>
+     * Generated from protobuf field <code>int64 originId = 8;</code>
      * @return int|string
      */
-    public function getMerchantId()
+    public function getOriginId()
     {
-        return $this->merchantId;
+        return $this->originId;
     }
 
     /**
-     * Generated from protobuf field <code>int64 merchantId = 8;</code>
+     * Generated from protobuf field <code>int64 originId = 8;</code>
      * @param int|string $var
      * @return $this
      */
-    public function setMerchantId($var)
+    public function setOriginId($var)
     {
         GPBUtil::checkInt64($var);
-        $this->merchantId = $var;
+        $this->originId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 merchantType = 9;</code>
+     * @return int|string
+     */
+    public function getMerchantType()
+    {
+        return $this->merchantType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 merchantType = 9;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMerchantType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->merchantType = $var;
 
         return $this;
     }
