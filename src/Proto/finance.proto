@@ -73,6 +73,7 @@ message IdAutoInfo {
   string name = 3;
   string idNumber = 4;
   string mobile = 5;
+  bool authed = 6;
 }
 
 

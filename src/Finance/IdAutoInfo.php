@@ -33,6 +33,10 @@ class IdAutoInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string mobile = 5;</code>
      */
     protected $mobile = '';
+    /**
+     * Generated from protobuf field <code>bool authed = 6;</code>
+     */
+    protected $authed = false;
 
     /**
      * Constructor.
@@ -45,6 +49,7 @@ class IdAutoInfo extends \Google\Protobuf\Internal\Message
      *     @type string $name
      *     @type string $idNumber
      *     @type string $mobile
+     *     @type bool $authed
      * }
      */
     public function __construct($data = NULL) {
@@ -158,6 +163,28 @@ class IdAutoInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->mobile = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool authed = 6;</code>
+     * @return bool
+     */
+    public function getAuthed()
+    {
+        return $this->authed;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool authed = 6;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setAuthed($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->authed = $var;
 
         return $this;
     }
