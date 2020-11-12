@@ -53,17 +53,7 @@ class CategoryReq extends \Google\Protobuf\Internal\Message
      */
     public function getPageParam()
     {
-        return isset($this->pageParam) ? $this->pageParam : null;
-    }
-
-    public function hasPageParam()
-    {
-        return isset($this->pageParam);
-    }
-
-    public function clearPageParam()
-    {
-        unset($this->pageParam);
+        return $this->pageParam;
     }
 
     /**

@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>Finance.MerchantQuery</code>
+ * Generated from protobuf message <code>finance.MerchantQuery</code>
  */
 class MerchantQuery extends \Google\Protobuf\Internal\Message
 {
@@ -25,6 +25,10 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 page = 3;</code>
      */
     protected $page = 0;
+    /**
+     * Generated from protobuf field <code>int64 pageSize = 4;</code>
+     */
+    protected $pageSize = 0;
 
     /**
      * Constructor.
@@ -35,6 +39,7 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
      *     @type int|string $type
      *     @type int|string $id
      *     @type int|string $page
+     *     @type int|string $pageSize
      * }
      */
     public function __construct($data = NULL) {
@@ -104,6 +109,28 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->page = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 pageSize = 4;</code>
+     * @return int|string
+     */
+    public function getPageSize()
+    {
+        return $this->pageSize;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 pageSize = 4;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setPageSize($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->pageSize = $var;
 
         return $this;
     }

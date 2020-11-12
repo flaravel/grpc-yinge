@@ -7,7 +7,7 @@ namespace Yinge\Grpc\Finance;
 use UnexpectedValueException;
 
 /**
- * Protobuf type <code>Finance.MerchantType</code>
+ * Protobuf type <code>finance.MerchantType</code>
  */
 class MerchantType
 {

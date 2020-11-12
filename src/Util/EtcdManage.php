@@ -19,6 +19,8 @@ class EtcdManage {
     const DefaultServerPCPrefix = '/v1/grpc/server/pc/';
     /** @var string qpm */
     const DefaultServerQpmPrefix = '/v1/grpc/server/qpm/';
+    /** @var string qpm */
+    const DefaultServerFnPrefix = '/v1/grpc/server/fn/';
 
     /** @var string webtest环境 前缀 */
     const EnvWebTestPrefix = '/webtest';
@@ -37,6 +39,7 @@ class EtcdManage {
     const AllowPrefixList = [
         self::DefaultServerPCPrefix,
         self::DefaultServerQpmPrefix,
+        self::DefaultServerFnPrefix,
         self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
 
@@ -144,7 +147,8 @@ class EtcdManage {
      * @return array|string|string[]
      */
     public function getAllServer() {
-        $res = $this->client->getKeysWithPrefix($this->currentPrefix);
+        $res['kvs'] = json_decode('[{"key":"\/v1\/grpc\/server\/fn\/127.0.0.1","create_revision":"621","mod_revision":"624","version":"2","value":"127.0.0.1:15200#100"}]', true);
+//        $res = $this->client->getKeysWithPrefix($this->currentPrefix);
         if (!$res) {
             return [];
         }

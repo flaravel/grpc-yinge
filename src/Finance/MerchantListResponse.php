@@ -9,14 +9,18 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>Finance.MerchantListResponse</code>
+ * Generated from protobuf message <code>finance.MerchantListResponse</code>
  */
 class MerchantListResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .Finance.MerchantListResponse.Items list = 1;</code>
+     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.Items list = 1;</code>
      */
     private $list;
+    /**
+     * Generated from protobuf field <code>int64 totalCount = 2;</code>
+     */
+    protected $totalCount = 0;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class MerchantListResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Yinge\Grpc\Finance\MerchantListResponse\Items[]|\Google\Protobuf\Internal\RepeatedField $list
+     *     @type int|string $totalCount
      * }
      */
     public function __construct($data = NULL) {
@@ -33,7 +38,7 @@ class MerchantListResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .Finance.MerchantListResponse.Items list = 1;</code>
+     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.Items list = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getList()
@@ -42,7 +47,7 @@ class MerchantListResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .Finance.MerchantListResponse.Items list = 1;</code>
+     * Generated from protobuf field <code>repeated .finance.MerchantListResponse.Items list = 1;</code>
      * @param \Yinge\Grpc\Finance\MerchantListResponse\Items[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -50,6 +55,28 @@ class MerchantListResponse extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Yinge\Grpc\Finance\MerchantListResponse\Items::class);
         $this->list = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 totalCount = 2;</code>
+     * @return int|string
+     */
+    public function getTotalCount()
+    {
+        return $this->totalCount;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 totalCount = 2;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTotalCount($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->totalCount = $var;
 
         return $this;
     }

@@ -266,17 +266,7 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      */
     public function getMateriels()
     {
-        return isset($this->materiels) ? $this->materiels : null;
-    }
-
-    public function hasMateriels()
-    {
-        return isset($this->materiels);
-    }
-
-    public function clearMateriels()
-    {
-        unset($this->materiels);
+        return $this->materiels;
     }
 
     /**

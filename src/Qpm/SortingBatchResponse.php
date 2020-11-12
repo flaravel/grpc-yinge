@@ -92,17 +92,7 @@ class SortingBatchResponse extends \Google\Protobuf\Internal\Message
      */
     public function getBatch()
     {
-        return isset($this->batch) ? $this->batch : null;
-    }
-
-    public function hasBatch()
-    {
-        return isset($this->batch);
-    }
-
-    public function clearBatch()
-    {
-        unset($this->batch);
+        return $this->batch;
     }
 
     /**
