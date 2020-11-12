@@ -42,6 +42,7 @@ class EtcdManage {
         self::DefaultServerFnPrefix,
         self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
+        self::EnvWebTestPrefix.self::DefaultServerFnPrefix,
 
         self::EnvQAPrefix.self::DefaultServerPCPrefix,
         self::EnvQAPrefix.self::DefaultServerQpmPrefix,
@@ -75,7 +76,7 @@ class EtcdManage {
 
     private function __construct (string $prefix) {
         if (!in_array($prefix,self::AllowPrefixList)) {
-            throw new GrpcException('invalid etcd prefix');
+            throw new GrpcException('invalid etcd prefix: ' . $prefix);
         }
         $this->currentPrefix = $prefix;
         $this->client = new Client(self::ETCD_GATEWAY,'v3alpha');
@@ -147,8 +148,7 @@ class EtcdManage {
      * @return array|string|string[]
      */
     public function getAllServer() {
-        $res['kvs'] = json_decode('[{"key":"\/v1\/grpc\/server\/fn\/127.0.0.1","create_revision":"621","mod_revision":"624","version":"2","value":"127.0.0.1:15200#100"}]', true);
-//        $res = $this->client->getKeysWithPrefix($this->currentPrefix);
+        $res = $this->client->getKeysWithPrefix($this->currentPrefix);
         if (!$res) {
             return [];
         }
