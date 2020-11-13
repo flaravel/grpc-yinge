@@ -44,10 +44,6 @@ class EtcdManage {
         self::EnvQAPrefix.self::DefaultServerQpmPrefix,
     ];
 
-
-    /** @var null|EtcdManage  */
-    private static $instance = null;
-
     /** @var string  */
     private $currentPrefix = '';
 
@@ -62,15 +58,7 @@ class EtcdManage {
      */
     private $client = null;
 
-    public static function getInstance(string $prefix) {
-        $_instance = self::$instance[$prefix] ?? null;
-        if (null == $_instance) {
-            self::$instance[$prefix] = new self($prefix);
-        }
-        return self::$instance[$prefix];
-    }
-
-    private function __construct (string $prefix) {
+    public function __construct (string $prefix) {
         if (!in_array($prefix,self::AllowPrefixList)) {
             throw new GrpcException('invalid etcd prefix');
         }
