@@ -38,10 +38,22 @@ service Merchant {
   rpc ReportBindCode(ReportBindCodeRequest) returns (EmptyResponse) {}
   rpc ReportBindAmount(ReportBindAmountRequest) returns (EmptyResponse) {}
 
+  // 补贴
+  rpc Subsidy(SubsidyRequest) returns(EmptyResponse) {}
+
   //查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
 
 }
+
+message SubsidyRequest {
+  int64 receiverId = 1;
+  int64 amount = 2;
+  int64 undertakerId = 3;
+  string remark = 4;
+  int64 relatedId = 5;
+}
+
 
 message ReportBindCodeRequest{
   int64 id = 1;

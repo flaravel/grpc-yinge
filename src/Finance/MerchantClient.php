@@ -285,6 +285,20 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 补贴
+     * @param \Yinge\Grpc\Finance\SubsidyRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function Subsidy(\Yinge\Grpc\Finance\SubsidyRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/Subsidy',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 查询分账明细
      * @param \Yinge\Grpc\Finance\SplitQueryRequest $argument input argument
      * @param array $metadata metadata
