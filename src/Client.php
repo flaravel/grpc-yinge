@@ -68,7 +68,7 @@ class Client
         }
 
         $this->currentEtcdPrefix = $etcdPrefix;
-        $this->etcdIns = EtcdManage::getInstance($this->currentEtcdPrefix);
+        $this->etcdIns = new EtcdManage($this->currentEtcdPrefix);
         $this->newClient();
     }
 
@@ -114,14 +114,12 @@ class Client
         // 这类错重试可能可以正常，可能是服务端reload/restart 或是主动关闭连接等
         if ($status->code == \Grpc\STATUS_UNAVAILABLE) {
             if ($this->canRetry()) {
-//                \Log::warning(sprintf('sleep and reconnect and try request again... (%d)', $this->retryCount));
-                echo (sprintf('sleep and reconnect and try request again... (%d)', $this->retryCount)).PHP_EOL;
+                \Log::warning('[--grpc-lib---] sleep and reconnect and try request again...'. $this->retryCount);
                 usleep(self::WAIT_SECONDS * 1000 * 1000);
                 $this->newClient(true);
                 return $this->__call($method, $params);
             } elseif ($this->canResetConn()) {
-//                \Log::warning('retry failed, reset conn now...');
-                echo ('retry failed, reset conn now...').PHP_EOL;
+                \Log::warning('[--grpc-lib---] retry failed, reset conn now...');
                 return $this->__call($method, $params);
             }
 
@@ -129,18 +127,16 @@ class Client
             // 可能是找不到路由或是『service not found』错
             $errMsg = $status->details ?: self::ERR_MSG_SERVICE_NOT_FOUND;
             if ($this->canResetConn() && $errMsg == self::ERR_MSG_SERVICE_NOT_FOUND) {
-//                \Log::warning('reset client and try request again...');
-                echo ('reset client and try request again...').PHP_EOL;
+                \Log::warning('[--grpc-lib---] reset client and try request again...');
                 return $this->__call($method, $params);
             } else {
-                echo ("[grpc] Call {$method} failed. " . $errMsg).PHP_EOL;
+                \Log::warning('[--grpc-lib---] Call' . $method .' failed .'.$errMsg);
                 throw new GrpcException($errMsg,$status->code);
             }
         }
 
         if ($status->code != \Grpc\STATUS_OK) {
-//            \Log::warning("[grpc] Call {$method} failed. resp: " . json_encode($status));
-            echo ("[grpc] Call {$method} failed. resp: " . json_encode($status)).PHP_EOL;
+            \Log::warning('[--grpc-lib---] Call' . $method .' failed .'.json_encode($status));
             throw new GrpcException($status->details,$status->code);
         } else {
             $this->resetStatus();
@@ -179,8 +175,7 @@ class Client
                 $this->currentClient->close();
             }
         } catch (Exception $e) {
-//            \Log::warning('close grpc client failed. err: '. $e->getMessage());
-            echo ('close grpc client failed. err: '. $e->getMessage()).PHP_EOL;
+            \Log::warning('close grpc client failed. err: '. $e->getMessage());
         }
     }
 }
