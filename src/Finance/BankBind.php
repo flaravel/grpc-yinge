@@ -45,6 +45,14 @@ class BankBind extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 status = 8;</code>
      */
     protected $status = 0;
+    /**
+     * Generated from protobuf field <code>int64 bindingTime = 9;</code>
+     */
+    protected $bindingTime = 0;
+    /**
+     * Generated from protobuf field <code>int64 acctId = 10;</code>
+     */
+    protected $acctId = 0;
 
     /**
      * Constructor.
@@ -60,6 +68,8 @@ class BankBind extends \Google\Protobuf\Internal\Message
      *     @type int|string $idType
      *     @type string $idNumber
      *     @type int|string $status
+     *     @type int|string $bindingTime
+     *     @type int|string $acctId
      * }
      */
     public function __construct($data = NULL) {
@@ -239,6 +249,50 @@ class BankBind extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 bindingTime = 9;</code>
+     * @return int|string
+     */
+    public function getBindingTime()
+    {
+        return $this->bindingTime;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 bindingTime = 9;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setBindingTime($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->bindingTime = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 acctId = 10;</code>
+     * @return int|string
+     */
+    public function getAcctId()
+    {
+        return $this->acctId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 acctId = 10;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setAcctId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->acctId = $var;
 
         return $this;
     }

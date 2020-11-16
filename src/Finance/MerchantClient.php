@@ -285,6 +285,20 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 结算
+     * @param \Yinge\Grpc\Finance\SettleRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SettleAccounts(\Yinge\Grpc\Finance\SettleRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SettleAccounts',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 补贴
      * @param \Yinge\Grpc\Finance\SubsidyRequest $argument input argument
      * @param array $metadata metadata

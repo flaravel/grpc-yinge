@@ -18,6 +18,10 @@ class SubsidyRequest extends \Google\Protobuf\Internal\Message
      */
     protected $receiverId = 0;
     /**
+     * Generated from protobuf field <code>int64 receiverType = 6;</code>
+     */
+    protected $receiverType = 0;
+    /**
      * Generated from protobuf field <code>int64 amount = 2;</code>
      */
     protected $amount = 0;
@@ -25,6 +29,10 @@ class SubsidyRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 undertakerId = 3;</code>
      */
     protected $undertakerId = 0;
+    /**
+     * Generated from protobuf field <code>int64 undertakerType = 7;</code>
+     */
+    protected $undertakerType = 0;
     /**
      * Generated from protobuf field <code>string remark = 4;</code>
      */
@@ -41,8 +49,10 @@ class SubsidyRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $receiverId
+     *     @type int|string $receiverType
      *     @type int|string $amount
      *     @type int|string $undertakerId
+     *     @type int|string $undertakerType
      *     @type string $remark
      *     @type int|string $relatedId
      * }
@@ -70,6 +80,28 @@ class SubsidyRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->receiverId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 receiverType = 6;</code>
+     * @return int|string
+     */
+    public function getReceiverType()
+    {
+        return $this->receiverType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 receiverType = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setReceiverType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->receiverType = $var;
 
         return $this;
     }
@@ -114,6 +146,28 @@ class SubsidyRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->undertakerId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 undertakerType = 7;</code>
+     * @return int|string
+     */
+    public function getUndertakerType()
+    {
+        return $this->undertakerType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 undertakerType = 7;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setUndertakerType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->undertakerType = $var;
 
         return $this;
     }
