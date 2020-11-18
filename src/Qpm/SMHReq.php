@@ -52,16 +52,16 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * Constructor.
      *
      * @param array $data {
-     *                    Optional. Data for populating the Message object.
+     *     Optional. Data for populating the Message object.
      *
-     * @type int|string $page
-     * @type int|string $pageSize
-     * @type int|string $spuId
-     * @type string $startAt
-     * @type string $endAt
-     * @type int|string $factoryId
-     * @type int|string $mid
-     * @type int|string $status
+     *     @type int|string $page
+     *     @type int|string $pageSize
+     *     @type int|string $spuId
+     *     @type string $startAt
+     *     @type string $endAt
+     *     @type int|string $factoryId
+     *     @type int|string $mid
+     *     @type int|string $status
      * }
      */
     public function __construct($data = NULL) {
@@ -205,7 +205,8 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 mid = 7;</code>
      * @return int|string
      */
-    public function getMid () {
+    public function getMid()
+    {
         return $this->mid;
     }
 
@@ -214,7 +215,8 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setMid ($var) {
+    public function setMid($var)
+    {
         GPBUtil::checkInt64($var);
         $this->mid = $var;
 
@@ -225,7 +227,8 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 status = 8;</code>
      * @return int|string
      */
-    public function getStatus () {
+    public function getStatus()
+    {
         return $this->status;
     }
 
@@ -234,7 +237,8 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setStatus ($var) {
+    public function setStatus($var)
+    {
         GPBUtil::checkInt64($var);
         $this->status = $var;
 

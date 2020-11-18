@@ -343,38 +343,38 @@ class QpmServiceClient extends \Grpc\BaseStub {
     /**
      * 入库物料历史记录
      * @param \Yinge\Grpc\Qpm\SMHReq $argument input argument
-     * @param array $metadata                  metadata
-     * @param array $options                   call options
+     * @param array $metadata metadata
+     * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function StoreMaterielHistory (\Yinge\Grpc\Qpm\SMHReq $argument,
-                                          $metadata = [], $options = []) {
+    public function StoreMaterielHistory(\Yinge\Grpc\Qpm\SMHReq $argument,
+      $metadata = [], $options = []) {
         return $this->_simpleRequest('/Qpm.QpmService/StoreMaterielHistory',
-            $argument,
-            ['\Yinge\Grpc\Qpm\SMHResp', 'decode'],
-            $metadata, $options);
+        $argument,
+        ['\Yinge\Grpc\Qpm\SMHResp', 'decode'],
+        $metadata, $options);
     }
 
     /**
      * 入库物料详情
-     * @param \Yinge\Grpc\Qpm\SMHReq $argument input argument
-     * @param array $metadata                  metadata
-     * @param array $options                   call options
+     * @param \Yinge\Grpc\Qpm\SMDReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function StoreMaterielDetail (\Yinge\Grpc\Qpm\SMHReq $argument,
-                                         $metadata = [], $options = []) {
+    public function StoreMaterielDetail(\Yinge\Grpc\Qpm\SMDReq $argument,
+      $metadata = [], $options = []) {
         return $this->_simpleRequest('/Qpm.QpmService/StoreMaterielDetail',
-            $argument,
-            ['\Yinge\Grpc\Qpm\SMHResp', 'decode'],
-            $metadata, $options);
+        $argument,
+        ['\Yinge\Grpc\Qpm\SMDResp', 'decode'],
+        $metadata, $options);
     }
 
     /**
      * 获取工厂可生产spu
      * @param \Yinge\Grpc\Qpm\SpuListReq $argument input argument
-     * @param array $metadata                      metadata
-     * @param array $options                       call options
+     * @param array $metadata metadata
+     * @param array $options call options
      * @return \Grpc\UnaryCall
      */
     public function FactoryProduceSpuList(\Yinge\Grpc\Qpm\SpuListReq $argument,

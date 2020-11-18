@@ -72,21 +72,21 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Constructor.
      *
      * @param array $data {
-     *                    Optional. Data for populating the Message object.
+     *     Optional. Data for populating the Message object.
      *
-     * @type int|string $id
-     * @type int|string $mid
-     * @type int|string $factoryId
-     * @type int|string $storeNum
-     * @type int|string $storeType
-     * @type string $cert
-     * @type int|string $beforeStoreTotal
-     * @type int|string $afterStoreTotal
-     * @type \Yinge\Grpc\Qpm\BaseMateriel $materiels
-     * @type string $createdAt
-     * @type int|string $stockType
-     * @type string $reason
-     * @type int|string $status
+     *     @type int|string $id
+     *     @type int|string $mid
+     *     @type int|string $factoryId
+     *     @type int|string $storeNum
+     *     @type int|string $storeType
+     *     @type string $cert
+     *     @type int|string $beforeStoreTotal
+     *     @type int|string $afterStoreTotal
+     *     @type \Yinge\Grpc\Qpm\BaseMateriel $materiels
+     *     @type string $createdAt
+     *     @type int|string $stockType
+     *     @type string $reason
+     *     @type int|string $status
      * }
      */
     public function __construct($data = NULL) {
@@ -328,7 +328,8 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 stockType = 11;</code>
      * @return int|string
      */
-    public function getStockType () {
+    public function getStockType()
+    {
         return $this->stockType;
     }
 
@@ -337,7 +338,8 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setStockType ($var) {
+    public function setStockType($var)
+    {
         GPBUtil::checkInt64($var);
         $this->stockType = $var;
 
@@ -348,7 +350,8 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string reason = 12;</code>
      * @return string
      */
-    public function getReason () {
+    public function getReason()
+    {
         return $this->reason;
     }
 
@@ -357,8 +360,9 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setReason ($var) {
-        GPBUtil::checkString($var, true);
+    public function setReason($var)
+    {
+        GPBUtil::checkString($var, True);
         $this->reason = $var;
 
         return $this;
@@ -368,7 +372,8 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 status = 13;</code>
      * @return int|string
      */
-    public function getStatus () {
+    public function getStatus()
+    {
         return $this->status;
     }
 
@@ -377,7 +382,8 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setStatus ($var) {
+    public function setStatus($var)
+    {
         GPBUtil::checkInt64($var);
         $this->status = $var;
 
