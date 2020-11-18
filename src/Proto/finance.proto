@@ -40,8 +40,6 @@ service Merchant {
 
   // 结算
   rpc SettleAccounts(SettleRequest) returns (EmptyResponse) {}
-  // 补贴
-  rpc Subsidy(SubsidyRequest) returns(EmptyResponse) {}
 
   //查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
@@ -49,12 +47,17 @@ service Merchant {
 }
 
 message SettleRequest{
-  int64 id = 1;
-  int64 merchantType = 2;
-  int64 amount = 3;
-  string remark = 4;
-  int64 reparation = 5;
-  string reparationRemark = 6;
+  int64 receiverId = 1;
+  int64 receiverType = 2;
+  int64 undertakerId = 3;
+  int64 undertakerType = 4;
+  int64 settle = 5;
+  int64 subsidy = 6;
+  int64 reparation = 7;
+  string billCycle = 8;
+  string reparationCycle = 10;
+  int64 billId = 9;
+  int64 reparationId = 11;
 }
 
 message SubsidyRequest {

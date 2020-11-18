@@ -14,29 +14,49 @@ use Google\Protobuf\Internal\GPBUtil;
 class SettleRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int64 id = 1;</code>
+     * Generated from protobuf field <code>int64 receiverId = 1;</code>
      */
-    protected $id = 0;
+    protected $receiverId = 0;
     /**
-     * Generated from protobuf field <code>int64 merchantType = 2;</code>
+     * Generated from protobuf field <code>int64 receiverType = 2;</code>
      */
-    protected $merchantType = 0;
+    protected $receiverType = 0;
     /**
-     * Generated from protobuf field <code>int64 amount = 3;</code>
+     * Generated from protobuf field <code>int64 undertakerId = 3;</code>
      */
-    protected $amount = 0;
+    protected $undertakerId = 0;
     /**
-     * Generated from protobuf field <code>string remark = 4;</code>
+     * Generated from protobuf field <code>int64 undertakerType = 4;</code>
      */
-    protected $remark = '';
+    protected $undertakerType = 0;
     /**
-     * Generated from protobuf field <code>int64 reparation = 5;</code>
+     * Generated from protobuf field <code>int64 settle = 5;</code>
+     */
+    protected $settle = 0;
+    /**
+     * Generated from protobuf field <code>int64 subsidy = 6;</code>
+     */
+    protected $subsidy = 0;
+    /**
+     * Generated from protobuf field <code>int64 reparation = 7;</code>
      */
     protected $reparation = 0;
     /**
-     * Generated from protobuf field <code>string reparationRemark = 6;</code>
+     * Generated from protobuf field <code>string billCycle = 8;</code>
      */
-    protected $reparationRemark = '';
+    protected $billCycle = '';
+    /**
+     * Generated from protobuf field <code>string reparationCycle = 10;</code>
+     */
+    protected $reparationCycle = '';
+    /**
+     * Generated from protobuf field <code>int64 billId = 9;</code>
+     */
+    protected $billId = 0;
+    /**
+     * Generated from protobuf field <code>int64 reparationId = 11;</code>
+     */
+    protected $reparationId = 0;
 
     /**
      * Constructor.
@@ -44,12 +64,17 @@ class SettleRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type int|string $id
-     *     @type int|string $merchantType
-     *     @type int|string $amount
-     *     @type string $remark
+     *     @type int|string $receiverId
+     *     @type int|string $receiverType
+     *     @type int|string $undertakerId
+     *     @type int|string $undertakerType
+     *     @type int|string $settle
+     *     @type int|string $subsidy
      *     @type int|string $reparation
-     *     @type string $reparationRemark
+     *     @type string $billCycle
+     *     @type string $reparationCycle
+     *     @type int|string $billId
+     *     @type int|string $reparationId
      * }
      */
     public function __construct($data = NULL) {
@@ -58,95 +83,139 @@ class SettleRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 id = 1;</code>
+     * Generated from protobuf field <code>int64 receiverId = 1;</code>
      * @return int|string
      */
-    public function getId()
+    public function getReceiverId()
     {
-        return $this->id;
+        return $this->receiverId;
     }
 
     /**
-     * Generated from protobuf field <code>int64 id = 1;</code>
+     * Generated from protobuf field <code>int64 receiverId = 1;</code>
      * @param int|string $var
      * @return $this
      */
-    public function setId($var)
+    public function setReceiverId($var)
     {
         GPBUtil::checkInt64($var);
-        $this->id = $var;
+        $this->receiverId = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>int64 merchantType = 2;</code>
+     * Generated from protobuf field <code>int64 receiverType = 2;</code>
      * @return int|string
      */
-    public function getMerchantType()
+    public function getReceiverType()
     {
-        return $this->merchantType;
+        return $this->receiverType;
     }
 
     /**
-     * Generated from protobuf field <code>int64 merchantType = 2;</code>
+     * Generated from protobuf field <code>int64 receiverType = 2;</code>
      * @param int|string $var
      * @return $this
      */
-    public function setMerchantType($var)
+    public function setReceiverType($var)
     {
         GPBUtil::checkInt64($var);
-        $this->merchantType = $var;
+        $this->receiverType = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>int64 amount = 3;</code>
+     * Generated from protobuf field <code>int64 undertakerId = 3;</code>
      * @return int|string
      */
-    public function getAmount()
+    public function getUndertakerId()
     {
-        return $this->amount;
+        return $this->undertakerId;
     }
 
     /**
-     * Generated from protobuf field <code>int64 amount = 3;</code>
+     * Generated from protobuf field <code>int64 undertakerId = 3;</code>
      * @param int|string $var
      * @return $this
      */
-    public function setAmount($var)
+    public function setUndertakerId($var)
     {
         GPBUtil::checkInt64($var);
-        $this->amount = $var;
+        $this->undertakerId = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>string remark = 4;</code>
-     * @return string
+     * Generated from protobuf field <code>int64 undertakerType = 4;</code>
+     * @return int|string
      */
-    public function getRemark()
+    public function getUndertakerType()
     {
-        return $this->remark;
+        return $this->undertakerType;
     }
 
     /**
-     * Generated from protobuf field <code>string remark = 4;</code>
-     * @param string $var
+     * Generated from protobuf field <code>int64 undertakerType = 4;</code>
+     * @param int|string $var
      * @return $this
      */
-    public function setRemark($var)
+    public function setUndertakerType($var)
     {
-        GPBUtil::checkString($var, True);
-        $this->remark = $var;
+        GPBUtil::checkInt64($var);
+        $this->undertakerType = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>int64 reparation = 5;</code>
+     * Generated from protobuf field <code>int64 settle = 5;</code>
+     * @return int|string
+     */
+    public function getSettle()
+    {
+        return $this->settle;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 settle = 5;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSettle($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->settle = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 subsidy = 6;</code>
+     * @return int|string
+     */
+    public function getSubsidy()
+    {
+        return $this->subsidy;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 subsidy = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSubsidy($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->subsidy = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 reparation = 7;</code>
      * @return int|string
      */
     public function getReparation()
@@ -155,7 +224,7 @@ class SettleRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 reparation = 5;</code>
+     * Generated from protobuf field <code>int64 reparation = 7;</code>
      * @param int|string $var
      * @return $this
      */
@@ -168,23 +237,89 @@ class SettleRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string reparationRemark = 6;</code>
+     * Generated from protobuf field <code>string billCycle = 8;</code>
      * @return string
      */
-    public function getReparationRemark()
+    public function getBillCycle()
     {
-        return $this->reparationRemark;
+        return $this->billCycle;
     }
 
     /**
-     * Generated from protobuf field <code>string reparationRemark = 6;</code>
+     * Generated from protobuf field <code>string billCycle = 8;</code>
      * @param string $var
      * @return $this
      */
-    public function setReparationRemark($var)
+    public function setBillCycle($var)
     {
         GPBUtil::checkString($var, True);
-        $this->reparationRemark = $var;
+        $this->billCycle = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string reparationCycle = 10;</code>
+     * @return string
+     */
+    public function getReparationCycle()
+    {
+        return $this->reparationCycle;
+    }
+
+    /**
+     * Generated from protobuf field <code>string reparationCycle = 10;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setReparationCycle($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->reparationCycle = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 billId = 9;</code>
+     * @return int|string
+     */
+    public function getBillId()
+    {
+        return $this->billId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 billId = 9;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setBillId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->billId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 reparationId = 11;</code>
+     * @return int|string
+     */
+    public function getReparationId()
+    {
+        return $this->reparationId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 reparationId = 11;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setReparationId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->reparationId = $var;
 
         return $this;
     }
