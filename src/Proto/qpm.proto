@@ -112,6 +112,7 @@ message SMHReq {
     string endAt = 5;
     int64 factoryId = 6;
     int64 mid = 7;
+    int64 status = 8;
 }
 // 入库历史返回参数
 message SMHResp {
@@ -132,6 +133,8 @@ message BaseMaterielHistory {
     BaseMateriel materiels = 9;
     string createdAt = 10;
     int64  stockType = 11;
+    string reason = 12;
+    int64 status = 13;
 }
 
 message FactoryExpressRequest {
