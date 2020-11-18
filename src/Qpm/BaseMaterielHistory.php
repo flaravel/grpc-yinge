@@ -328,8 +328,7 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 stockType = 11;</code>
      * @return int|string
      */
-    public function getStockType()
-    {
+    public function getStockType () {
         return $this->stockType;
     }
 

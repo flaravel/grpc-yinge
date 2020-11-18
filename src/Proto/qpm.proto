@@ -35,6 +35,8 @@ service QpmService {
     rpc StoreMateriel(StoreMaterielReq) returns(Response) {}
     // 入库物料历史记录
     rpc StoreMaterielHistory(SMHReq) returns (SMHResp) {}
+    // 入库物料详情
+    rpc StoreMaterielDetail(SMHReq) returns (SMHResp) {}
     // 获取工厂可生产spu
     rpc FactoryProduceSpuList(SpuListReq) returns (FactoryProduceResp) {}
     // 获取工厂可生产sku

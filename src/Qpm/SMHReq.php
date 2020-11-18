@@ -205,8 +205,7 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 mid = 7;</code>
      * @return int|string
      */
-    public function getMid()
-    {
+    public function getMid () {
         return $this->mid;
     }
 
