@@ -29,6 +29,10 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 ProduceCost = 4;</code>
      */
     protected $ProduceCost = 0;
+    /**
+     * Generated from protobuf field <code>bool IsCurrent = 5;</code>
+     */
+    protected $IsCurrent = false;
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      *     @type int|string $FactoryId
      *     @type int|string $ExpressId
      *     @type int|string $ProduceCost
+     *     @type bool $IsCurrent
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +136,28 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->ProduceCost = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool IsCurrent = 5;</code>
+     * @return bool
+     */
+    public function getIsCurrent()
+    {
+        return $this->IsCurrent;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool IsCurrent = 5;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsCurrent($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->IsCurrent = $var;
 
         return $this;
     }

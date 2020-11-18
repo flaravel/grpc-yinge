@@ -74,12 +74,14 @@ message ReportBindCodeRequest{
   int64 id = 1;
   int64 merchantType = 2;
   string code = 3;
+  string acctNo = 4;
 }
 
 message ReportBindAmountRequest{
   int64 id = 1;
   int64 merchantType = 2;
   int64 amount = 3;
+  string acctNo = 4;
 }
 
 message BankListResponse {
@@ -285,6 +287,7 @@ message MerchantInfo {
   int64 originId = 2;
   string name = 3;
   MerchantType type = 4;
+  string boundedName = 5;
 }
 
 message AuthInfo {

@@ -29,6 +29,10 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.MerchantType type = 4;</code>
      */
     protected $type = 0;
+    /**
+     * Generated from protobuf field <code>string boundedName = 5;</code>
+     */
+    protected $boundedName = '';
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
      *     @type int|string $originId
      *     @type string $name
      *     @type int $type
+     *     @type string $boundedName
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +136,28 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Yinge\Grpc\Finance\MerchantType::class);
         $this->type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string boundedName = 5;</code>
+     * @return string
+     */
+    public function getBoundedName()
+    {
+        return $this->boundedName;
+    }
+
+    /**
+     * Generated from protobuf field <code>string boundedName = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBoundedName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->boundedName = $var;
 
         return $this;
     }

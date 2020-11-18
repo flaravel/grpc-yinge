@@ -25,6 +25,10 @@ class ReportBindCodeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string code = 3;</code>
      */
     protected $code = '';
+    /**
+     * Generated from protobuf field <code>string acctNo = 4;</code>
+     */
+    protected $acctNo = '';
 
     /**
      * Constructor.
@@ -35,6 +39,7 @@ class ReportBindCodeRequest extends \Google\Protobuf\Internal\Message
      *     @type int|string $id
      *     @type int|string $merchantType
      *     @type string $code
+     *     @type string $acctNo
      * }
      */
     public function __construct($data = NULL) {
@@ -104,6 +109,28 @@ class ReportBindCodeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->code = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string acctNo = 4;</code>
+     * @return string
+     */
+    public function getAcctNo()
+    {
+        return $this->acctNo;
+    }
+
+    /**
+     * Generated from protobuf field <code>string acctNo = 4;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAcctNo($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->acctNo = $var;
 
         return $this;
     }
