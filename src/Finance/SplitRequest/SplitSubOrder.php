@@ -33,6 +33,14 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool IsCurrent = 5;</code>
      */
     protected $IsCurrent = false;
+    /**
+     * Generated from protobuf field <code>int64 SubOrderId = 6;</code>
+     */
+    protected $SubOrderId = 0;
+    /**
+     * Generated from protobuf field <code>string Remark = 7;</code>
+     */
+    protected $Remark = '';
 
     /**
      * Constructor.
@@ -45,6 +53,8 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      *     @type int|string $ExpressId
      *     @type int|string $ProduceCost
      *     @type bool $IsCurrent
+     *     @type int|string $SubOrderId
+     *     @type string $Remark
      * }
      */
     public function __construct($data = NULL) {
@@ -158,6 +168,50 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->IsCurrent = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 SubOrderId = 6;</code>
+     * @return int|string
+     */
+    public function getSubOrderId()
+    {
+        return $this->SubOrderId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 SubOrderId = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSubOrderId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->SubOrderId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Remark = 7;</code>
+     * @return string
+     */
+    public function getRemark()
+    {
+        return $this->Remark;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Remark = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRemark($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->Remark = $var;
 
         return $this;
     }

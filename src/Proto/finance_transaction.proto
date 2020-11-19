@@ -13,6 +13,8 @@ message SplitRequest {
     int64 ExpressId = 3;
     int64 ProduceCost = 4;
     bool IsCurrent = 5;
+    int64 SubOrderId = 6;
+    string Remark = 7;
   }
 
   string orderId = 1;
