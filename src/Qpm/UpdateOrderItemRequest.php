@@ -68,9 +68,16 @@ class UpdateOrderItemRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Qpm.OrderItems productList = 2;</code>
      * @return \Yinge\Grpc\Qpm\OrderItems
      */
-    public function getProductList()
-    {
-        return $this->productList;
+    public function getProductList () {
+        return isset($this->productList) ? $this->productList : null;
+    }
+
+    public function hasProductList () {
+        return isset($this->productList);
+    }
+
+    public function clearProductList () {
+        unset($this->productList);
     }
 
     /**
@@ -78,8 +85,7 @@ class UpdateOrderItemRequest extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Qpm\OrderItems $var
      * @return $this
      */
-    public function setProductList($var)
-    {
+    public function setProductList ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Qpm\OrderItems::class);
         $this->productList = $var;
 

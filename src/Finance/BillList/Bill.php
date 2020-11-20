@@ -203,9 +203,16 @@ class Bill extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.MerchantInfo merchantInfo = 7;</code>
      * @return \Yinge\Grpc\Finance\MerchantInfo
      */
-    public function getMerchantInfo()
-    {
-        return $this->merchantInfo;
+    public function getMerchantInfo () {
+        return isset($this->merchantInfo) ? $this->merchantInfo : null;
+    }
+
+    public function hasMerchantInfo () {
+        return isset($this->merchantInfo);
+    }
+
+    public function clearMerchantInfo () {
+        unset($this->merchantInfo);
     }
 
     /**
@@ -213,8 +220,7 @@ class Bill extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Finance\MerchantInfo $var
      * @return $this
      */
-    public function setMerchantInfo($var)
-    {
+    public function setMerchantInfo ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\MerchantInfo::class);
         $this->merchantInfo = $var;
 

@@ -51,9 +51,16 @@ class Items extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.MerchantInfo baseInfo = 1;</code>
      * @return \Yinge\Grpc\Finance\MerchantInfo
      */
-    public function getBaseInfo()
-    {
-        return $this->baseInfo;
+    public function getBaseInfo () {
+        return isset($this->baseInfo) ? $this->baseInfo : null;
+    }
+
+    public function hasBaseInfo () {
+        return isset($this->baseInfo);
+    }
+
+    public function clearBaseInfo () {
+        unset($this->baseInfo);
     }
 
     /**
@@ -61,8 +68,7 @@ class Items extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Finance\MerchantInfo $var
      * @return $this
      */
-    public function setBaseInfo($var)
-    {
+    public function setBaseInfo ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\MerchantInfo::class);
         $this->baseInfo = $var;
 
@@ -73,9 +79,16 @@ class Items extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.AccountBalance account = 2;</code>
      * @return \Yinge\Grpc\Finance\AccountBalance
      */
-    public function getAccount()
-    {
-        return $this->account;
+    public function getAccount () {
+        return isset($this->account) ? $this->account : null;
+    }
+
+    public function hasAccount () {
+        return isset($this->account);
+    }
+
+    public function clearAccount () {
+        unset($this->account);
     }
 
     /**
@@ -83,8 +96,7 @@ class Items extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Finance\AccountBalance $var
      * @return $this
      */
-    public function setAccount($var)
-    {
+    public function setAccount ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\AccountBalance::class);
         $this->account = $var;
 
@@ -95,9 +107,16 @@ class Items extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.AuthInfo authInfo = 3;</code>
      * @return \Yinge\Grpc\Finance\AuthInfo
      */
-    public function getAuthInfo()
-    {
-        return $this->authInfo;
+    public function getAuthInfo () {
+        return isset($this->authInfo) ? $this->authInfo : null;
+    }
+
+    public function hasAuthInfo () {
+        return isset($this->authInfo);
+    }
+
+    public function clearAuthInfo () {
+        unset($this->authInfo);
     }
 
     /**
@@ -105,8 +124,7 @@ class Items extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Finance\AuthInfo $var
      * @return $this
      */
-    public function setAuthInfo($var)
-    {
+    public function setAuthInfo ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\AuthInfo::class);
         $this->authInfo = $var;
 

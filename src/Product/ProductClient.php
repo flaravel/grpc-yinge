@@ -19,8 +19,9 @@ class ProductClient extends \Grpc\BaseStub {
     /**
      * spu列表
      * @param \Yinge\Grpc\Product\SpuListReq $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array $metadata                          metadata
+     * @param array $options                           call options
+     * @return \Grpc\UnaryCall
      */
     public function GetSpuList(\Yinge\Grpc\Product\SpuListReq $argument,
       $metadata = [], $options = []) {
@@ -33,8 +34,9 @@ class ProductClient extends \Grpc\BaseStub {
     /**
      *  根据分类id查询 支持查询软删除数据
      * @param \Yinge\Grpc\Product\CategoryReq $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array $metadata                           metadata
+     * @param array $options                            call options
+     * @return \Grpc\UnaryCall
      */
     public function GetCategoryList(\Yinge\Grpc\Product\CategoryReq $argument,
       $metadata = [], $options = []) {
@@ -47,8 +49,9 @@ class ProductClient extends \Grpc\BaseStub {
     /**
      * 根据筛选条件 获取sku列表
      * @param \Yinge\Grpc\Product\SkuRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array $metadata                          metadata
+     * @param array $options                           call options
+     * @return \Grpc\UnaryCall
      */
     public function GetSkuList(\Yinge\Grpc\Product\SkuRequest $argument,
       $metadata = [], $options = []) {
@@ -61,8 +64,9 @@ class ProductClient extends \Grpc\BaseStub {
     /**
      * 根据分类id 获取属性与属性值
      * @param \Yinge\Grpc\Product\GetAttrAndValRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array $metadata                                    metadata
+     * @param array $options                                     call options
+     * @return \Grpc\UnaryCall
      */
     public function GetAttrAndValByCId(\Yinge\Grpc\Product\GetAttrAndValRequest $argument,
       $metadata = [], $options = []) {
@@ -75,8 +79,9 @@ class ProductClient extends \Grpc\BaseStub {
     /**
      * 创建第三方商品
      * @param \Yinge\Grpc\Product\ThirdPartySkuRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array $metadata                                    metadata
+     * @param array $options                                     call options
+     * @return \Grpc\UnaryCall
      */
     public function CreateThirdPartySku(\Yinge\Grpc\Product\ThirdPartySkuRequest $argument,
       $metadata = [], $options = []) {
@@ -89,8 +94,9 @@ class ProductClient extends \Grpc\BaseStub {
     /**
      * 获取spu详情
      * @param \Yinge\Grpc\Product\SpuDetailReq $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array $metadata                            metadata
+     * @param array $options                             call options
+     * @return \Grpc\UnaryCall
      */
     public function GetSpuDetail(\Yinge\Grpc\Product\SpuDetailReq $argument,
       $metadata = [], $options = []) {
@@ -103,8 +109,9 @@ class ProductClient extends \Grpc\BaseStub {
     /**
      * 获取sku详情
      * @param \Yinge\Grpc\Product\SkuDetailReq $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
+     * @param array $metadata                            metadata
+     * @param array $options                             call options
+     * @return \Grpc\UnaryCall
      */
     public function GetSkuDetail(\Yinge\Grpc\Product\SkuDetailReq $argument,
       $metadata = [], $options = []) {

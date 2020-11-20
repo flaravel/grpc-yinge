@@ -43,9 +43,16 @@ class AttrAndValRelation extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Product.Attr attr = 1;</code>
      * @return \Yinge\Grpc\Product\Attr
      */
-    public function getAttr()
-    {
-        return $this->attr;
+    public function getAttr () {
+        return isset($this->attr) ? $this->attr : null;
+    }
+
+    public function hasAttr () {
+        return isset($this->attr);
+    }
+
+    public function clearAttr () {
+        unset($this->attr);
     }
 
     /**
@@ -53,8 +60,7 @@ class AttrAndValRelation extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Product\Attr $var
      * @return $this
      */
-    public function setAttr($var)
-    {
+    public function setAttr ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Product\Attr::class);
         $this->attr = $var;
 

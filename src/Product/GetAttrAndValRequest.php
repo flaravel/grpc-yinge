@@ -43,9 +43,16 @@ class GetAttrAndValRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Product.PageParam pageParam = 1;</code>
      * @return \Yinge\Grpc\Product\PageParam
      */
-    public function getPageParam()
-    {
-        return $this->pageParam;
+    public function getPageParam () {
+        return isset($this->pageParam) ? $this->pageParam : null;
+    }
+
+    public function hasPageParam () {
+        return isset($this->pageParam);
+    }
+
+    public function clearPageParam () {
+        unset($this->pageParam);
     }
 
     /**
@@ -53,8 +60,7 @@ class GetAttrAndValRequest extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Product\PageParam $var
      * @return $this
      */
-    public function setPageParam($var)
-    {
+    public function setPageParam ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Product\PageParam::class);
         $this->pageParam = $var;
 

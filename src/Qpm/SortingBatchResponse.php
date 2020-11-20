@@ -90,9 +90,16 @@ class SortingBatchResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Qpm.SortingBatch batch = 3;</code>
      * @return \Yinge\Grpc\Qpm\SortingBatch
      */
-    public function getBatch()
-    {
-        return $this->batch;
+    public function getBatch () {
+        return isset($this->batch) ? $this->batch : null;
+    }
+
+    public function hasBatch () {
+        return isset($this->batch);
+    }
+
+    public function clearBatch () {
+        unset($this->batch);
     }
 
     /**
@@ -100,8 +107,7 @@ class SortingBatchResponse extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Qpm\SortingBatch $var
      * @return $this
      */
-    public function setBatch($var)
-    {
+    public function setBatch ($var) {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Qpm\SortingBatch::class);
         $this->batch = $var;
 
