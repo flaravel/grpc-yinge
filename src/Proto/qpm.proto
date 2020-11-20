@@ -35,6 +35,8 @@ service QpmService {
     rpc StoreMateriel(StoreMaterielReq) returns(Response) {}
     // 入库物料历史记录
     rpc StoreMaterielHistory(SMHReq) returns (SMHResp) {}
+    // 入库物料详情
+    rpc StoreMaterielDetail(SMDReq) returns (SMDResp) {}
     // 获取工厂可生产spu
     rpc FactoryProduceSpuList(SpuListReq) returns (FactoryProduceResp) {}
     // 获取工厂可生产sku
@@ -102,6 +104,25 @@ message StoreMaterielReq {
     int64 stockType = 6;
 }
 
+// 入库详情 请求
+message SMDReq {
+    int64 checkId = 1;
+}
+
+// 入库详情 结果
+message SMDResp {
+    int64 mid = 1;
+    int64 factoryId = 2;
+    int64 storeNum = 3;
+    int64 storeType = 4;
+    int64 stockType = 5;
+    int64 id = 6;
+    int64 checkId = 7;
+    int64 beforeYingeStock = 8;
+    int64 afterYingeStock = 9;
+    int64 beforeScmStock = 10;
+    int64 afterScmStock = 11;
+}
 
 // 入库历史请求参数
 message SMHReq {
@@ -112,6 +133,7 @@ message SMHReq {
     string endAt = 5;
     int64 factoryId = 6;
     int64 mid = 7;
+    int64 status = 8;
 }
 // 入库历史返回参数
 message SMHResp {
@@ -132,6 +154,8 @@ message BaseMaterielHistory {
     BaseMateriel materiels = 9;
     string createdAt = 10;
     int64  stockType = 11;
+    string reason = 12;
+    int64 status = 13;
 }
 
 message FactoryExpressRequest {

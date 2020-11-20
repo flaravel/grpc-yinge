@@ -332,6 +332,21 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 入库物料详情
+     * @param \Yinge\Grpc\Qpm\SMDReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function StoreMaterielDetail(\Yinge\Grpc\Qpm\SMDReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/StoreMaterielDetail',
+        $argument,
+        ['\Yinge\Grpc\Qpm\SMDResp', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 获取工厂可生产spu
      * @param \Yinge\Grpc\Qpm\SpuListReq $argument input argument
      * @param array $metadata metadata
