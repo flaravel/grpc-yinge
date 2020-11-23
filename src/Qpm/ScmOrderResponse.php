@@ -92,16 +92,9 @@ class ScmOrderResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Qpm.ScmOrder scmOrder = 3;</code>
      * @return \Yinge\Grpc\Qpm\ScmOrder
      */
-    public function getScmOrder () {
-        return isset($this->scmOrder) ? $this->scmOrder : null;
-    }
-
-    public function hasScmOrder () {
-        return isset($this->scmOrder);
-    }
-
-    public function clearScmOrder () {
-        unset($this->scmOrder);
+    public function getScmOrder()
+    {
+        return $this->scmOrder;
     }
 
     /**
@@ -109,7 +102,8 @@ class ScmOrderResponse extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Qpm\ScmOrder $var
      * @return $this
      */
-    public function setScmOrder ($var) {
+    public function setScmOrder($var)
+    {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Qpm\ScmOrder::class);
         $this->scmOrder = $var;
 

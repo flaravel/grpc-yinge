@@ -9,22 +9,22 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>Qpm.UpdateOrderItemRequest</code>
+ * Generated from protobuf message <code>Qpm.CostSettleRequest</code>
  */
-class UpdateOrderItemRequest extends \Google\Protobuf\Internal\Message
+class CostSettleRequest extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>int32 orderId = 1;</code>
      */
     protected $orderId = 0;
     /**
-     * Generated from protobuf field <code>.Qpm.OrderItems productList = 2;</code>
+     * Generated from protobuf field <code>bool useInProduceTime = 2;</code>
      */
-    protected $productList = null;
+    protected $useInProduceTime = false;
     /**
-     * Generated from protobuf field <code>bool push = 3;</code>
+     * Generated from protobuf field <code>bool useCurrentTime = 3;</code>
      */
-    protected $push = false;
+    protected $useCurrentTime = false;
 
     /**
      * Constructor.
@@ -33,8 +33,8 @@ class UpdateOrderItemRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $orderId
-     *     @type \Yinge\Grpc\Qpm\OrderItems $productList
-     *     @type bool $push
+     *     @type bool $useInProduceTime
+     *     @type bool $useCurrentTime
      * }
      */
     public function __construct($data = NULL) {
@@ -65,45 +65,45 @@ class UpdateOrderItemRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.Qpm.OrderItems productList = 2;</code>
-     * @return \Yinge\Grpc\Qpm\OrderItems
+     * Generated from protobuf field <code>bool useInProduceTime = 2;</code>
+     * @return bool
      */
-    public function getProductList()
+    public function getUseInProduceTime()
     {
-        return $this->productList;
+        return $this->useInProduceTime;
     }
 
     /**
-     * Generated from protobuf field <code>.Qpm.OrderItems productList = 2;</code>
-     * @param \Yinge\Grpc\Qpm\OrderItems $var
+     * Generated from protobuf field <code>bool useInProduceTime = 2;</code>
+     * @param bool $var
      * @return $this
      */
-    public function setProductList($var)
+    public function setUseInProduceTime($var)
     {
-        GPBUtil::checkMessage($var, \Yinge\Grpc\Qpm\OrderItems::class);
-        $this->productList = $var;
+        GPBUtil::checkBool($var);
+        $this->useInProduceTime = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>bool push = 3;</code>
+     * Generated from protobuf field <code>bool useCurrentTime = 3;</code>
      * @return bool
      */
-    public function getPush()
+    public function getUseCurrentTime()
     {
-        return $this->push;
+        return $this->useCurrentTime;
     }
 
     /**
-     * Generated from protobuf field <code>bool push = 3;</code>
+     * Generated from protobuf field <code>bool useCurrentTime = 3;</code>
      * @param bool $var
      * @return $this
      */
-    public function setPush($var)
+    public function setUseCurrentTime($var)
     {
         GPBUtil::checkBool($var);
-        $this->push = $var;
+        $this->useCurrentTime = $var;
 
         return $this;
     }

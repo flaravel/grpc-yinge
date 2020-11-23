@@ -41,16 +41,9 @@ class DefectiveSpuResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Qpm.Response response = 1;</code>
      * @return \Yinge\Grpc\Qpm\Response
      */
-    public function getResponse () {
-        return isset($this->response) ? $this->response : null;
-    }
-
-    public function hasResponse () {
-        return isset($this->response);
-    }
-
-    public function clearResponse () {
-        unset($this->response);
+    public function getResponse()
+    {
+        return $this->response;
     }
 
     /**
@@ -58,7 +51,8 @@ class DefectiveSpuResponse extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Qpm\Response $var
      * @return $this
      */
-    public function setResponse ($var) {
+    public function setResponse($var)
+    {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Qpm\Response::class);
         $this->response = $var;
 

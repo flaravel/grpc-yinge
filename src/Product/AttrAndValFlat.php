@@ -43,16 +43,9 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Product.Attr attr = 1;</code>
      * @return \Yinge\Grpc\Product\Attr
      */
-    public function getAttr () {
-        return isset($this->attr) ? $this->attr : null;
-    }
-
-    public function hasAttr () {
-        return isset($this->attr);
-    }
-
-    public function clearAttr () {
-        unset($this->attr);
+    public function getAttr()
+    {
+        return $this->attr;
     }
 
     /**
@@ -60,7 +53,8 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Product\Attr $var
      * @return $this
      */
-    public function setAttr ($var) {
+    public function setAttr($var)
+    {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Product\Attr::class);
         $this->attr = $var;
 
@@ -71,16 +65,9 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Product.AttrVal attrVal = 2;</code>
      * @return \Yinge\Grpc\Product\AttrVal
      */
-    public function getAttrVal () {
-        return isset($this->attrVal) ? $this->attrVal : null;
-    }
-
-    public function hasAttrVal () {
-        return isset($this->attrVal);
-    }
-
-    public function clearAttrVal () {
-        unset($this->attrVal);
+    public function getAttrVal()
+    {
+        return $this->attrVal;
     }
 
     /**
@@ -88,7 +75,8 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Product\AttrVal $var
      * @return $this
      */
-    public function setAttrVal ($var) {
+    public function setAttrVal($var)
+    {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Product\AttrVal::class);
         $this->attrVal = $var;
 

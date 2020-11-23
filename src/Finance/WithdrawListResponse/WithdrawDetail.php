@@ -93,16 +93,9 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.MerchantInfo merchantInfo = 2;</code>
      * @return \Yinge\Grpc\Finance\MerchantInfo
      */
-    public function getMerchantInfo () {
-        return isset($this->merchantInfo) ? $this->merchantInfo : null;
-    }
-
-    public function hasMerchantInfo () {
-        return isset($this->merchantInfo);
-    }
-
-    public function clearMerchantInfo () {
-        unset($this->merchantInfo);
+    public function getMerchantInfo()
+    {
+        return $this->merchantInfo;
     }
 
     /**
@@ -110,7 +103,8 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Finance\MerchantInfo $var
      * @return $this
      */
-    public function setMerchantInfo ($var) {
+    public function setMerchantInfo($var)
+    {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\MerchantInfo::class);
         $this->merchantInfo = $var;
 
@@ -209,16 +203,9 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.finance.BankBind bankBounded = 7;</code>
      * @return \Yinge\Grpc\Finance\BankBind
      */
-    public function getBankBounded () {
-        return isset($this->bankBounded) ? $this->bankBounded : null;
-    }
-
-    public function hasBankBounded () {
-        return isset($this->bankBounded);
-    }
-
-    public function clearBankBounded () {
-        unset($this->bankBounded);
+    public function getBankBounded()
+    {
+        return $this->bankBounded;
     }
 
     /**
@@ -226,7 +213,8 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Finance\BankBind $var
      * @return $this
      */
-    public function setBankBounded ($var) {
+    public function setBankBounded($var)
+    {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\BankBind::class);
         $this->bankBounded = $var;
 

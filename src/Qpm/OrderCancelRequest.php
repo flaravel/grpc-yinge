@@ -63,16 +63,9 @@ class OrderCancelRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Qpm.Operator operator = 3;</code>
      * @return \Yinge\Grpc\Qpm\Operator
      */
-    public function getOperator () {
-        return isset($this->operator) ? $this->operator : null;
-    }
-
-    public function hasOperator () {
-        return isset($this->operator);
-    }
-
-    public function clearOperator () {
-        unset($this->operator);
+    public function getOperator()
+    {
+        return $this->operator;
     }
 
     /**
@@ -80,7 +73,8 @@ class OrderCancelRequest extends \Google\Protobuf\Internal\Message
      * @param \Yinge\Grpc\Qpm\Operator $var
      * @return $this
      */
-    public function setOperator ($var) {
+    public function setOperator($var)
+    {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Qpm\Operator::class);
         $this->operator = $var;
 
