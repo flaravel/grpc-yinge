@@ -1,59 +1,334 @@
 syntax = "proto3";
 
-import "finance_transaction.proto";
 option php_metadata_namespace = "Yinge\\Grpc\\Finance\\GPBMetadata";
 option php_namespace = "Yinge\\Grpc\\Finance";
 
-package Finance;
+import "finance_transaction.proto";
+package finance;
 
 service Merchant {
+  rpc SingleMerchant(SingleMerchantQuery) returns (MerchantListResponse.Items) {}
   rpc MerchantList(MerchantQuery) returns (MerchantListResponse) {}
   rpc NewMerchant(MerchantInfo) returns (EmptyResponse) {}
-  rpc BindAccount(BindRequest) returns (EmptyResponse) {}
+  rpc Bills(BillsQuery) returns(BillList) {}
+  rpc WithdrawList(WithdrawListRequest) returns (WithdrawListResponse) {}
+  // 后台审核提现
+  rpc WithdrawReport(WithdrawReportRequest) returns (EmptyResponse) {}
+  // 发起提现申请
+  rpc Withdraw(WithdrawRequest) returns (EmptyResponse) {}
+  // 实名验证
+  rpc IdAuthInfo(SingleMerchantQuery) returns (AuthInfo) {}
+  rpc IdAuthConfirm(IdAutoInfo) returns(EmptyResponse) {}
 
+  // 发起分账
   rpc AutoSplit(SplitRequest) returns(EmptyResponse) {}
   rpc Refund(RefundRequest) returns(EmptyResponse) {}
+  // 分账规则
+  rpc SplitRules(SplitRulesRequest) returns (SplitRulesResponse){}
+  // 查找没有配置分账比例的spu
+  rpc NoSplitSpu(IdList) returns (IdList) {}
+  rpc BatchUpdateSplitRules(BatchRules) returns (BatchUpdateResult) {}
+  // 分账比例修改历史
+  rpc SplitRuleHistory(SplitRuleHistoryRequest) returns (SplitRuleHistories) {}
 
+  rpc BankList(EmptyResponse) returns (BankListResponse) {}
+  // 绑定银行卡
+  rpc BindAccount(BindRequest) returns (EmptyResponse) {}
+  rpc UnbindAccount(UnbindRequest) returns (EmptyResponse) {}
+  rpc ReportBindCode(ReportBindCodeRequest) returns (EmptyResponse) {}
+  rpc ReportBindAmount(ReportBindAmountRequest) returns (EmptyResponse) {}
+
+  // 结算
+  rpc SettleAccounts(SettleRequest) returns (EmptyResponse) {}
+  // 查询补贴转账信息
+  rpc SubsidyTransferInfo(SubsidyTransferRequest) returns (SubsidyTransfer) {}
+  rpc SendTransferSms(SendTransferSmsRequest) returns (EmptyResponse) {}
+  rpc VerifyTransferSms(VerifyTransferSmsRequest) returns (EmptyResponse) {}
+
+
+  //查询分账明细
+  rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
+
+}
+
+message SendTransferSmsRequest {
+  int64 id = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+}
+
+message VerifyTransferSmsRequest {
+  int64 id = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+  string code = 4;
+}
+
+message SubsidyTransferRequest {
+  int64 id = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+}
+
+message SubsidyTransfer {
+  int64 id = 1;
+  int64 amount = 2;
+  int64 receiverId = 3;
+  int64 receiverType = 4;
+  int64 status = 5;
+}
+
+message SettleRequest{
+  int64 receiverId = 1;
+  int64 receiverType = 2;
+  int64 undertakerId = 3;
+  int64 undertakerType = 4;
+  int64 settle = 5;
+  int64 subsidy = 6;
+  int64 reparation = 7;
+  string billCycle = 8;
+  string reparationCycle = 10;
+  int64 billId = 9;
+  int64 reparationId = 11;
+}
+
+message SubsidyRequest {
+  int64 receiverId = 1;
+  int64 receiverType = 6;
+  int64 amount = 2;
+  int64 undertakerId = 3;
+  int64 undertakerType = 7;
+  string remark = 4;
+  int64 relatedId = 5;
+}
+
+message ReportBindCodeRequest{
+  int64 id = 1;
+  int64 merchantType = 2;
+  string code = 3;
+  string acctNo = 4;
+}
+
+message ReportBindAmountRequest{
+  int64 id = 1;
+  int64 merchantType = 2;
+  int64 amount = 3;
+  string acctNo = 4;
+}
+
+message BankListResponse {
+  message Item {
+    int64 id = 1;
+    string name = 2;
+    string fullName = 3;
+    string code = 4;
+  }
+
+  repeated Item list = 1;
+}
+
+
+message IdAutoInfo {
+  int64 id = 1;
+  int64 merchantType = 2;
+  string name = 3;
+  string idNumber = 4;
+  string mobile = 5;
+  bool authed = 6;
+}
+
+
+message SingleMerchantQuery {
+  int64 originId = 1;
+  int64 merchantType = 2;
+}
+
+message SplitRuleHistoryRequest{
+  int64 spuId = 1;
+  int64 startTime = 2;
+  int64 stopTime = 3;
+  int64 page = 4;
+  int64 pageSize = 5;
+}
+
+message SplitRuleHistories{
+  message UpdateHistory{
+    int64 id = 1;
+    int64 spuId = 2;
+    map<int64, int64> rules = 3;
+    int64 operator = 4;
+    int64 method = 5;
+    int64 createdAt = 6;
+  }
+
+  repeated UpdateHistory list = 1;
+  int64 total = 2;
+}
+
+
+
+message BatchRules {
+  repeated int64 ids = 1;
+  map<int64, int64> rules = 2;
+  int64 operator = 3;
+  int64 method = 4;
+}
+
+message BatchUpdateResult {
+  int64 succ = 1;
+  int64 fail = 2;
+}
+
+message SplitRulesRequest{
+  int64 spuId = 1;
+  int64 page = 2;
+  int64 pageSize = 3;
+}
+
+message SplitRulesResponse{
+  message SplitRule {
+    int64 spuId = 1;
+    map<int64, int64> rules = 2;
+    int64 startTime = 3;
+    int64 stopTime = 4;
+    int64 status = 5;
+  }
+
+  repeated SplitRule list = 1;
+  int64 total = 2;
+}
+
+
+message IdList {
+  repeated int64 list = 1;
+}
+
+message WithdrawReportRequest {
+  int64 id = 1;
+  int64 status = 2;
+  string remark = 3;
+}
+
+message WithdrawListRequest {
+  int64 merchantType = 1;
+  int64 originId = 2;
+  int64 startTime = 3;
+  int64 stopTime = 4;
+  int64 status = 5;
+  int64 page = 6;
+  int64 pageSize = 7;
+  int64 id = 8;
+}
+
+message WithdrawListResponse {
+  message WithdrawDetail {
+    int64 id = 1;
+    MerchantInfo merchantInfo = 2;
+    int64 amount = 3;
+    int64 status = 4;
+    int64 applyAt = 5;
+    string remark = 6;
+    BankBind bankBounded = 7;
+    int64 handlingFee = 8;
+  }
+
+  repeated WithdrawDetail list = 1;
+  int64 total = 2;
 
 }
 
 
+message BillsQuery {
+  int64 merchantId = 1;
+  int64 orderId = 2;
+  int64 startTime = 3;
+  int64 stopTime = 4;
+  int64 category = 5;
+  int64 page = 6;
+  int64 pageSize = 7;
+  int64 originId = 8;
+  int64 merchantType = 9;
+}
+
+message BillList {
+  message Bill {
+    int64 id = 1;
+    int64 orderId = 2;
+    int64 transType = 3;
+    int64 category = 4;
+    int64 amount = 5;
+    string remark = 6;
+    MerchantInfo merchantInfo = 7;
+    int64 createdAt = 8;
+  }
+
+  repeated Bill list = 1;
+  int64 total = 2;
+}
+
+message WithdrawRequest {
+  int64 id = 1;
+  int64 type = 2;
+  int64 amount = 3;
+  int64 accountId = 4;
+
+}
 
 message MerchantQuery {
   int64 type = 1;
   int64 id = 2;
   int64 page = 3;
+  int64 pageSize = 4;
+}
+
+message AccountBalance {
+  int64 unsettledAmount = 1;
+  int64 withdrawable = 2;
+  int64 realTotalAmount = 3;
+  int64 realWithdrawable = 4;
+  int64 realFrozen = 5;
+}
+
+message BankBind {
+  int64 bankId = 1;
+  string bankName = 2;
+  string accountName = 3;
+  string accountNo = 4;
+  string mobile = 5;
+  int64 idType = 6;
+  string idNumber = 7;
+  int64 status = 8;
+  int64 bindingTime = 9;
+  int64 acctId = 10;
 }
 
 message MerchantListResponse {
-  message Account {
-    int64 unsettledAmount = 1;
-    int64 withdrawable = 2;
-    int64 realTotalAmount = 3;
-    int64 realWithdrawable = 4;
-    int64 realFrozen = 5;
-  }
-  message BankBind {
-    int64 bankId = 1;
-    string bankName = 2;
-    string accountName = 3;
-    string accountNo = 4;
-    string mobile = 5;
-    int64 status = 6;
-  }
   message Items {
     MerchantInfo baseInfo = 1;
-    Account account = 2;
-    repeated BankBind bankBounded = 3;
+    AccountBalance account = 2;
+    AuthInfo authInfo = 3;
+    repeated BankBind bankBounded = 4;
   }
 
   repeated Items list = 1;
+  int64 totalCount = 2;
 }
 
 message MerchantInfo {
   int64 id = 1;
+  int64 originId = 2;
+  string name = 3;
+  MerchantType type = 4;
+  string boundedName = 5;
+}
+
+message AuthInfo {
+  int64 id = 1;
   string name = 2;
-  MerchantType type = 3;
+  string mobile = 3;
+  string idNumber = 4;
+  int64 authTime = 5;
+  int64 status = 6;
 }
 
 
@@ -71,7 +346,32 @@ message BindRequest {
   int64 bankId = 5;
   string mobile = 6;
   int64 method = 7;
-  int64 merchantId = 8;
+  int64 originId = 8;
+  int64 merchantType = 9;
+}
+
+message UnbindRequest {
+  int64 acctId = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+}
+
+message SplitQueryRequest {
+  int64 orderId = 1;
+}
+
+message SplitDetailsResponse {
+  repeated SplitDetail list = 1;
+}
+
+message SplitDetail {
+  int64 orderId = 1;
+  int64 merchantId = 2;
+  int64 merchantOriginId = 3;
+  int64 merchantType = 4;
+  int64 amount = 5;
+  int64 transFee = 6;
+  int64 rechargeStatus = 7;
 }
 
 message EmptyResponse {

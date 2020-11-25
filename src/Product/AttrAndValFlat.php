@@ -45,17 +45,7 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
      */
     public function getAttr()
     {
-        return isset($this->attr) ? $this->attr : null;
-    }
-
-    public function hasAttr()
-    {
-        return isset($this->attr);
-    }
-
-    public function clearAttr()
-    {
-        unset($this->attr);
+        return $this->attr;
     }
 
     /**
@@ -77,17 +67,7 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
      */
     public function getAttrVal()
     {
-        return isset($this->attrVal) ? $this->attrVal : null;
-    }
-
-    public function hasAttrVal()
-    {
-        return isset($this->attrVal);
-    }
-
-    public function clearAttrVal()
-    {
-        unset($this->attrVal);
+        return $this->attrVal;
     }
 
     /**

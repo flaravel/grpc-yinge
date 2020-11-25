@@ -59,6 +59,14 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 stockType = 11;</code>
      */
     protected $stockType = 0;
+    /**
+     * Generated from protobuf field <code>string reason = 12;</code>
+     */
+    protected $reason = '';
+    /**
+     * Generated from protobuf field <code>int64 status = 13;</code>
+     */
+    protected $status = 0;
 
     /**
      * Constructor.
@@ -77,6 +85,8 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      *     @type \Yinge\Grpc\Qpm\BaseMateriel $materiels
      *     @type string $createdAt
      *     @type int|string $stockType
+     *     @type string $reason
+     *     @type int|string $status
      * }
      */
     public function __construct($data = NULL) {
@@ -266,17 +276,7 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      */
     public function getMateriels()
     {
-        return isset($this->materiels) ? $this->materiels : null;
-    }
-
-    public function hasMateriels()
-    {
-        return isset($this->materiels);
-    }
-
-    public function clearMateriels()
-    {
-        unset($this->materiels);
+        return $this->materiels;
     }
 
     /**
@@ -332,6 +332,50 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->stockType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string reason = 12;</code>
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->reason;
+    }
+
+    /**
+     * Generated from protobuf field <code>string reason = 12;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setReason($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->reason = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 status = 13;</code>
+     * @return int|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 status = 13;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setStatus($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->status = $var;
 
         return $this;
     }

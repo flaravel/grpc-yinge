@@ -9,7 +9,7 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>Finance.MerchantInfo</code>
+ * Generated from protobuf message <code>finance.MerchantInfo</code>
  */
 class MerchantInfo extends \Google\Protobuf\Internal\Message
 {
@@ -18,13 +18,21 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
      */
     protected $id = 0;
     /**
-     * Generated from protobuf field <code>string name = 2;</code>
+     * Generated from protobuf field <code>int64 originId = 2;</code>
+     */
+    protected $originId = 0;
+    /**
+     * Generated from protobuf field <code>string name = 3;</code>
      */
     protected $name = '';
     /**
-     * Generated from protobuf field <code>.Finance.MerchantType type = 3;</code>
+     * Generated from protobuf field <code>.finance.MerchantType type = 4;</code>
      */
     protected $type = 0;
+    /**
+     * Generated from protobuf field <code>string boundedName = 5;</code>
+     */
+    protected $boundedName = '';
 
     /**
      * Constructor.
@@ -33,8 +41,10 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $id
+     *     @type int|string $originId
      *     @type string $name
      *     @type int $type
+     *     @type string $boundedName
      * }
      */
     public function __construct($data = NULL) {
@@ -65,7 +75,29 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 2;</code>
+     * Generated from protobuf field <code>int64 originId = 2;</code>
+     * @return int|string
+     */
+    public function getOriginId()
+    {
+        return $this->originId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 originId = 2;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setOriginId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->originId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string name = 3;</code>
      * @return string
      */
     public function getName()
@@ -74,7 +106,7 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 2;</code>
+     * Generated from protobuf field <code>string name = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -87,7 +119,7 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.Finance.MerchantType type = 3;</code>
+     * Generated from protobuf field <code>.finance.MerchantType type = 4;</code>
      * @return int
      */
     public function getType()
@@ -96,7 +128,7 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.Finance.MerchantType type = 3;</code>
+     * Generated from protobuf field <code>.finance.MerchantType type = 4;</code>
      * @param int $var
      * @return $this
      */
@@ -104,6 +136,28 @@ class MerchantInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Yinge\Grpc\Finance\MerchantType::class);
         $this->type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string boundedName = 5;</code>
+     * @return string
+     */
+    public function getBoundedName()
+    {
+        return $this->boundedName;
+    }
+
+    /**
+     * Generated from protobuf field <code>string boundedName = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBoundedName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->boundedName = $var;
 
         return $this;
     }

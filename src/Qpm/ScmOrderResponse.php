@@ -94,17 +94,7 @@ class ScmOrderResponse extends \Google\Protobuf\Internal\Message
      */
     public function getScmOrder()
     {
-        return isset($this->scmOrder) ? $this->scmOrder : null;
-    }
-
-    public function hasScmOrder()
-    {
-        return isset($this->scmOrder);
-    }
-
-    public function clearScmOrder()
-    {
-        unset($this->scmOrder);
+        return $this->scmOrder;
     }
 
     /**

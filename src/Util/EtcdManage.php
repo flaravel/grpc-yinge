@@ -19,6 +19,8 @@ class EtcdManage {
     const DefaultServerPCPrefix = '/v1/grpc/server/pc/';
     /** @var string qpm */
     const DefaultServerQpmPrefix = '/v1/grpc/server/qpm/';
+    /** @var string qpm */
+    const DefaultServerFnPrefix = '/v1/grpc/server/fn/';
 
     /** @var string webtest环境 前缀 */
     const EnvWebTestPrefix = '/webtest';
@@ -37,8 +39,10 @@ class EtcdManage {
     const AllowPrefixList = [
         self::DefaultServerPCPrefix,
         self::DefaultServerQpmPrefix,
+        self::DefaultServerFnPrefix,
         self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
+        self::EnvWebTestPrefix.self::DefaultServerFnPrefix,
 
         self::EnvQAPrefix.self::DefaultServerPCPrefix,
         self::EnvQAPrefix.self::DefaultServerQpmPrefix,
@@ -60,7 +64,7 @@ class EtcdManage {
 
     public function __construct (string $prefix) {
         if (!in_array($prefix,self::AllowPrefixList)) {
-            throw new GrpcException('invalid etcd prefix');
+            throw new GrpcException('invalid etcd prefix: ' . $prefix);
         }
         $this->currentPrefix = $prefix;
         $this->client = new Client(self::ETCD_GATEWAY,'v3alpha');

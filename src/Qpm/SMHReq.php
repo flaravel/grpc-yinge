@@ -43,6 +43,10 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 mid = 7;</code>
      */
     protected $mid = 0;
+    /**
+     * Generated from protobuf field <code>int64 status = 8;</code>
+     */
+    protected $status = 0;
 
     /**
      * Constructor.
@@ -57,6 +61,7 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      *     @type string $endAt
      *     @type int|string $factoryId
      *     @type int|string $mid
+     *     @type int|string $status
      * }
      */
     public function __construct($data = NULL) {
@@ -214,6 +219,28 @@ class SMHReq extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->mid = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 status = 8;</code>
+     * @return int|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 status = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setStatus($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->status = $var;
 
         return $this;
     }

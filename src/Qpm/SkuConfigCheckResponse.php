@@ -43,17 +43,7 @@ class SkuConfigCheckResponse extends \Google\Protobuf\Internal\Message
      */
     public function getResponse()
     {
-        return isset($this->response) ? $this->response : null;
-    }
-
-    public function hasResponse()
-    {
-        return isset($this->response);
-    }
-
-    public function clearResponse()
-    {
-        unset($this->response);
+        return $this->response;
     }
 
     /**
