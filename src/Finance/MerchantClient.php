@@ -299,6 +299,46 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 查询补贴转账信息
+     * @param \Yinge\Grpc\Finance\SubsidyTransferRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SubsidyTransferInfo(\Yinge\Grpc\Finance\SubsidyTransferRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SubsidyTransferInfo',
+        $argument,
+        ['\Yinge\Grpc\Finance\SubsidyTransfer', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Finance\SendTransferSmsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SendTransferSms(\Yinge\Grpc\Finance\SendTransferSmsRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SendTransferSms',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Finance\VerifyTransferSmsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function VerifyTransferSms(\Yinge\Grpc\Finance\VerifyTransferSmsRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/VerifyTransferSms',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 查询分账明细
      * @param \Yinge\Grpc\Finance\SplitQueryRequest $argument input argument
      * @param array $metadata metadata

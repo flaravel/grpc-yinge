@@ -40,10 +40,42 @@ service Merchant {
 
   // 结算
   rpc SettleAccounts(SettleRequest) returns (EmptyResponse) {}
+  // 查询补贴转账信息
+  rpc SubsidyTransferInfo(SubsidyTransferRequest) returns (SubsidyTransfer) {}
+  rpc SendTransferSms(SendTransferSmsRequest) returns (EmptyResponse) {}
+  rpc VerifyTransferSms(VerifyTransferSmsRequest) returns (EmptyResponse) {}
+
 
   //查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
 
+}
+
+message SendTransferSmsRequest {
+  int64 id = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+}
+
+message VerifyTransferSmsRequest {
+  int64 id = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+  string code = 4;
+}
+
+message SubsidyTransferRequest {
+  int64 id = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+}
+
+message SubsidyTransfer {
+  int64 id = 1;
+  int64 amount = 2;
+  int64 receiverId = 3;
+  int64 receiverType = 4;
+  int64 status = 5;
 }
 
 message SettleRequest{
