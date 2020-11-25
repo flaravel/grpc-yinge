@@ -290,6 +290,19 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Yinge\Grpc\Qpm\CostSettleRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function CostSettled(\Yinge\Grpc\Qpm\CostSettleRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/CostSettled',
+        $argument,
+        ['\Yinge\Grpc\Qpm\Response', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 物料列表
      * @param \Yinge\Grpc\Qpm\MListReq $argument input argument
      * @param array $metadata metadata
@@ -328,6 +341,20 @@ class QpmServiceClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/Qpm.QpmService/StoreMaterielHistory',
         $argument,
         ['\Yinge\Grpc\Qpm\SMHResp', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 入库物料详情
+     * @param \Yinge\Grpc\Qpm\SMDReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function StoreMaterielDetail(\Yinge\Grpc\Qpm\SMDReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/StoreMaterielDetail',
+        $argument,
+        ['\Yinge\Grpc\Qpm\SMDResp', 'decode'],
         $metadata, $options);
     }
 
