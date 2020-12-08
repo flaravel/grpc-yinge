@@ -46,9 +46,33 @@ service Merchant {
   rpc VerifyTransferSms(VerifyTransferSmsRequest) returns (EmptyResponse) {}
 
 
-  //查询分账明细
+  // 查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
+  // 查询分账列表
+  rpc SplitList(SplitListRequest) returns(SplitListResponse) {}
 
+}
+
+message SplitListRequest {
+  int64 orderId = 1;
+  int64 startTime = 2;
+  int64 stopTime = 3;
+  int64 page = 4;
+  repeated SingleMerchantQuery merchants = 5;
+}
+
+message SplitListResponse {
+  message SplitInfo {
+    int64 orderId = 1;
+    int64 factoryId = 2;
+    int64 branchId = 3;
+    map<int64, int64> amounts = 4;
+    int64 createdAt = 5;
+  }
+
+  repeated SplitInfo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
 }
 
 message SendTransferSmsRequest {
