@@ -33,6 +33,10 @@ class SplitInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 createdAt = 5;</code>
      */
     protected $createdAt = 0;
+    /**
+     * Generated from protobuf field <code>string remark = 6;</code>
+     */
+    protected $remark = '';
 
     /**
      * Constructor.
@@ -45,6 +49,7 @@ class SplitInfo extends \Google\Protobuf\Internal\Message
      *     @type int|string $branchId
      *     @type array|\Google\Protobuf\Internal\MapField $amounts
      *     @type int|string $createdAt
+     *     @type string $remark
      * }
      */
     public function __construct($data = NULL) {
@@ -158,6 +163,28 @@ class SplitInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->createdAt = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string remark = 6;</code>
+     * @return string
+     */
+    public function getRemark()
+    {
+        return $this->remark;
+    }
+
+    /**
+     * Generated from protobuf field <code>string remark = 6;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRemark($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->remark = $var;
 
         return $this;
     }

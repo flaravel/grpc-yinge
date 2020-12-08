@@ -68,6 +68,7 @@ message SplitListResponse {
     int64 branchId = 3;
     map<int64, int64> amounts = 4;
     int64 createdAt = 5;
+    string remark = 6;
   }
 
   repeated SplitInfo list = 1;
