@@ -46,10 +46,10 @@ service Merchant {
   rpc VerifyTransferSms(VerifyTransferSmsRequest) returns (EmptyResponse) {}
 
 
-  // 查询分账明细
-  rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
   // 查询分账列表
   rpc SplitList(SplitListRequest) returns(SplitListResponse) {}
+  // 查询分账明细
+  rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
 
 }
 
