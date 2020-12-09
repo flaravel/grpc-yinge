@@ -37,6 +37,14 @@ class SplitInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string remark = 6;</code>
      */
     protected $remark = '';
+    /**
+     * Generated from protobuf field <code>int64 factoryMid = 7;</code>
+     */
+    protected $factoryMid = 0;
+    /**
+     * Generated from protobuf field <code>int64 expressMid = 8;</code>
+     */
+    protected $expressMid = 0;
 
     /**
      * Constructor.
@@ -50,6 +58,8 @@ class SplitInfo extends \Google\Protobuf\Internal\Message
      *     @type array|\Google\Protobuf\Internal\MapField $amounts
      *     @type int|string $createdAt
      *     @type string $remark
+     *     @type int|string $factoryMid
+     *     @type int|string $expressMid
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +195,50 @@ class SplitInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->remark = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 factoryMid = 7;</code>
+     * @return int|string
+     */
+    public function getFactoryMid()
+    {
+        return $this->factoryMid;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 factoryMid = 7;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setFactoryMid($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->factoryMid = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 expressMid = 8;</code>
+     * @return int|string
+     */
+    public function getExpressMid()
+    {
+        return $this->expressMid;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 expressMid = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setExpressMid($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->expressMid = $var;
 
         return $this;
     }
