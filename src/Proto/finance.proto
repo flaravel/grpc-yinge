@@ -69,6 +69,8 @@ message SplitListResponse {
     map<int64, int64> amounts = 4;
     int64 createdAt = 5;
     string remark = 6;
+    int64 factoryMid = 7;
+    int64 expressMid = 8;
   }
 
   repeated SplitInfo list = 1;
