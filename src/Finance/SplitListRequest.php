@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class SplitListRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int64 orderId = 1;</code>
+     * Generated from protobuf field <code>repeated int64 orderIds = 1;</code>
      */
-    protected $orderId = 0;
+    private $orderIds;
     /**
      * Generated from protobuf field <code>int64 startTime = 2;</code>
      */
@@ -40,7 +40,7 @@ class SplitListRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type int|string $orderId
+     *     @type int[]|string[]|\Google\Protobuf\Internal\RepeatedField $orderIds
      *     @type int|string $startTime
      *     @type int|string $stopTime
      *     @type int|string $page
@@ -53,23 +53,23 @@ class SplitListRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 orderId = 1;</code>
-     * @return int|string
+     * Generated from protobuf field <code>repeated int64 orderIds = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getOrderId()
+    public function getOrderIds()
     {
-        return $this->orderId;
+        return $this->orderIds;
     }
 
     /**
-     * Generated from protobuf field <code>int64 orderId = 1;</code>
-     * @param int|string $var
+     * Generated from protobuf field <code>repeated int64 orderIds = 1;</code>
+     * @param int[]|string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setOrderId($var)
+    public function setOrderIds($var)
     {
-        GPBUtil::checkInt64($var);
-        $this->orderId = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT64);
+        $this->orderIds = $arr;
 
         return $this;
     }
