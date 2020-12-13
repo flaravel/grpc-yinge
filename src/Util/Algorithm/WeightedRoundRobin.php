@@ -58,6 +58,8 @@ class WeightedRoundRobin implements HostInterface
                 }
             }
 
+            // todo php 记不住上次权重 , 通过打乱数组造成 伪随机
+            shuffle($this->services);
             if ($this->services[$i]['weight'] >= $this->currentWeight) {
                 $this->currentPos = $i;
 
