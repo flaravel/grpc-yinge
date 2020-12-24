@@ -290,6 +290,20 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 查询订单成本明细
+     * @param \Yinge\Grpc\Qpm\OrderCostQueryRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function getCostDetails(\Yinge\Grpc\Qpm\OrderCostQueryRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/getCostDetails',
+        $argument,
+        ['\Yinge\Grpc\Qpm\OrderCostDetailsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Yinge\Grpc\Qpm\CostSettleRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
