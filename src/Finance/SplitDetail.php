@@ -41,6 +41,10 @@ class SplitDetail extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 rechargeStatus = 7;</code>
      */
     protected $rechargeStatus = 0;
+    /**
+     * Generated from protobuf field <code>int64 splitTime = 8;</code>
+     */
+    protected $splitTime = 0;
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class SplitDetail extends \Google\Protobuf\Internal\Message
      *     @type int|string $amount
      *     @type int|string $transFee
      *     @type int|string $rechargeStatus
+     *     @type int|string $splitTime
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +217,28 @@ class SplitDetail extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->rechargeStatus = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 splitTime = 8;</code>
+     * @return int|string
+     */
+    public function getSplitTime()
+    {
+        return $this->splitTime;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 splitTime = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSplitTime($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->splitTime = $var;
 
         return $this;
     }
