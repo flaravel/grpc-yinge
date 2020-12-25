@@ -409,6 +409,7 @@ message SplitDetail {
   int64 amount = 5;
   int64 transFee = 6;
   int64 rechargeStatus = 7;
+  int64 splitTime = 8;
 }
 
 message EmptyResponse {
