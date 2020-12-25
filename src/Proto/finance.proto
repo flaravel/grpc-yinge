@@ -44,13 +44,23 @@ service Merchant {
   rpc SubsidyTransferInfo(SubsidyTransferRequest) returns (SubsidyTransfer) {}
   rpc SendTransferSms(SendTransferSmsRequest) returns (EmptyResponse) {}
   rpc VerifyTransferSms(VerifyTransferSmsRequest) returns (EmptyResponse) {}
-
+  // 会员间交易
+  rpc MemberTransfer(MemberTransferRequest) returns (EmptyResponse) {}
 
   // 查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
   // 查询分账列表
   rpc SplitList(SplitListRequest) returns(SplitListResponse) {}
 
+}
+
+message MemberTransferRequest {
+  int64 inId = 1;
+  int64 inType = 2;
+  int64 outId = 3;
+  int64 outType = 4;
+  uint32 amount = 5;
+  string remark = 6;
 }
 
 message SplitListRequest {

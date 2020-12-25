@@ -339,6 +339,20 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 会员间交易
+     * @param \Yinge\Grpc\Finance\MemberTransferRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function MemberTransfer(\Yinge\Grpc\Finance\MemberTransferRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/MemberTransfer',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 查询分账明细
      * @param \Yinge\Grpc\Finance\SplitQueryRequest $argument input argument
      * @param array $metadata metadata
