@@ -339,16 +339,16 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
-     * 查询分账列表
-     * @param \Yinge\Grpc\Finance\SplitListRequest $argument input argument
+     * 会员间交易
+     * @param \Yinge\Grpc\Finance\MemberTransferRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function SplitList(\Yinge\Grpc\Finance\SplitListRequest $argument,
+    public function MemberTransfer(\Yinge\Grpc\Finance\MemberTransferRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/finance.Merchant/SplitList',
+        return $this->_simpleRequest('/finance.Merchant/MemberTransfer',
         $argument,
-        ['\Yinge\Grpc\Finance\SplitListResponse', 'decode'],
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -363,6 +363,20 @@ class MerchantClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/finance.Merchant/SplitDetails',
         $argument,
         ['\Yinge\Grpc\Finance\SplitDetailsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 查询分账列表
+     * @param \Yinge\Grpc\Finance\SplitListRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SplitList(\Yinge\Grpc\Finance\SplitListRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SplitList',
+        $argument,
+        ['\Yinge\Grpc\Finance\SplitListResponse', 'decode'],
         $metadata, $options);
     }
 

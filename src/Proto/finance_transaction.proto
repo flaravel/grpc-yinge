@@ -15,6 +15,7 @@ message SplitRequest {
     bool IsCurrent = 5;
     int64 SubOrderId = 6;
     string Remark = 7;
+    int64 Postage = 8;
   }
 
   string orderId = 1;

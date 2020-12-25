@@ -41,6 +41,10 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string Remark = 7;</code>
      */
     protected $Remark = '';
+    /**
+     * Generated from protobuf field <code>int64 Postage = 8;</code>
+     */
+    protected $Postage = 0;
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      *     @type bool $IsCurrent
      *     @type int|string $SubOrderId
      *     @type string $Remark
+     *     @type int|string $Postage
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +217,28 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->Remark = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 Postage = 8;</code>
+     * @return int|string
+     */
+    public function getPostage()
+    {
+        return $this->Postage;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 Postage = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setPostage($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->Postage = $var;
 
         return $this;
     }
