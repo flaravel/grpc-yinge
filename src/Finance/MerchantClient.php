@@ -353,6 +353,20 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 验证个人转账短信并完成转账
+     * @param \Yinge\Grpc\Finance\VerifyMemberTransferSmsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function VerifyMemberTransferSms(\Yinge\Grpc\Finance\VerifyMemberTransferSmsRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/VerifyMemberTransferSms',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 查询分账明细
      * @param \Yinge\Grpc\Finance\SplitQueryRequest $argument input argument
      * @param array $metadata metadata

@@ -29,6 +29,14 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 pageSize = 4;</code>
      */
     protected $pageSize = 0;
+    /**
+     * Generated from protobuf field <code>string mobile = 5;</code>
+     */
+    protected $mobile = '';
+    /**
+     * Generated from protobuf field <code>bool realBalance = 6;</code>
+     */
+    protected $realBalance = false;
 
     /**
      * Constructor.
@@ -40,6 +48,8 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
      *     @type int|string $id
      *     @type int|string $page
      *     @type int|string $pageSize
+     *     @type string $mobile
+     *     @type bool $realBalance
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +141,50 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->pageSize = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string mobile = 5;</code>
+     * @return string
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * Generated from protobuf field <code>string mobile = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setMobile($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->mobile = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool realBalance = 6;</code>
+     * @return bool
+     */
+    public function getRealBalance()
+    {
+        return $this->realBalance;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool realBalance = 6;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setRealBalance($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->realBalance = $var;
 
         return $this;
     }
