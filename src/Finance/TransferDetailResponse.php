@@ -42,9 +42,9 @@ class TransferDetailResponse extends \Google\Protobuf\Internal\Message
      */
     protected $payeeMobile = '';
     /**
-     * Generated from protobuf field <code>int64 type = 8;</code>
+     * Generated from protobuf field <code>int64 amount = 8;</code>
      */
-    protected $type = 0;
+    protected $amount = 0;
     /**
      * Generated from protobuf field <code>int64 tradeTime = 9;</code>
      */
@@ -67,7 +67,7 @@ class TransferDetailResponse extends \Google\Protobuf\Internal\Message
      *     @type int|string $payeeId
      *     @type int|string $payeeType
      *     @type string $payeeMobile
-     *     @type int|string $type
+     *     @type int|string $amount
      *     @type int|string $tradeTime
      *     @type string $remark
      * }
@@ -232,23 +232,23 @@ class TransferDetailResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 type = 8;</code>
+     * Generated from protobuf field <code>int64 amount = 8;</code>
      * @return int|string
      */
-    public function getType()
+    public function getAmount()
     {
-        return $this->type;
+        return $this->amount;
     }
 
     /**
-     * Generated from protobuf field <code>int64 type = 8;</code>
+     * Generated from protobuf field <code>int64 amount = 8;</code>
      * @param int|string $var
      * @return $this
      */
-    public function setType($var)
+    public function setAmount($var)
     {
         GPBUtil::checkInt64($var);
-        $this->type = $var;
+        $this->amount = $var;
 
         return $this;
     }
