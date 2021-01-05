@@ -44,7 +44,7 @@ message TransferDetailResponse {
   int64 payeeId = 5;
   int64 payeeType = 6;
   string payeeMobile = 7;
-  int64 type = 8;
+  int64 amount = 8;
   int64 tradeTime = 9;
   string remark = 10;
 }
