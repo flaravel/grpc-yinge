@@ -48,6 +48,7 @@ service Merchant {
   rpc MemberTransfer(MemberTransferRequest) returns (EmptyResponse) {}
   // 验证个人转账短信并完成转账
   rpc VerifyMemberTransferSms(VerifyMemberTransferSmsRequest) returns (EmptyResponse) {}
+  rpc TransferDetail(TransferDetailRequest) returns (TransferDetailResponse) {}
 
   // 查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
