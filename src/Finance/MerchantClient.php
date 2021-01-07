@@ -20,6 +20,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SingleMerchantQuery $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\MerchantListResponse\Items
      */
     public function SingleMerchant(\Yinge\Grpc\Finance\SingleMerchantQuery $argument,
       $metadata = [], $options = []) {
@@ -33,6 +34,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\MerchantQuery $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\MerchantListResponse
      */
     public function MerchantList(\Yinge\Grpc\Finance\MerchantQuery $argument,
       $metadata = [], $options = []) {
@@ -46,6 +48,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\MerchantInfo $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function NewMerchant(\Yinge\Grpc\Finance\MerchantInfo $argument,
       $metadata = [], $options = []) {
@@ -59,6 +62,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\BillsQuery $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\BillList
      */
     public function Bills(\Yinge\Grpc\Finance\BillsQuery $argument,
       $metadata = [], $options = []) {
@@ -72,6 +76,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\WithdrawListRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\WithdrawListResponse
      */
     public function WithdrawList(\Yinge\Grpc\Finance\WithdrawListRequest $argument,
       $metadata = [], $options = []) {
@@ -86,6 +91,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\WithdrawReportRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function WithdrawReport(\Yinge\Grpc\Finance\WithdrawReportRequest $argument,
       $metadata = [], $options = []) {
@@ -100,6 +106,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\WithdrawRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function Withdraw(\Yinge\Grpc\Finance\WithdrawRequest $argument,
       $metadata = [], $options = []) {
@@ -114,6 +121,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SingleMerchantQuery $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\AuthInfo
      */
     public function IdAuthInfo(\Yinge\Grpc\Finance\SingleMerchantQuery $argument,
       $metadata = [], $options = []) {
@@ -127,6 +135,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\IdAutoInfo $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function IdAuthConfirm(\Yinge\Grpc\Finance\IdAutoInfo $argument,
       $metadata = [], $options = []) {
@@ -141,6 +150,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SplitRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function AutoSplit(\Yinge\Grpc\Finance\SplitRequest $argument,
       $metadata = [], $options = []) {
@@ -154,6 +164,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\RefundRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function Refund(\Yinge\Grpc\Finance\RefundRequest $argument,
       $metadata = [], $options = []) {
@@ -168,6 +179,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SplitRulesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\SplitRulesResponse
      */
     public function SplitRules(\Yinge\Grpc\Finance\SplitRulesRequest $argument,
       $metadata = [], $options = []) {
@@ -182,6 +194,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\IdList $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\IdList
      */
     public function NoSplitSpu(\Yinge\Grpc\Finance\IdList $argument,
       $metadata = [], $options = []) {
@@ -195,6 +208,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\BatchRules $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\BatchUpdateResult
      */
     public function BatchUpdateSplitRules(\Yinge\Grpc\Finance\BatchRules $argument,
       $metadata = [], $options = []) {
@@ -209,6 +223,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SplitRuleHistoryRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\SplitRuleHistories
      */
     public function SplitRuleHistory(\Yinge\Grpc\Finance\SplitRuleHistoryRequest $argument,
       $metadata = [], $options = []) {
@@ -222,6 +237,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\EmptyResponse $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\BankListResponse
      */
     public function BankList(\Yinge\Grpc\Finance\EmptyResponse $argument,
       $metadata = [], $options = []) {
@@ -236,6 +252,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\BindRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function BindAccount(\Yinge\Grpc\Finance\BindRequest $argument,
       $metadata = [], $options = []) {
@@ -249,6 +266,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\UnbindRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function UnbindAccount(\Yinge\Grpc\Finance\UnbindRequest $argument,
       $metadata = [], $options = []) {
@@ -262,6 +280,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\ReportBindCodeRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function ReportBindCode(\Yinge\Grpc\Finance\ReportBindCodeRequest $argument,
       $metadata = [], $options = []) {
@@ -275,6 +294,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\ReportBindAmountRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function ReportBindAmount(\Yinge\Grpc\Finance\ReportBindAmountRequest $argument,
       $metadata = [], $options = []) {
@@ -289,6 +309,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SettleRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function SettleAccounts(\Yinge\Grpc\Finance\SettleRequest $argument,
       $metadata = [], $options = []) {
@@ -303,6 +324,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SubsidyTransferRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\SubsidyTransfer
      */
     public function SubsidyTransferInfo(\Yinge\Grpc\Finance\SubsidyTransferRequest $argument,
       $metadata = [], $options = []) {
@@ -316,6 +338,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SendTransferSmsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function SendTransferSms(\Yinge\Grpc\Finance\SendTransferSmsRequest $argument,
       $metadata = [], $options = []) {
@@ -329,6 +352,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\VerifyTransferSmsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function VerifyTransferSms(\Yinge\Grpc\Finance\VerifyTransferSmsRequest $argument,
       $metadata = [], $options = []) {
@@ -343,6 +367,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\MemberTransferRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function MemberTransfer(\Yinge\Grpc\Finance\MemberTransferRequest $argument,
       $metadata = [], $options = []) {
@@ -357,6 +382,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\VerifyMemberTransferSmsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\EmptyResponse
      */
     public function VerifyMemberTransferSms(\Yinge\Grpc\Finance\VerifyMemberTransferSmsRequest $argument,
       $metadata = [], $options = []) {
@@ -370,6 +396,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\TransferDetailRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\TransferDetailResponse
      */
     public function TransferDetail(\Yinge\Grpc\Finance\TransferDetailRequest $argument,
       $metadata = [], $options = []) {
@@ -384,6 +411,7 @@ class MerchantClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Finance\SplitQueryRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\SplitDetailsResponse
      */
     public function SplitDetails(\Yinge\Grpc\Finance\SplitQueryRequest $argument,
       $metadata = [], $options = []) {
@@ -394,10 +422,26 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 批量查询分账明细
+     * @param \Yinge\Grpc\Finance\SplitBatchQueryRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Yinge\Grpc\Finance\SplitDetailsResponse
+     */
+    public function BatchQuerySplitDetails(\Yinge\Grpc\Finance\SplitBatchQueryRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/BatchQuerySplitDetails',
+        $argument,
+        ['\Yinge\Grpc\Finance\SplitDetailsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 查询分账列表
      * @param \Yinge\Grpc\Finance\SplitListRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Finance\SplitListResponse
      */
     public function SplitList(\Yinge\Grpc\Finance\SplitListRequest $argument,
       $metadata = [], $options = []) {
