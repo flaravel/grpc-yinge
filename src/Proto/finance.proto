@@ -327,6 +327,7 @@ message MerchantQuery {
   int64 pageSize = 4;
   string mobile = 5;
   bool realBalance = 6;
+  bool showChecking = 7;
 }
 
 message AccountBalance {
@@ -335,6 +336,7 @@ message AccountBalance {
   int64 realTotalAmount = 3;
   int64 realWithdrawable = 4;
   int64 realFrozen = 5;
+  int64 checking = 6;
 }
 
 message BankBind {
