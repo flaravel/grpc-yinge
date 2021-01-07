@@ -29,3 +29,22 @@ message RefundRequest {
   int64 paymentChannel = 1;
   string tradeNo = 2;
 }
+
+message TransferDetailRequest {
+  int64 id = 1;
+  int64 originId = 2;
+  int64 merchantType = 3;
+}
+
+message TransferDetailResponse {
+  int64 id = 1;
+  int64 payerId = 2;
+  int64 payerType = 3;
+  string payerMobile = 4;
+  int64 payeeId = 5;
+  int64 payeeType = 6;
+  string payeeMobile = 7;
+  int64 amount = 8;
+  int64 tradeTime = 9;
+  string remark = 10;
+}

@@ -33,6 +33,10 @@ class AccountBalance extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 realFrozen = 5;</code>
      */
     protected $realFrozen = 0;
+    /**
+     * Generated from protobuf field <code>int64 checking = 6;</code>
+     */
+    protected $checking = 0;
 
     /**
      * Constructor.
@@ -45,6 +49,7 @@ class AccountBalance extends \Google\Protobuf\Internal\Message
      *     @type int|string $realTotalAmount
      *     @type int|string $realWithdrawable
      *     @type int|string $realFrozen
+     *     @type int|string $checking
      * }
      */
     public function __construct($data = NULL) {
@@ -158,6 +163,28 @@ class AccountBalance extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->realFrozen = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 checking = 6;</code>
+     * @return int|string
+     */
+    public function getChecking()
+    {
+        return $this->checking;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 checking = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChecking($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->checking = $var;
 
         return $this;
     }

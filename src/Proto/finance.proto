@@ -46,12 +46,21 @@ service Merchant {
   rpc VerifyTransferSms(VerifyTransferSmsRequest) returns (EmptyResponse) {}
   // 会员间交易
   rpc MemberTransfer(MemberTransferRequest) returns (EmptyResponse) {}
+  // 验证个人转账短信并完成转账
+  rpc VerifyMemberTransferSms(VerifyMemberTransferSmsRequest) returns (EmptyResponse) {}
+  rpc TransferDetail(TransferDetailRequest) returns (TransferDetailResponse) {}
 
   // 查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
   // 查询分账列表
   rpc SplitList(SplitListRequest) returns(SplitListResponse) {}
 
+}
+
+message VerifyMemberTransferSmsRequest {
+  int64 payerId = 1;
+  int64 payerType = 2;
+  string code = 3;
 }
 
 message MemberTransferRequest {
@@ -316,6 +325,9 @@ message MerchantQuery {
   int64 id = 2;
   int64 page = 3;
   int64 pageSize = 4;
+  string mobile = 5;
+  bool realBalance = 6;
+  bool showChecking = 7;
 }
 
 message AccountBalance {
@@ -324,6 +336,7 @@ message AccountBalance {
   int64 realTotalAmount = 3;
   int64 realWithdrawable = 4;
   int64 realFrozen = 5;
+  int64 checking = 6;
 }
 
 message BankBind {
