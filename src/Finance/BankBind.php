@@ -53,6 +53,10 @@ class BankBind extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 acctId = 10;</code>
      */
     protected $acctId = 0;
+    /**
+     * Generated from protobuf field <code>bool invalid = 11;</code>
+     */
+    protected $invalid = false;
 
     /**
      * Constructor.
@@ -70,6 +74,7 @@ class BankBind extends \Google\Protobuf\Internal\Message
      *     @type int|string $status
      *     @type int|string $bindingTime
      *     @type int|string $acctId
+     *     @type bool $invalid
      * }
      */
     public function __construct($data = NULL) {
@@ -293,6 +298,28 @@ class BankBind extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->acctId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool invalid = 11;</code>
+     * @return bool
+     */
+    public function getInvalid()
+    {
+        return $this->invalid;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool invalid = 11;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setInvalid($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->invalid = $var;
 
         return $this;
     }

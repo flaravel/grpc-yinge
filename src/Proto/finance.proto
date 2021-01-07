@@ -350,6 +350,7 @@ message BankBind {
   int64 status = 8;
   int64 bindingTime = 9;
   int64 acctId = 10;
+  bool invalid = 11;
 }
 
 message MerchantListResponse {
