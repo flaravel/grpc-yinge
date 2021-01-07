@@ -37,6 +37,10 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool realBalance = 6;</code>
      */
     protected $realBalance = false;
+    /**
+     * Generated from protobuf field <code>bool showChecking = 7;</code>
+     */
+    protected $showChecking = false;
 
     /**
      * Constructor.
@@ -50,6 +54,7 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
      *     @type int|string $pageSize
      *     @type string $mobile
      *     @type bool $realBalance
+     *     @type bool $showChecking
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +190,28 @@ class MerchantQuery extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->realBalance = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool showChecking = 7;</code>
+     * @return bool
+     */
+    public function getShowChecking()
+    {
+        return $this->showChecking;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool showChecking = 7;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setShowChecking($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->showChecking = $var;
 
         return $this;
     }
