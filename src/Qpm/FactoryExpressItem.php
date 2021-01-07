@@ -25,6 +25,10 @@ class FactoryExpressItem extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int32 rate = 3;</code>
      */
     protected $rate = 0;
+    /**
+     * Generated from protobuf field <code>int32 id = 4;</code>
+     */
+    protected $id = 0;
 
     /**
      * Constructor.
@@ -35,6 +39,7 @@ class FactoryExpressItem extends \Google\Protobuf\Internal\Message
      *     @type string $express
      *     @type string $code
      *     @type int $rate
+     *     @type int $id
      * }
      */
     public function __construct($data = NULL) {
@@ -104,6 +109,28 @@ class FactoryExpressItem extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->rate = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 id = 4;</code>
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 id = 4;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setId($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->id = $var;
 
         return $this;
     }
