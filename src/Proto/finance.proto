@@ -57,6 +57,22 @@ service Merchant {
   // 查询分账列表
   rpc SplitList(SplitListRequest) returns(SplitListResponse) {}
 
+  // 批量查询商户冻结资金
+  rpc FrozenAmount(FrozenAmountRequest) returns (FrozenAmountResponse) {}
+
+}
+
+message FrozenAmountRequest {
+  repeated SingleMerchantQuery merchants = 1;
+}
+
+message FrozenAmountResponse {
+  message Item {
+    int64 originId = 1;
+    int64 merchantType = 2;
+    int64 Amount = 3;
+  }
+  repeated Item list = 1;
 }
 
 message VerifyMemberTransferSmsRequest {
@@ -339,6 +355,7 @@ message AccountBalance {
   int64 realWithdrawable = 4;
   int64 realFrozen = 5;
   int64 checking = 6;
+  int64 sysFrozen = 7;
 }
 
 message BankBind {
