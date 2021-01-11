@@ -421,4 +421,18 @@ class MerchantClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 批量查询商户冻结资金
+     * @param \Yinge\Grpc\Finance\FrozenAmountRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function FrozenAmount(\Yinge\Grpc\Finance\FrozenAmountRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/FrozenAmount',
+        $argument,
+        ['\Yinge\Grpc\Finance\FrozenAmountResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }
