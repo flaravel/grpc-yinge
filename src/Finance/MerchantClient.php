@@ -137,6 +137,47 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 补录信息
+     * @param \Yinge\Grpc\Finance\SaveAdditionalRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SaveAdditional(\Yinge\Grpc\Finance\SaveAdditionalRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SaveAdditional',
+        $argument,
+        ['\Yinge\Grpc\Finance\MobileResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Finance\ReportCropVerifyCodeRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function ReportCropVerifyCode(\Yinge\Grpc\Finance\ReportCropVerifyCodeRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/ReportCropVerifyCode',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 同意协议
+     * @param \Yinge\Grpc\Finance\AgreementRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function AgreeAgreement(\Yinge\Grpc\Finance\AgreementRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/AgreeAgreement',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 发起分账
      * @param \Yinge\Grpc\Finance\SplitRequest $argument input argument
      * @param array $metadata metadata
@@ -232,7 +273,7 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
-     * 绑定银行卡
+     * 绑定银行卡-废弃
      * @param \Yinge\Grpc\Finance\BindRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -242,6 +283,20 @@ class MerchantClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/finance.Merchant/BindAccount',
         $argument,
         ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 绑定银行卡
+     * @param \Yinge\Grpc\Finance\BindBankRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function BindBankAccount(\Yinge\Grpc\Finance\BindBankRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/BindBankAccount',
+        $argument,
+        ['\Yinge\Grpc\Finance\MobileResponse', 'decode'],
         $metadata, $options);
     }
 
