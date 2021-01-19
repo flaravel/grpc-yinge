@@ -29,6 +29,10 @@ class Items extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .finance.BankBind bankBounded = 4;</code>
      */
     private $bankBounded;
+    /**
+     * Generated from protobuf field <code>.finance.AdditionalInfo additional = 5;</code>
+     */
+    protected $additional = null;
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class Items extends \Google\Protobuf\Internal\Message
      *     @type \Yinge\Grpc\Finance\AccountBalance $account
      *     @type \Yinge\Grpc\Finance\AuthInfo $authInfo
      *     @type \Yinge\Grpc\Finance\BankBind[]|\Google\Protobuf\Internal\RepeatedField $bankBounded
+     *     @type \Yinge\Grpc\Finance\AdditionalInfo $additional
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +136,28 @@ class Items extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Yinge\Grpc\Finance\BankBind::class);
         $this->bankBounded = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.finance.AdditionalInfo additional = 5;</code>
+     * @return \Yinge\Grpc\Finance\AdditionalInfo
+     */
+    public function getAdditional()
+    {
+        return $this->additional;
+    }
+
+    /**
+     * Generated from protobuf field <code>.finance.AdditionalInfo additional = 5;</code>
+     * @param \Yinge\Grpc\Finance\AdditionalInfo $var
+     * @return $this
+     */
+    public function setAdditional($var)
+    {
+        GPBUtil::checkMessage($var, \Yinge\Grpc\Finance\AdditionalInfo::class);
+        $this->additional = $var;
 
         return $this;
     }
