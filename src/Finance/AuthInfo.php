@@ -37,6 +37,10 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 status = 6;</code>
      */
     protected $status = 0;
+    /**
+     * Generated from protobuf field <code>bool additional = 7;</code>
+     */
+    protected $additional = false;
 
     /**
      * Constructor.
@@ -50,6 +54,7 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
      *     @type string $idNumber
      *     @type int|string $authTime
      *     @type int|string $status
+     *     @type bool $additional
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +190,28 @@ class AuthInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool additional = 7;</code>
+     * @return bool
+     */
+    public function getAdditional()
+    {
+        return $this->additional;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool additional = 7;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setAdditional($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->additional = $var;
 
         return $this;
     }
