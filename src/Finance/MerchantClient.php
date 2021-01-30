@@ -96,6 +96,19 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Yinge\Grpc\Finance\WithdrawExportRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function WithdrawExport(\Yinge\Grpc\Finance\WithdrawExportRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/WithdrawExport',
+        $argument,
+        ['\Yinge\Grpc\Finance\ExportResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 发起提现申请
      * @param \Yinge\Grpc\Finance\WithdrawRequest $argument input argument
      * @param array $metadata metadata

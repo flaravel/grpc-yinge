@@ -14,6 +14,7 @@ service Merchant {
   rpc WithdrawList(WithdrawListRequest) returns (WithdrawListResponse) {}
   // 后台审核提现
   rpc WithdrawReport(WithdrawReportRequest) returns (EmptyResponse) {}
+  rpc WithdrawExport(WithdrawExportRequest) returns (ExportResponse) {}
   // 发起提现申请
   rpc Withdraw(WithdrawRequest) returns (EmptyResponse) {}
   // 实名验证
@@ -67,6 +68,16 @@ service Merchant {
   // 批量查询商户冻结资金
   rpc FrozenAmount(FrozenAmountRequest) returns (FrozenAmountResponse) {}
 
+}
+
+message WithdrawExportRequest {
+  int64 type = 1;
+  string dateStart = 2;
+  string dateEnd = 3;
+}
+
+message ExportResponse {
+  string fileUrl = 1;
 }
 
 
