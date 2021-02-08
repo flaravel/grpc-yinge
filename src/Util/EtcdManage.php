@@ -9,6 +9,12 @@ use Yinge\Grpc\Util\Algorithm\WeightedRoundRobin;
 class EtcdManage {
 
 
+    /** @var string[] 网关列表 */
+    const ETCD_GATEWAY_LIST = [
+        'http://172.16.4.78:2379',
+        'http://172.16.162.82:2379',
+        'http://172.16.5.38:2379',
+    ];
 
     /** @var string etcd 网关地址 */
     const ETCD_GATEWAY = 'etcd.yinge.tech:2379';
@@ -62,12 +68,21 @@ class EtcdManage {
      */
     private $client = null;
 
+    /**
+     * @return string
+     */
+    public function getEtcdHost() {
+        $currentEtcd = self::ETCD_GATEWAY_LIST[array_rand(self::ETCD_GATEWAY_LIST)];
+        \Log::info('-- current etcd url --'.$currentEtcd);
+        return $currentEtcd;
+    }
+
     public function __construct (string $prefix) {
         if (!in_array($prefix,self::AllowPrefixList)) {
             throw new GrpcException('invalid etcd prefix: ' . $prefix);
         }
         $this->currentPrefix = $prefix;
-        $this->client = new Client(self::ETCD_GATEWAY,'v3alpha');
+        $this->client = new Client($this->getEtcdHost(),'v3alpha');
 
         $this->robin = new WeightedRoundRobin();
         $this->hosts = $this->getAllServer();
