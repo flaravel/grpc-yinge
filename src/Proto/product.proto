@@ -27,6 +27,9 @@ service Product {
 
   // 获取sku详情
   rpc GetSkuDetail(SkuDetailReq) returns(SkuDetailRep) {}
+
+  // sku详情 附带 物料列表
+  rpc GetSkuDetailWithMateriel(SkuDetailReq) returns(SkuDetailWithMateriel) {}
 }
 
 message SpuDetailReq{
@@ -43,6 +46,25 @@ message SpuDetailRep {
 
 message SkuDetailRep {
   repeated Sku skuInfo = 1;
+}
+
+message SkuDetailWithMateriel {
+  repeated SkuWithMateriel items = 1;
+}
+
+
+message SkuWithMateriel {
+  Sku skuInfo = 1;
+  repeated Materiel materiel = 2;
+}
+
+message Materiel {
+  uint64 skuId = 1;
+  string skuName = 2;
+  int64 total = 3;
+  string produceCode = 4;
+  float weight = 6;
+  string unit = 7;
 }
 
 // spu列表请求参数
@@ -98,6 +120,8 @@ message SkuRequest {
   repeated AttrAndValFlat attrParam = 4;
   repeated int64 exceptList = 5;
   bool hiddenAttr = 6;
+  int64 cid = 7; // 分类id
+  int64 organization_id = 8; // 组织ID
 }
 
 // sku 列表返回参数
@@ -117,6 +141,8 @@ message Sku {
   string produceCode = 6;
   uint64 cid = 7;
   float weight = 8;
+  // 单位
+  string unit = 9;
 }
 
 // 分类基础参数
