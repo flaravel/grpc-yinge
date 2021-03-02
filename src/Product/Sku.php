@@ -49,6 +49,12 @@ class Sku extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>float weight = 8;</code>
      */
     protected $weight = 0.0;
+    /**
+     * 单位
+     *
+     * Generated from protobuf field <code>string unit = 9;</code>
+     */
+    protected $unit = '';
 
     /**
      * Constructor.
@@ -65,6 +71,8 @@ class Sku extends \Google\Protobuf\Internal\Message
      *           生产编码
      *     @type int|string $cid
      *     @type float $weight
+     *     @type string $unit
+     *           单位
      * }
      */
     public function __construct($data = NULL) {
@@ -248,6 +256,32 @@ class Sku extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkFloat($var);
         $this->weight = $var;
+
+        return $this;
+    }
+
+    /**
+     * 单位
+     *
+     * Generated from protobuf field <code>string unit = 9;</code>
+     * @return string
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
+    /**
+     * 单位
+     *
+     * Generated from protobuf field <code>string unit = 9;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setUnit($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->unit = $var;
 
         return $this;
     }
