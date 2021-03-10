@@ -47,6 +47,14 @@ class Spu extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 productType = 8;</code>
      */
     protected $productType = 0;
+    /**
+     * Generated from protobuf field <code>int64 organizationId = 9;</code>
+     */
+    protected $organizationId = 0;
+    /**
+     * Generated from protobuf field <code>string organizationName = 10;</code>
+     */
+    protected $organizationName = '';
 
     /**
      * Constructor.
@@ -62,6 +70,8 @@ class Spu extends \Google\Protobuf\Internal\Message
      *     @type int|string $skuCount
      *     @type \Yinge\Grpc\Product\AttrAndValRelation[]|\Google\Protobuf\Internal\RepeatedField $attrList
      *     @type int|string $productType
+     *     @type int|string $organizationId
+     *     @type string $organizationName
      * }
      */
     public function __construct($data = NULL) {
@@ -241,6 +251,50 @@ class Spu extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->productType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 organizationId = 9;</code>
+     * @return int|string
+     */
+    public function getOrganizationId()
+    {
+        return $this->organizationId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 organizationId = 9;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setOrganizationId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->organizationId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string organizationName = 10;</code>
+     * @return string
+     */
+    public function getOrganizationName()
+    {
+        return $this->organizationName;
+    }
+
+    /**
+     * Generated from protobuf field <code>string organizationName = 10;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setOrganizationName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->organizationName = $var;
 
         return $this;
     }
