@@ -162,6 +162,9 @@ message Spu {
 
   repeated AttrAndValRelation attrList = 7;
   int64 productType = 8;
+
+  int64 organizationId = 9;
+  string organizationName = 10;
 }
 
 // 属性与属性值关联[扁平[
