@@ -37,6 +37,10 @@ class Materiel extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string unit = 7;</code>
      */
     protected $unit = '';
+    /**
+     * Generated from protobuf field <code>int64 productType = 8;</code>
+     */
+    protected $productType = 0;
 
     /**
      * Constructor.
@@ -50,6 +54,7 @@ class Materiel extends \Google\Protobuf\Internal\Message
      *     @type string $produceCode
      *     @type float $weight
      *     @type string $unit
+     *     @type int|string $productType
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +190,28 @@ class Materiel extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->unit = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 productType = 8;</code>
+     * @return int|string
+     */
+    public function getProductType()
+    {
+        return $this->productType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 productType = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setProductType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->productType = $var;
 
         return $this;
     }
