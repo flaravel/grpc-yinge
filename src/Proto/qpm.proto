@@ -254,6 +254,7 @@ message OrderInfo {
     int32 produceStatus = 9;
     string extra = 10;
     string extends = 11;
+    int32 pretend = 12;
 }
 
 message OrderCancelRequest {
