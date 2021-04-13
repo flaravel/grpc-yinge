@@ -28,6 +28,12 @@ service QpmService {
     rpc ProduceRules(ProduceRulesRequest) returns (ProduceRulesResponse) {}
     rpc FactoryExpress(FactoryExpressRequest) returns (FactoryExpressResponse) {}
 
+    // 获取sku生产信息
+    rpc GetSkuProduceInfo(SkuProduceInfoReq) returns (SkuProduceResp){}
+
+    // 获取spu产能信息
+    rpc GetSpuCapacityInfo(SpuCapacityInfoReq) returns(SkuProduceResp) {}
+
     //查询订单成本明细
     rpc getCostDetails(OrderCostQueryRequest) returns (OrderCostDetailsResponse) {}
     rpc CostSettled(CostSettleRequest) returns (Response) {}
@@ -47,6 +53,19 @@ service QpmService {
     rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
 }
 
+message SkuProduceInfoReq {
+    repeated int64 skuIds = 1;
+}
+
+message SpuCapacityInfoReq {
+    repeated int64 spuIds = 1;
+}
+
+message SkuProduceResp {
+    int32 code = 1;
+    string msg = 2;
+    string data = 3; // 返回数据可能为N维数组 用json处理
+}
 
 message SpuListReq {
     int64 factoryId = 1;
