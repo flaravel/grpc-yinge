@@ -238,6 +238,19 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Yinge\Grpc\Qpm\ProduceCheckRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function ProduceCheck(\Yinge\Grpc\Qpm\ProduceCheckRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/ProduceCheck',
+        $argument,
+        ['\Yinge\Grpc\Qpm\ProduceCheckResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Yinge\Grpc\Qpm\SkuCostCheckRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -286,6 +299,34 @@ class QpmServiceClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/Qpm.QpmService/FactoryExpress',
         $argument,
         ['\Yinge\Grpc\Qpm\FactoryExpressResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 获取sku生产信息
+     * @param \Yinge\Grpc\Qpm\SkuProduceInfoReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function GetSkuProduceInfo(\Yinge\Grpc\Qpm\SkuProduceInfoReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/GetSkuProduceInfo',
+        $argument,
+        ['\Yinge\Grpc\Qpm\SkuProduceResp', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 获取spu产能信息
+     * @param \Yinge\Grpc\Qpm\SpuCapacityInfoReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function GetSpuCapacityInfo(\Yinge\Grpc\Qpm\SpuCapacityInfoReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/GetSpuCapacityInfo',
+        $argument,
+        ['\Yinge\Grpc\Qpm\SkuProduceResp', 'decode'],
         $metadata, $options);
     }
 

@@ -114,4 +114,18 @@ class ProductClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * sku详情 附带 物料列表
+     * @param \Yinge\Grpc\Product\SkuDetailReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function GetSkuDetailWithMateriel(\Yinge\Grpc\Product\SkuDetailReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Product.Product/GetSkuDetailWithMateriel',
+        $argument,
+        ['\Yinge\Grpc\Product\SkuDetailWithMateriel', 'decode'],
+        $metadata, $options);
+    }
+
 }

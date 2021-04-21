@@ -23,10 +23,17 @@ service QpmService {
     rpc TryDispatchOrder(TryDispatchRequest) returns (TryDispatchResponse) {}
     rpc UpdateOrderItem(UpdateOrderItemRequest) returns (Response) {}
     rpc SubAccountAuth(SubAccountAuthRequest) returns (SubAccountResponse) {}
+    rpc ProduceCheck(ProduceCheckRequest) returns (ProduceCheckResponse) {}
     rpc CheckSkuCost(SkuCostCheckRequest) returns (SkuCostCheckResponse) {}
     rpc CheckSkuConfigs(SkuConfigCheckRequest) returns (SkuConfigCheckResponse) {}
     rpc ProduceRules(ProduceRulesRequest) returns (ProduceRulesResponse) {}
     rpc FactoryExpress(FactoryExpressRequest) returns (FactoryExpressResponse) {}
+
+    // 获取sku生产信息
+    rpc GetSkuProduceInfo(SkuProduceInfoReq) returns (SkuProduceResp){}
+
+    // 获取spu产能信息
+    rpc GetSpuCapacityInfo(SpuCapacityInfoReq) returns(SkuProduceResp) {}
 
     //查询订单成本明细
     rpc getCostDetails(OrderCostQueryRequest) returns (OrderCostDetailsResponse) {}
@@ -47,6 +54,38 @@ service QpmService {
     rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
 }
 
+message ProduceCheckRequest {
+    repeated int64 skuIds = 1;
+}
+
+message ProduceCheckResponse {
+    message CheckItem {
+        int64 skuId = 1;
+        string skuName = 2;
+        bool factory = 3;
+        bool express = 4;
+        bool produceCost = 5;
+        bool expressCost = 6;
+    }
+
+    int64 code = 1;
+    map<int64, CheckItem> results = 2;
+    string errMsg = 3;
+}
+
+message SkuProduceInfoReq {
+    repeated int64 skuIds = 1;
+}
+
+message SpuCapacityInfoReq {
+    repeated int64 spuIds = 1;
+}
+
+message SkuProduceResp {
+    int32 code = 1;
+    string msg = 2;
+    string data = 3; // 返回数据可能为N维数组 用json处理
+}
 
 message SpuListReq {
     int64 factoryId = 1;
@@ -254,6 +293,7 @@ message OrderInfo {
     int32 produceStatus = 9;
     string extra = 10;
     string extends = 11;
+    int32 pretend = 12;
 }
 
 message OrderCancelRequest {
