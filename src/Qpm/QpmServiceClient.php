@@ -238,6 +238,19 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Yinge\Grpc\Qpm\ProduceCheckRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function ProduceCheck(\Yinge\Grpc\Qpm\ProduceCheckRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/ProduceCheck',
+        $argument,
+        ['\Yinge\Grpc\Qpm\ProduceCheckResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Yinge\Grpc\Qpm\SkuCostCheckRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

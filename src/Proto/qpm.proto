@@ -23,6 +23,7 @@ service QpmService {
     rpc TryDispatchOrder(TryDispatchRequest) returns (TryDispatchResponse) {}
     rpc UpdateOrderItem(UpdateOrderItemRequest) returns (Response) {}
     rpc SubAccountAuth(SubAccountAuthRequest) returns (SubAccountResponse) {}
+    rpc ProduceCheck(ProduceCheckRequest) returns (ProduceCheckResponse) {}
     rpc CheckSkuCost(SkuCostCheckRequest) returns (SkuCostCheckResponse) {}
     rpc CheckSkuConfigs(SkuConfigCheckRequest) returns (SkuConfigCheckResponse) {}
     rpc ProduceRules(ProduceRulesRequest) returns (ProduceRulesResponse) {}
@@ -51,6 +52,25 @@ service QpmService {
     rpc FactoryProduceSkuList(SkuListReq) returns (FactoryProduceResp) {}
     //拉取次品订单数最多的25个spu
     rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
+}
+
+message ProduceCheckRequest {
+    repeated int64 skuIds = 1;
+}
+
+message ProduceCheckResponse {
+    message CheckItem {
+        int64 skuId = 1;
+        string skuName = 2;
+        bool factory = 3;
+        bool express = 4;
+        bool produceCost = 5;
+        bool expressCost = 6;
+    }
+
+    int64 code = 1;
+    map<int64, CheckItem> results = 2;
+    string errMsg = 3;
 }
 
 message SkuProduceInfoReq {
