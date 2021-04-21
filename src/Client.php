@@ -68,7 +68,7 @@ class Client
         }
 
         $this->currentEtcdPrefix = $etcdPrefix;
-//        $this->etcdIns = new EtcdManage($this->currentEtcdPrefix);
+        $this->etcdIns = new EtcdManage($this->currentEtcdPrefix);
         $this->newClient();
     }
 
@@ -100,8 +100,6 @@ class Client
     }
 
     public function __call($method,$params) {
-        $this->currentHost = "127.0.0.1:5200";
-
         /** @var mixed|UnaryCall $call */
         $call = call_user_func_array([$this->currentClient,$method],$params);
         [$response,$status] = $call->wait();
@@ -147,8 +145,7 @@ class Client
     }
 
     public function newClient(bool $needDel = false) {
-        $this->currentClient =  new $this->service("127.0.0.1:5200",$this->getChannelOpts());
-//        $this->currentClient =  new $this->service($this->getHost($needDel),$this->getChannelOpts());
+        $this->currentClient =  new $this->service($this->getHost($needDel),$this->getChannelOpts());
     }
 
     private function canRetry() {
