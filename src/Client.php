@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\App;
 use Yinge\Grpc\Finance\MerchantClient;
 use Yinge\Grpc\Product\ProductClient;
 use Yinge\Grpc\Qpm\QpmServiceClient;
+use Yinge\Grpc\QpmServiceBlock\QpmServiceBlockClient;
 use Yinge\Grpc\Util\EtcdManage;
 
 class Client
@@ -54,6 +55,9 @@ class Client
                 break;
             case MerchantClient::class:
                 $etcdPrefix = EtcdManage::DefaultServerFnPrefix;
+                break;
+            case QpmServiceBlockClient::class:
+                $etcdPrefix = EtcdManage::DefaultServerQpmServiceBlockPrefix;
                 break;
             default:
                 throw new GrpcException('invalid grpc class');
