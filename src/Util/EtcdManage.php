@@ -27,6 +27,8 @@ class EtcdManage {
     const DefaultServerQpmPrefix = '/v1/grpc/server/qpm/';
     /** @var string qpm */
     const DefaultServerFnPrefix = '/v1/grpc/server/fn/';
+    // QPM 服务块
+    const DefaultServerQpmServiceBlock = '/v1/grpc/server/qpm-service-block/';
 
     /** @var string webtest环境 前缀 */
     const EnvWebTestPrefix = '/webtest';
@@ -46,9 +48,11 @@ class EtcdManage {
         self::DefaultServerPCPrefix,
         self::DefaultServerQpmPrefix,
         self::DefaultServerFnPrefix,
+        self::DefaultServerQpmServiceBlock,
         self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
         self::EnvWebTestPrefix.self::DefaultServerFnPrefix,
+        self::EnvWebTestPrefix.self::DefaultServerQpmServiceBlock,
 
         self::EnvQAPrefix.self::DefaultServerPCPrefix,
         self::EnvQAPrefix.self::DefaultServerQpmPrefix,

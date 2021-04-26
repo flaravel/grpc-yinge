@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package QpmServiceBlock;
+
+option php_metadata_namespace = "Yinge\\Grpc\\QpmServiceBlock\\GPBMetadata";
+option php_namespace = "Yinge\\Grpc\\QpmServiceBlock";
+option go_package = "/storage/grpc";
+
+service QpmServiceBlock {
+  // 更新用户地址
+  rpc UpdateAddress(OrderInfo) returns (Response) {}
+}
+
+message OrderInfo {
+  int32 orderId = 1;
+  int32 packageId = 2;
+  int32 factoryId = 3;
+  string addressInfo = 4;
+  string expressInfo = 6;
+  OrderItems productList = 5;
+  int32 id = 7;
+  int32 deliver_id = 8;
+  int32 produceStatus = 9;
+  string extra = 10;
+  string extends = 11;
+  int32 pretend = 12;
+}
+
+message OrderItems {
+  repeated OrderItem items = 1;
+}
+
+message OrderItem {
+  int32 produceId = 1;
+  int32 skuId = 2;
+  string detail = 3;
+}
+
+message Response {
+  int32 code = 1;
+  string msg = 2;
+} 
