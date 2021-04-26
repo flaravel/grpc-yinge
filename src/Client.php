@@ -74,6 +74,7 @@ class Client
 
     public function getChannelOpts() {
         return [
+            'grpc_target_persist_bound'=>0,
             'credentials' => \Grpc\ChannelCredentials::createInsecure(),
         ];
     }
