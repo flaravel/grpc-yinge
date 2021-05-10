@@ -59,6 +59,20 @@ class ProductClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 根据筛选条件获取基础sku列表
+     * @param \Yinge\Grpc\Product\SkuBaseRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function GetBaseSkuList(\Yinge\Grpc\Product\SkuBaseRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Product.Product/GetBaseSkuList',
+        $argument,
+        ['\Yinge\Grpc\Product\SkuResult', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 根据分类id 获取属性与属性值
      * @param \Yinge\Grpc\Product\GetAttrAndValRequest $argument input argument
      * @param array $metadata metadata
