@@ -16,6 +16,9 @@ service Product {
   // 根据筛选条件 获取sku列表
   rpc GetSkuList(SkuRequest) returns (SkuResult) {}
 
+  // 根据筛选条件获取基础sku列表
+  rpc GetBaseSkuList(SkuBaseRequest) returns (SkuResult) {}
+
   // 根据分类id 获取属性与属性值
   rpc GetAttrAndValByCId(GetAttrAndValRequest) returns (GetAttrAndValResponse){}
 
@@ -30,6 +33,11 @@ service Product {
 
   // sku详情 附带 物料列表
   rpc GetSkuDetailWithMateriel(SkuDetailReq) returns(SkuDetailWithMateriel) {}
+}
+
+message SkuBaseRequest {
+    int64 spuId = 1;
+    string keyword = 2;
 }
 
 message SpuDetailReq{
