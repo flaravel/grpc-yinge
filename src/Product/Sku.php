@@ -59,6 +59,22 @@ class Sku extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 productType = 10;</code>
      */
     protected $productType = 0;
+    /**
+     * Generated from protobuf field <code>string img = 11;</code>
+     */
+    protected $img = '';
+    /**
+     * Generated from protobuf field <code>string length = 12;</code>
+     */
+    protected $length = '';
+    /**
+     * Generated from protobuf field <code>string width = 13;</code>
+     */
+    protected $width = '';
+    /**
+     * Generated from protobuf field <code>string height = 14;</code>
+     */
+    protected $height = '';
 
     /**
      * Constructor.
@@ -78,6 +94,10 @@ class Sku extends \Google\Protobuf\Internal\Message
      *     @type string $unit
      *           单位
      *     @type int|string $productType
+     *     @type string $img
+     *     @type string $length
+     *     @type string $width
+     *     @type string $height
      * }
      */
     public function __construct($data = NULL) {
@@ -309,6 +329,94 @@ class Sku extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->productType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string img = 11;</code>
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Generated from protobuf field <code>string img = 11;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setImg($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->img = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string length = 12;</code>
+     * @return string
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * Generated from protobuf field <code>string length = 12;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLength($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->length = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string width = 13;</code>
+     * @return string
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * Generated from protobuf field <code>string width = 13;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setWidth($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->width = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string height = 14;</code>
+     * @return string
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Generated from protobuf field <code>string height = 14;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setHeight($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->height = $var;
 
         return $this;
     }
