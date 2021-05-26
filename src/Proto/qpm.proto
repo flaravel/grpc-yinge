@@ -143,6 +143,7 @@ message StoreMaterielReq {
     string cert = 4;
     int64 factoryId = 5;
     int64 stockType = 6;
+    int64 relationCheckId = 7;
 }
 
 // 入库详情 请求
