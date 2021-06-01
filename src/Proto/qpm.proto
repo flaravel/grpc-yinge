@@ -198,6 +198,7 @@ message BaseMaterielHistory {
     int64  stockType = 11;
     string reason = 12;
     int64 status = 13;
+    int64 commitType = 14;
 }
 
 message FactoryExpressRequest {
