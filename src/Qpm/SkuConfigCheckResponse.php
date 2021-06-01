@@ -39,11 +39,21 @@ class SkuConfigCheckResponse extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Qpm.Response response = 1;</code>
-     * @return \Yinge\Grpc\Qpm\Response
+     * @return \Yinge\Grpc\Qpm\Response|null
      */
     public function getResponse()
     {
-        return $this->response;
+        return isset($this->response) ? $this->response : null;
+    }
+
+    public function hasResponse()
+    {
+        return isset($this->response);
+    }
+
+    public function clearResponse()
+    {
+        unset($this->response);
     }
 
     /**

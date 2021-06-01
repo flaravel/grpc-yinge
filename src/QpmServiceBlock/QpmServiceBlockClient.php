@@ -21,6 +21,7 @@ class QpmServiceBlockClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\QpmServiceBlock\OrderInfo $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Grpc\UnaryCall
      */
     public function UpdateAddress(\Yinge\Grpc\QpmServiceBlock\OrderInfo $argument,
       $metadata = [], $options = []) {

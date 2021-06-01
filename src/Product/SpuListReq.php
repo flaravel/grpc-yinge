@@ -76,11 +76,21 @@ class SpuListReq extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Product.PageParam pageParam = 2;</code>
-     * @return \Yinge\Grpc\Product\PageParam
+     * @return \Yinge\Grpc\Product\PageParam|null
      */
     public function getPageParam()
     {
-        return $this->pageParam;
+        return isset($this->pageParam) ? $this->pageParam : null;
+    }
+
+    public function hasPageParam()
+    {
+        return isset($this->pageParam);
+    }
+
+    public function clearPageParam()
+    {
+        unset($this->pageParam);
     }
 
     /**

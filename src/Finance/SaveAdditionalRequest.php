@@ -39,11 +39,21 @@ class SaveAdditionalRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.SingleMerchantQuery merchantInfo = 1;</code>
-     * @return \Yinge\Grpc\Finance\SingleMerchantQuery
+     * @return \Yinge\Grpc\Finance\SingleMerchantQuery|null
      */
     public function getMerchantInfo()
     {
-        return $this->merchantInfo;
+        return isset($this->merchantInfo) ? $this->merchantInfo : null;
+    }
+
+    public function hasMerchantInfo()
+    {
+        return isset($this->merchantInfo);
+    }
+
+    public function clearMerchantInfo()
+    {
+        unset($this->merchantInfo);
     }
 
     /**
@@ -61,11 +71,21 @@ class SaveAdditionalRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.AdditionalInfo additionalInfo = 2;</code>
-     * @return \Yinge\Grpc\Finance\AdditionalInfo
+     * @return \Yinge\Grpc\Finance\AdditionalInfo|null
      */
     public function getAdditionalInfo()
     {
-        return $this->additionalInfo;
+        return isset($this->additionalInfo) ? $this->additionalInfo : null;
+    }
+
+    public function hasAdditionalInfo()
+    {
+        return isset($this->additionalInfo);
+    }
+
+    public function clearAdditionalInfo()
+    {
+        unset($this->additionalInfo);
     }
 
     /**

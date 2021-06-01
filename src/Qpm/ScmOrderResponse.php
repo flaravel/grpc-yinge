@@ -90,11 +90,21 @@ class ScmOrderResponse extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Qpm.ScmOrder scmOrder = 3;</code>
-     * @return \Yinge\Grpc\Qpm\ScmOrder
+     * @return \Yinge\Grpc\Qpm\ScmOrder|null
      */
     public function getScmOrder()
     {
-        return $this->scmOrder;
+        return isset($this->scmOrder) ? $this->scmOrder : null;
+    }
+
+    public function hasScmOrder()
+    {
+        return isset($this->scmOrder);
+    }
+
+    public function clearScmOrder()
+    {
+        unset($this->scmOrder);
     }
 
     /**

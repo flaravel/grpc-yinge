@@ -39,11 +39,21 @@ class AgreementRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.SingleMerchantQuery merchantInfo = 1;</code>
-     * @return \Yinge\Grpc\Finance\SingleMerchantQuery
+     * @return \Yinge\Grpc\Finance\SingleMerchantQuery|null
      */
     public function getMerchantInfo()
     {
-        return $this->merchantInfo;
+        return isset($this->merchantInfo) ? $this->merchantInfo : null;
+    }
+
+    public function hasMerchantInfo()
+    {
+        return isset($this->merchantInfo);
+    }
+
+    public function clearMerchantInfo()
+    {
+        unset($this->merchantInfo);
     }
 
     /**

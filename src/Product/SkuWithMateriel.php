@@ -39,11 +39,21 @@ class SkuWithMateriel extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Product.Sku skuInfo = 1;</code>
-     * @return \Yinge\Grpc\Product\Sku
+     * @return \Yinge\Grpc\Product\Sku|null
      */
     public function getSkuInfo()
     {
-        return $this->skuInfo;
+        return isset($this->skuInfo) ? $this->skuInfo : null;
+    }
+
+    public function hasSkuInfo()
+    {
+        return isset($this->skuInfo);
+    }
+
+    public function clearSkuInfo()
+    {
+        unset($this->skuInfo);
     }
 
     /**

@@ -88,11 +88,21 @@ class SortingBatchResponse extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Qpm.SortingBatch batch = 3;</code>
-     * @return \Yinge\Grpc\Qpm\SortingBatch
+     * @return \Yinge\Grpc\Qpm\SortingBatch|null
      */
     public function getBatch()
     {
-        return $this->batch;
+        return isset($this->batch) ? $this->batch : null;
+    }
+
+    public function hasBatch()
+    {
+        return isset($this->batch);
+    }
+
+    public function clearBatch()
+    {
+        unset($this->batch);
     }
 
     /**
