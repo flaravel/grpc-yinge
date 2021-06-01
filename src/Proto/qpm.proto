@@ -187,6 +187,7 @@ message SMHReq {
     int64 factoryId = 6;
     int64 mid = 7;
     int64 status = 8;
+    int64 relationCheckId = 9;
 }
 // 入库历史返回参数
 message SMHResp {
