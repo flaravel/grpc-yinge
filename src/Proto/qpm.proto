@@ -210,6 +210,7 @@ message BaseMaterielHistory {
     string reason = 12;
     int64 status = 13;
     int64 commitType = 14;
+    int64 relationId = 15;
 }
 
 message FactoryExpressRequest {
