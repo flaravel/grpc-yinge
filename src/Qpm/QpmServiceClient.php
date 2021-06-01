@@ -372,6 +372,20 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 物料详情
+     * @param \Yinge\Grpc\Qpm\MaterielDetailReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function MaterielDetail(\Yinge\Grpc\Qpm\MaterielDetailReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/MaterielDetail',
+        $argument,
+        ['\Yinge\Grpc\Qpm\MaterielDetailResp', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 入库物料
      * @param \Yinge\Grpc\Qpm\StoreMaterielReq $argument input argument
      * @param array $metadata metadata
