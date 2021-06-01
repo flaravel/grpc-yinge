@@ -188,6 +188,7 @@ message SMHReq {
     int64 mid = 7;
     int64 status = 8;
     int64 relationCheckId = 9;
+    bool removeRelationId = 10;
 }
 // 入库历史返回参数
 message SMHResp {
