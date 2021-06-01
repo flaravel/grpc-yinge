@@ -40,6 +40,8 @@ service QpmService {
     rpc CostSettled(CostSettleRequest) returns (Response) {}
     // 物料列表
     rpc MaterielList(MListReq) returns(MListResp) {}
+    // 物料详情
+    rpc MaterielDetail(MaterielDetailReq) returns(MaterielDetailResp) {}
     // 入库物料
     rpc StoreMateriel(StoreMaterielReq) returns(Response) {}
     // 入库物料历史记录
@@ -149,6 +151,15 @@ message StoreMaterielReq {
 // 入库详情 请求
 message SMDReq {
     int64 checkId = 1;
+}
+
+message MaterielDetailReq{
+    int64 mid = 1;
+    int64 factoryId = 2;
+}
+
+message MaterielDetailResp {
+    BaseMateriel item = 1;
 }
 
 // 入库详情 结果
