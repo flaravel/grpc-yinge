@@ -23,6 +23,10 @@ class AttrVal extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string valName = 4;</code>
      */
     protected $valName = '';
+    /**
+     * Generated from protobuf field <code>int64 sort = 5;</code>
+     */
+    protected $sort = 0;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class AttrVal extends \Google\Protobuf\Internal\Message
      *
      *     @type int|string $valId
      *     @type string $valName
+     *     @type int|string $sort
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +84,28 @@ class AttrVal extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->valName = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 sort = 5;</code>
+     * @return int|string
+     */
+    public function getSort()
+    {
+        return $this->sort;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 sort = 5;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSort($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->sort = $var;
 
         return $this;
     }

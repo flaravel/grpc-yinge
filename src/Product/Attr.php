@@ -23,6 +23,10 @@ class Attr extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string attrName = 2;</code>
      */
     protected $attrName = '';
+    /**
+     * Generated from protobuf field <code>int64 sort = 3;</code>
+     */
+    protected $sort = 0;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class Attr extends \Google\Protobuf\Internal\Message
      *
      *     @type int|string $attrId
      *     @type string $attrName
+     *     @type int|string $sort
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +84,28 @@ class Attr extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->attrName = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 sort = 3;</code>
+     * @return int|string
+     */
+    public function getSort()
+    {
+        return $this->sort;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 sort = 3;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSort($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->sort = $var;
 
         return $this;
     }
