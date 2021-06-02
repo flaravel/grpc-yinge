@@ -197,11 +197,13 @@ message AttrAndValRelation {
 message Attr {
   uint64 attrId = 1;
   string attrName = 2;
+  int64 sort = 3;
 }
 // 属性值-参数
 message AttrVal {
   uint64 valId = 3;
   string valName = 4;
+  int64 sort = 5;
 }
 
 // 第三方sku请求
