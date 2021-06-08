@@ -21,7 +21,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\SpuListReq $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\SpuListResp
      */
     public function GetSpuList(\Yinge\Grpc\Product\SpuListReq $argument,
       $metadata = [], $options = []) {
@@ -36,7 +36,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\CategoryReq $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\CategoryListResp
      */
     public function GetCategoryList(\Yinge\Grpc\Product\CategoryReq $argument,
       $metadata = [], $options = []) {
@@ -51,7 +51,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\SkuRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\SkuResult
      */
     public function GetSkuList(\Yinge\Grpc\Product\SkuRequest $argument,
       $metadata = [], $options = []) {
@@ -66,7 +66,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\SkuBaseRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\SkuResult
      */
     public function GetBaseSkuList(\Yinge\Grpc\Product\SkuBaseRequest $argument,
       $metadata = [], $options = []) {
@@ -81,7 +81,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\GetAttrAndValRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\GetAttrAndValResponse
      */
     public function GetAttrAndValByCId(\Yinge\Grpc\Product\GetAttrAndValRequest $argument,
       $metadata = [], $options = []) {
@@ -96,7 +96,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\ThirdPartySkuRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\Sku
      */
     public function CreateThirdPartySku(\Yinge\Grpc\Product\ThirdPartySkuRequest $argument,
       $metadata = [], $options = []) {
@@ -111,7 +111,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\SpuDetailReq $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\SpuDetailRep
      */
     public function GetSpuDetail(\Yinge\Grpc\Product\SpuDetailReq $argument,
       $metadata = [], $options = []) {
@@ -126,7 +126,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\SkuDetailReq $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\SkuDetailRep
      */
     public function GetSkuDetail(\Yinge\Grpc\Product\SkuDetailReq $argument,
       $metadata = [], $options = []) {
@@ -141,7 +141,7 @@ class ProductClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Product\SkuDetailReq $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\UnaryCall
+     * @return \Yinge\Grpc\Product\SkuDetailWithMateriel
      */
     public function GetSkuDetailWithMateriel(\Yinge\Grpc\Product\SkuDetailReq $argument,
       $metadata = [], $options = []) {

@@ -34,21 +34,11 @@ class MaterielDetailResp extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Qpm.BaseMateriel item = 1;</code>
-     * @return \Yinge\Grpc\Qpm\BaseMateriel|null
+     * @return \Yinge\Grpc\Qpm\BaseMateriel
      */
     public function getItem()
     {
-        return isset($this->item) ? $this->item : null;
-    }
-
-    public function hasItem()
-    {
-        return isset($this->item);
-    }
-
-    public function clearItem()
-    {
-        unset($this->item);
+        return $this->item;
     }
 
     /**

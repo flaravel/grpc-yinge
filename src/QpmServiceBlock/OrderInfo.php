@@ -199,21 +199,11 @@ class OrderInfo extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.QpmServiceBlock.OrderItems productList = 5;</code>
-     * @return \Yinge\Grpc\QpmServiceBlock\OrderItems|null
+     * @return \Yinge\Grpc\QpmServiceBlock\OrderItems
      */
     public function getProductList()
     {
-        return isset($this->productList) ? $this->productList : null;
-    }
-
-    public function hasProductList()
-    {
-        return isset($this->productList);
-    }
-
-    public function clearProductList()
-    {
-        unset($this->productList);
+        return $this->productList;
     }
 
     /**

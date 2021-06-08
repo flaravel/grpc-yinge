@@ -41,21 +41,11 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Product.Attr attr = 1;</code>
-     * @return \Yinge\Grpc\Product\Attr|null
+     * @return \Yinge\Grpc\Product\Attr
      */
     public function getAttr()
     {
-        return isset($this->attr) ? $this->attr : null;
-    }
-
-    public function hasAttr()
-    {
-        return isset($this->attr);
-    }
-
-    public function clearAttr()
-    {
-        unset($this->attr);
+        return $this->attr;
     }
 
     /**
@@ -73,21 +63,11 @@ class AttrAndValFlat extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Product.AttrVal attrVal = 2;</code>
-     * @return \Yinge\Grpc\Product\AttrVal|null
+     * @return \Yinge\Grpc\Product\AttrVal
      */
     public function getAttrVal()
     {
-        return isset($this->attrVal) ? $this->attrVal : null;
-    }
-
-    public function hasAttrVal()
-    {
-        return isset($this->attrVal);
-    }
-
-    public function clearAttrVal()
-    {
-        unset($this->attrVal);
+        return $this->attrVal;
     }
 
     /**

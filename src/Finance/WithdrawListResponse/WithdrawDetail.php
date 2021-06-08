@@ -91,21 +91,11 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.MerchantInfo merchantInfo = 2;</code>
-     * @return \Yinge\Grpc\Finance\MerchantInfo|null
+     * @return \Yinge\Grpc\Finance\MerchantInfo
      */
     public function getMerchantInfo()
     {
-        return isset($this->merchantInfo) ? $this->merchantInfo : null;
-    }
-
-    public function hasMerchantInfo()
-    {
-        return isset($this->merchantInfo);
-    }
-
-    public function clearMerchantInfo()
-    {
-        unset($this->merchantInfo);
+        return $this->merchantInfo;
     }
 
     /**
@@ -211,21 +201,11 @@ class WithdrawDetail extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.BankBind bankBounded = 7;</code>
-     * @return \Yinge\Grpc\Finance\BankBind|null
+     * @return \Yinge\Grpc\Finance\BankBind
      */
     public function getBankBounded()
     {
-        return isset($this->bankBounded) ? $this->bankBounded : null;
-    }
-
-    public function hasBankBounded()
-    {
-        return isset($this->bankBounded);
-    }
-
-    public function clearBankBounded()
-    {
-        unset($this->bankBounded);
+        return $this->bankBounded;
     }
 
     /**

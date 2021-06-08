@@ -125,21 +125,11 @@ class OrderExpressReplaceRequest extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Qpm.Operator operator = 4;</code>
-     * @return \Yinge\Grpc\Qpm\Operator|null
+     * @return \Yinge\Grpc\Qpm\Operator
      */
     public function getOperator()
     {
-        return isset($this->operator) ? $this->operator : null;
-    }
-
-    public function hasOperator()
-    {
-        return isset($this->operator);
-    }
-
-    public function clearOperator()
-    {
-        unset($this->operator);
+        return $this->operator;
     }
 
     /**

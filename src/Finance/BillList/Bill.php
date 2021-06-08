@@ -201,21 +201,11 @@ class Bill extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.MerchantInfo merchantInfo = 7;</code>
-     * @return \Yinge\Grpc\Finance\MerchantInfo|null
+     * @return \Yinge\Grpc\Finance\MerchantInfo
      */
     public function getMerchantInfo()
     {
-        return isset($this->merchantInfo) ? $this->merchantInfo : null;
-    }
-
-    public function hasMerchantInfo()
-    {
-        return isset($this->merchantInfo);
-    }
-
-    public function clearMerchantInfo()
-    {
-        unset($this->merchantInfo);
+        return $this->merchantInfo;
     }
 
     /**

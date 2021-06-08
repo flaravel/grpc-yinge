@@ -1,11 +1,11 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Yinge\Grpc\QpmServiceBlock;
+namespace Yinge\Grpc\Invoice;
 
 /**
  */
-class QpmServiceBlockClient extends \Grpc\BaseStub {
+class InvoiceClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
@@ -17,17 +17,17 @@ class QpmServiceBlockClient extends \Grpc\BaseStub {
     }
 
     /**
-     * 更新用户地址
-     * @param \Yinge\Grpc\QpmServiceBlock\OrderInfo $argument input argument
+     * 印鸽端提交开票
+     * @param \Yinge\Grpc\Invoice\InvoiceApplyRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Yinge\Grpc\QpmServiceBlock\Response
+     * @return \Yinge\Grpc\Invoice\Response
      */
-    public function UpdateAddress(\Yinge\Grpc\QpmServiceBlock\OrderInfo $argument,
+    public function SubmitApply(\Yinge\Grpc\Invoice\InvoiceApplyRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/QpmServiceBlock.QpmServiceBlock/UpdateAddress',
+        return $this->_simpleRequest('/Invoice.Invoice/SubmitApply',
         $argument,
-        ['\Yinge\Grpc\QpmServiceBlock\Response', 'decode'],
+        ['\Yinge\Grpc\Invoice\Response', 'decode'],
         $metadata, $options);
     }
 

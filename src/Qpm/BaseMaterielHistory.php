@@ -282,21 +282,11 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Qpm.BaseMateriel materiels = 9;</code>
-     * @return \Yinge\Grpc\Qpm\BaseMateriel|null
+     * @return \Yinge\Grpc\Qpm\BaseMateriel
      */
     public function getMateriels()
     {
-        return isset($this->materiels) ? $this->materiels : null;
-    }
-
-    public function hasMateriels()
-    {
-        return isset($this->materiels);
-    }
-
-    public function clearMateriels()
-    {
-        unset($this->materiels);
+        return $this->materiels;
     }
 
     /**

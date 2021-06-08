@@ -54,21 +54,11 @@ class Items extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.MerchantInfo baseInfo = 1;</code>
-     * @return \Yinge\Grpc\Finance\MerchantInfo|null
+     * @return \Yinge\Grpc\Finance\MerchantInfo
      */
     public function getBaseInfo()
     {
-        return isset($this->baseInfo) ? $this->baseInfo : null;
-    }
-
-    public function hasBaseInfo()
-    {
-        return isset($this->baseInfo);
-    }
-
-    public function clearBaseInfo()
-    {
-        unset($this->baseInfo);
+        return $this->baseInfo;
     }
 
     /**
@@ -86,21 +76,11 @@ class Items extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.AccountBalance account = 2;</code>
-     * @return \Yinge\Grpc\Finance\AccountBalance|null
+     * @return \Yinge\Grpc\Finance\AccountBalance
      */
     public function getAccount()
     {
-        return isset($this->account) ? $this->account : null;
-    }
-
-    public function hasAccount()
-    {
-        return isset($this->account);
-    }
-
-    public function clearAccount()
-    {
-        unset($this->account);
+        return $this->account;
     }
 
     /**
@@ -118,21 +98,11 @@ class Items extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.AuthInfo authInfo = 3;</code>
-     * @return \Yinge\Grpc\Finance\AuthInfo|null
+     * @return \Yinge\Grpc\Finance\AuthInfo
      */
     public function getAuthInfo()
     {
-        return isset($this->authInfo) ? $this->authInfo : null;
-    }
-
-    public function hasAuthInfo()
-    {
-        return isset($this->authInfo);
-    }
-
-    public function clearAuthInfo()
-    {
-        unset($this->authInfo);
+        return $this->authInfo;
     }
 
     /**
@@ -172,21 +142,11 @@ class Items extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.finance.AdditionalInfo additional = 5;</code>
-     * @return \Yinge\Grpc\Finance\AdditionalInfo|null
+     * @return \Yinge\Grpc\Finance\AdditionalInfo
      */
     public function getAdditional()
     {
-        return isset($this->additional) ? $this->additional : null;
-    }
-
-    public function hasAdditional()
-    {
-        return isset($this->additional);
-    }
-
-    public function clearAdditional()
-    {
-        unset($this->additional);
+        return $this->additional;
     }
 
     /**

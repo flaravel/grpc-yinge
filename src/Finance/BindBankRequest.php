@@ -108,7 +108,7 @@ class BindBankRequest extends \Google\Protobuf\Internal\Message
      */
     public function setGlobalType($var)
     {
-        GPBUtil::checkEnum($var, \Yinge\Grpc\Finance\BindBankRequest\AccountType::class);
+        GPBUtil::checkEnum($var, \Yinge\Grpc\Finance\BindBankRequest_AccountType::class);
         $this->globalType = $var;
 
         return $this;

@@ -41,21 +41,11 @@ class AttrAndValRelation extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.Product.Attr attr = 1;</code>
-     * @return \Yinge\Grpc\Product\Attr|null
+     * @return \Yinge\Grpc\Product\Attr
      */
     public function getAttr()
     {
-        return isset($this->attr) ? $this->attr : null;
-    }
-
-    public function hasAttr()
-    {
-        return isset($this->attr);
-    }
-
-    public function clearAttr()
-    {
-        unset($this->attr);
+        return $this->attr;
     }
 
     /**
