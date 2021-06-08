@@ -50,6 +50,7 @@ class EtcdManage {
         self::DefaultServerQpmPrefix,
         self::DefaultServerFnPrefix,
         self::DefaultServerQpmServiceBlockPrefix,
+        self::DefaultServerInvoicePrefix,
         self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
         self::EnvWebTestPrefix.self::DefaultServerFnPrefix,
