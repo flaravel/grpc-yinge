@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package Invoice;
+
+option php_metadata_namespace = "Yinge\\Grpc\\Invoice\\GPBMetadata";
+option php_namespace = "Yinge\\Grpc\\Invoice";
+
+service Invoice {
+    //印鸽端提交开票
+    rpc SubmitApply(InvoiceApplyRequest) returns (Response) {}
+}
+
+message InvoiceApplyRequest {
+    string outBizNo = 1;
+    int32 invoiceType = 2;
+    float amount = 3;
+    string title = 4;
+    string taxNum = 5;
+    int32 merchantId = 6;
+    string email = 7;
+    repeated InvoiceApplyDetail details = 8;
+    SpecialInfo specialInfo = 9;
+}
+//开票明细
+message InvoiceApplyDetail {
+    string bizProdName = 1;
+    int32 count = 2;
+    float price = 3;
+    int32 skuId = 4;
+}
+//专票信息
+message SpecialInfo {
+    string bankName = 1;
+    string bankCardNum = 3;
+    string registerAddress = 3;
+    string registerPhone = 4;
+}
+
+message Response {
+    int32 code = 1;
+    string msg = 2;
+    string invoiceSn = 3;
+}
