@@ -31,6 +31,10 @@ class InvoiceApplyDetail extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int32 skuId = 4;</code>
      */
     protected $skuId = 0;
+    /**
+     * Generated from protobuf field <code>float subtotal = 5;</code>
+     */
+    protected $subtotal = 0.0;
 
     /**
      * Constructor.
@@ -42,6 +46,7 @@ class InvoiceApplyDetail extends \Google\Protobuf\Internal\Message
      *     @type int $count
      *     @type float $price
      *     @type int $skuId
+     *     @type float $subtotal
      * }
      */
     public function __construct($data = NULL) {
@@ -133,6 +138,28 @@ class InvoiceApplyDetail extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->skuId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>float subtotal = 5;</code>
+     * @return float
+     */
+    public function getSubtotal()
+    {
+        return $this->subtotal;
+    }
+
+    /**
+     * Generated from protobuf field <code>float subtotal = 5;</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setSubtotal($var)
+    {
+        GPBUtil::checkFloat($var);
+        $this->subtotal = $var;
 
         return $this;
     }

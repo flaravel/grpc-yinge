@@ -49,6 +49,10 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Invoice.SpecialInfo specialInfo = 9;</code>
      */
     protected $specialInfo = null;
+    /**
+     * Generated from protobuf field <code>int32 titleType = 10;</code>
+     */
+    protected $titleType = 0;
 
     /**
      * Constructor.
@@ -65,6 +69,7 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
      *     @type string $email
      *     @type \Yinge\Grpc\Invoice\InvoiceApplyDetail[]|\Google\Protobuf\Internal\RepeatedField $details
      *     @type \Yinge\Grpc\Invoice\SpecialInfo $specialInfo
+     *     @type int $titleType
      * }
      */
     public function __construct($data = NULL) {
@@ -266,6 +271,28 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Yinge\Grpc\Invoice\SpecialInfo::class);
         $this->specialInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 titleType = 10;</code>
+     * @return int
+     */
+    public function getTitleType()
+    {
+        return $this->titleType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 titleType = 10;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTitleType($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->titleType = $var;
 
         return $this;
     }
