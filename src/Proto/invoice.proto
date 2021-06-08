@@ -20,6 +20,7 @@ message InvoiceApplyRequest {
     string email = 7;
     repeated InvoiceApplyDetail details = 8;
     SpecialInfo specialInfo = 9;
+    int32 titleType = 10;
 }
 //开票明细
 message InvoiceApplyDetail {
