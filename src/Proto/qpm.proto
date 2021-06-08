@@ -23,16 +23,25 @@ service QpmService {
     rpc TryDispatchOrder(TryDispatchRequest) returns (TryDispatchResponse) {}
     rpc UpdateOrderItem(UpdateOrderItemRequest) returns (Response) {}
     rpc SubAccountAuth(SubAccountAuthRequest) returns (SubAccountResponse) {}
+    rpc ProduceCheck(ProduceCheckRequest) returns (ProduceCheckResponse) {}
     rpc CheckSkuCost(SkuCostCheckRequest) returns (SkuCostCheckResponse) {}
     rpc CheckSkuConfigs(SkuConfigCheckRequest) returns (SkuConfigCheckResponse) {}
     rpc ProduceRules(ProduceRulesRequest) returns (ProduceRulesResponse) {}
     rpc FactoryExpress(FactoryExpressRequest) returns (FactoryExpressResponse) {}
+
+    // 获取sku生产信息
+    rpc GetSkuProduceInfo(SkuProduceInfoReq) returns (SkuProduceResp){}
+
+    // 获取spu产能信息
+    rpc GetSpuCapacityInfo(SpuCapacityInfoReq) returns(SkuProduceResp) {}
 
     //查询订单成本明细
     rpc getCostDetails(OrderCostQueryRequest) returns (OrderCostDetailsResponse) {}
     rpc CostSettled(CostSettleRequest) returns (Response) {}
     // 物料列表
     rpc MaterielList(MListReq) returns(MListResp) {}
+    // 物料详情
+    rpc MaterielDetail(MaterielDetailReq) returns(MaterielDetailResp) {}
     // 入库物料
     rpc StoreMateriel(StoreMaterielReq) returns(Response) {}
     // 入库物料历史记录
@@ -47,6 +56,38 @@ service QpmService {
     rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
 }
 
+message ProduceCheckRequest {
+    repeated int64 skuIds = 1;
+}
+
+message ProduceCheckResponse {
+    message CheckItem {
+        int64 skuId = 1;
+        string skuName = 2;
+        bool factory = 3;
+        bool express = 4;
+        bool produceCost = 5;
+        bool expressCost = 6;
+    }
+
+    int64 code = 1;
+    map<int64, CheckItem> results = 2;
+    string errMsg = 3;
+}
+
+message SkuProduceInfoReq {
+    repeated int64 skuIds = 1;
+}
+
+message SpuCapacityInfoReq {
+    repeated int64 spuIds = 1;
+}
+
+message SkuProduceResp {
+    int32 code = 1;
+    string msg = 2;
+    string data = 3; // 返回数据可能为N维数组 用json处理
+}
 
 message SpuListReq {
     int64 factoryId = 1;
@@ -104,11 +145,21 @@ message StoreMaterielReq {
     string cert = 4;
     int64 factoryId = 5;
     int64 stockType = 6;
+    int64 relationCheckId = 7;
 }
 
 // 入库详情 请求
 message SMDReq {
     int64 checkId = 1;
+}
+
+message MaterielDetailReq{
+    int64 mid = 1;
+    int64 factoryId = 2;
+}
+
+message MaterielDetailResp {
+    BaseMateriel item = 1;
 }
 
 // 入库详情 结果
@@ -136,6 +187,8 @@ message SMHReq {
     int64 factoryId = 6;
     int64 mid = 7;
     int64 status = 8;
+    int64 relationCheckId = 9;
+    bool removeRelationId = 10;
 }
 // 入库历史返回参数
 message SMHResp {
@@ -158,6 +211,8 @@ message BaseMaterielHistory {
     int64  stockType = 11;
     string reason = 12;
     int64 status = 13;
+    int64 commitType = 14;
+    int64 relationId = 15;
 }
 
 message FactoryExpressRequest {
@@ -254,6 +309,7 @@ message OrderInfo {
     int32 produceStatus = 9;
     string extra = 10;
     string extends = 11;
+    int32 pretend = 12;
 }
 
 message OrderCancelRequest {

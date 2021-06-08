@@ -41,6 +41,18 @@ class SkuRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool hiddenAttr = 6;</code>
      */
     protected $hiddenAttr = false;
+    /**
+     * 分类id
+     *
+     * Generated from protobuf field <code>int64 cid = 7;</code>
+     */
+    protected $cid = 0;
+    /**
+     * 组织ID
+     *
+     * Generated from protobuf field <code>int64 organization_id = 8;</code>
+     */
+    protected $organization_id = 0;
 
     /**
      * Constructor.
@@ -55,6 +67,10 @@ class SkuRequest extends \Google\Protobuf\Internal\Message
      *     @type \Yinge\Grpc\Product\AttrAndValFlat[]|\Google\Protobuf\Internal\RepeatedField $attrParam
      *     @type int[]|string[]|\Google\Protobuf\Internal\RepeatedField $exceptList
      *     @type bool $hiddenAttr
+     *     @type int|string $cid
+     *           分类id
+     *     @type int|string $organization_id
+     *           组织ID
      * }
      */
     public function __construct($data = NULL) {
@@ -194,6 +210,58 @@ class SkuRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->hiddenAttr = $var;
+
+        return $this;
+    }
+
+    /**
+     * 分类id
+     *
+     * Generated from protobuf field <code>int64 cid = 7;</code>
+     * @return int|string
+     */
+    public function getCid()
+    {
+        return $this->cid;
+    }
+
+    /**
+     * 分类id
+     *
+     * Generated from protobuf field <code>int64 cid = 7;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setCid($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->cid = $var;
+
+        return $this;
+    }
+
+    /**
+     * 组织ID
+     *
+     * Generated from protobuf field <code>int64 organization_id = 8;</code>
+     * @return int|string
+     */
+    public function getOrganizationId()
+    {
+        return $this->organization_id;
+    }
+
+    /**
+     * 组织ID
+     *
+     * Generated from protobuf field <code>int64 organization_id = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setOrganizationId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->organization_id = $var;
 
         return $this;
     }

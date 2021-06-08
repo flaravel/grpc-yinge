@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\App;
 use Yinge\Grpc\Finance\MerchantClient;
 use Yinge\Grpc\Product\ProductClient;
 use Yinge\Grpc\Qpm\QpmServiceClient;
+use Yinge\Grpc\QpmServiceBlock\QpmServiceBlockClient;
 use Yinge\Grpc\Util\EtcdManage;
 
 class Client
@@ -55,6 +56,9 @@ class Client
             case MerchantClient::class:
                 $etcdPrefix = EtcdManage::DefaultServerFnPrefix;
                 break;
+            case QpmServiceBlockClient::class:
+                $etcdPrefix = EtcdManage::DefaultServerQpmServiceBlockPrefix;
+                break;
             default:
                 throw new GrpcException('invalid grpc class');
                 break;
@@ -74,6 +78,7 @@ class Client
 
     public function getChannelOpts() {
         return [
+            'grpc_target_persist_bound'=>0,
             'credentials' => \Grpc\ChannelCredentials::createInsecure(),
         ];
     }

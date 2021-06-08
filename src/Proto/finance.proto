@@ -14,11 +14,17 @@ service Merchant {
   rpc WithdrawList(WithdrawListRequest) returns (WithdrawListResponse) {}
   // 后台审核提现
   rpc WithdrawReport(WithdrawReportRequest) returns (EmptyResponse) {}
+  rpc WithdrawExport(WithdrawExportRequest) returns (ExportResponse) {}
   // 发起提现申请
   rpc Withdraw(WithdrawRequest) returns (EmptyResponse) {}
   // 实名验证
   rpc IdAuthInfo(SingleMerchantQuery) returns (AuthInfo) {}
   rpc IdAuthConfirm(IdAutoInfo) returns(EmptyResponse) {}
+  // 补录信息
+  rpc SaveAdditional(SaveAdditionalRequest) returns(MobileResponse) {}
+  rpc ReportCropVerifyCode(ReportCropVerifyCodeRequest) returns (EmptyResponse) {}
+  // 同意协议
+  rpc AgreeAgreement(AgreementRequest) returns (EmptyResponse) {}
 
   // 发起分账
   rpc AutoSplit(SplitRequest) returns(EmptyResponse) {}
@@ -32,8 +38,10 @@ service Merchant {
   rpc SplitRuleHistory(SplitRuleHistoryRequest) returns (SplitRuleHistories) {}
 
   rpc BankList(EmptyResponse) returns (BankListResponse) {}
-  // 绑定银行卡
+  // 绑定银行卡-废弃
   rpc BindAccount(BindRequest) returns (EmptyResponse) {}
+  // 绑定银行卡
+  rpc BindBankAccount(BindBankRequest) returns (MobileResponse) {}
   rpc UnbindAccount(UnbindRequest) returns (EmptyResponse) {}
   rpc ReportBindCode(ReportBindCodeRequest) returns (EmptyResponse) {}
   rpc ReportBindAmount(ReportBindAmountRequest) returns (EmptyResponse) {}
@@ -57,6 +65,58 @@ service Merchant {
   // 查询分账列表
   rpc SplitList(SplitListRequest) returns(SplitListResponse) {}
 
+  // 批量查询商户冻结资金
+  rpc FrozenAmount(FrozenAmountRequest) returns (FrozenAmountResponse) {}
+
+}
+
+message WithdrawExportRequest {
+  int64 type = 1;
+  string dateStart = 2;
+  string dateEnd = 3;
+}
+
+message ExportResponse {
+  string fileUrl = 1;
+}
+
+
+message AgreementRequest {
+  SingleMerchantQuery merchantInfo = 1;
+  string clientIp = 2;
+}
+
+message SaveAdditionalRequest {
+  SingleMerchantQuery merchantInfo = 1;
+  AdditionalInfo additionalInfo = 2;
+}
+
+message ReportCropVerifyCodeRequest {
+  int64 originId = 1;
+  int64 merchantType = 2;
+  string code = 3;
+}
+
+message AdditionalInfo {
+  int64 type = 1;
+  string name = 2;
+  string globalId = 3;
+  string legalName = 4;
+  string legalId = 5;
+  string clientIp = 6;
+}
+
+message FrozenAmountRequest {
+  repeated SingleMerchantQuery merchants = 1;
+}
+
+message FrozenAmountResponse {
+  message Item {
+    int64 originId = 1;
+    int64 merchantType = 2;
+    int64 Amount = 3;
+  }
+  repeated Item list = 1;
 }
 
 message VerifyMemberTransferSmsRequest {
@@ -162,6 +222,7 @@ message ReportBindAmountRequest{
   int64 merchantType = 2;
   int64 amount = 3;
   string acctNo = 4;
+  string code = 5;
 }
 
 message BankListResponse {
@@ -339,6 +400,7 @@ message AccountBalance {
   int64 realWithdrawable = 4;
   int64 realFrozen = 5;
   int64 checking = 6;
+  int64 sysFrozen = 7;
 }
 
 message BankBind {
@@ -361,6 +423,7 @@ message MerchantListResponse {
     AccountBalance account = 2;
     AuthInfo authInfo = 3;
     repeated BankBind bankBounded = 4;
+    AdditionalInfo additional = 5;
   }
 
   repeated Items list = 1;
@@ -382,6 +445,7 @@ message AuthInfo {
   string idNumber = 4;
   int64 authTime = 5;
   int64 status = 6;
+  bool additional = 7;
 }
 
 
@@ -401,6 +465,28 @@ message BindRequest {
   int64 method = 7;
   int64 originId = 8;
   int64 merchantType = 9;
+}
+
+message BindBankRequest {
+  enum AccountType {
+    Person = 0;
+    Individual = 1;
+    Enterprise = 2;
+  }
+
+  AccountType globalType = 1;
+  string companyName = 2;
+  string companyIdNumber = 3;
+  string corporateName = 4;
+  string corporateIdNumber = 5;
+  string realName = 6;
+  string idNumber = 7;
+  string accountNo = 8;
+  int64 bankId = 9;
+  string mobile = 10;
+  int64 method = 11;
+  int64 originId = 12;
+  int64 merchantType = 13;
 }
 
 message UnbindRequest {
@@ -431,6 +517,10 @@ message SplitDetail {
   int64 transFee = 6;
   int64 rechargeStatus = 7;
   int64 splitTime = 8;
+}
+
+message MobileResponse {
+  string mobile = 1;
 }
 
 message EmptyResponse {

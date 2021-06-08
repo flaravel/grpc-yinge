@@ -255,6 +255,20 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Yinge\Grpc\Qpm\ProduceCheckRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Yinge\Grpc\Qpm\ProduceCheckResponse
+     */
+    public function ProduceCheck(\Yinge\Grpc\Qpm\ProduceCheckRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/ProduceCheck',
+        $argument,
+        ['\Yinge\Grpc\Qpm\ProduceCheckResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Yinge\Grpc\Qpm\SkuCostCheckRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -311,6 +325,36 @@ class QpmServiceClient extends \Grpc\BaseStub {
     }
 
     /**
+     * 获取sku生产信息
+     * @param \Yinge\Grpc\Qpm\SkuProduceInfoReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Yinge\Grpc\Qpm\SkuProduceResp
+     */
+    public function GetSkuProduceInfo(\Yinge\Grpc\Qpm\SkuProduceInfoReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/GetSkuProduceInfo',
+        $argument,
+        ['\Yinge\Grpc\Qpm\SkuProduceResp', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 获取spu产能信息
+     * @param \Yinge\Grpc\Qpm\SpuCapacityInfoReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Yinge\Grpc\Qpm\SkuProduceResp
+     */
+    public function GetSpuCapacityInfo(\Yinge\Grpc\Qpm\SpuCapacityInfoReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/GetSpuCapacityInfo',
+        $argument,
+        ['\Yinge\Grpc\Qpm\SkuProduceResp', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 查询订单成本明细
      * @param \Yinge\Grpc\Qpm\OrderCostQueryRequest $argument input argument
      * @param array $metadata metadata
@@ -351,6 +395,21 @@ class QpmServiceClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/Qpm.QpmService/MaterielList',
         $argument,
         ['\Yinge\Grpc\Qpm\MListResp', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 物料详情
+     * @param \Yinge\Grpc\Qpm\MaterielDetailReq $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Yinge\Grpc\Qpm\MaterielDetailResp
+     */
+    public function MaterielDetail(\Yinge\Grpc\Qpm\MaterielDetailReq $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/MaterielDetail',
+        $argument,
+        ['\Yinge\Grpc\Qpm\MaterielDetailResp', 'decode'],
         $metadata, $options);
     }
 

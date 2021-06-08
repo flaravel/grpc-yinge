@@ -67,6 +67,14 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 status = 13;</code>
      */
     protected $status = 0;
+    /**
+     * Generated from protobuf field <code>int64 commitType = 14;</code>
+     */
+    protected $commitType = 0;
+    /**
+     * Generated from protobuf field <code>int64 relationId = 15;</code>
+     */
+    protected $relationId = 0;
 
     /**
      * Constructor.
@@ -87,6 +95,8 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
      *     @type int|string $stockType
      *     @type string $reason
      *     @type int|string $status
+     *     @type int|string $commitType
+     *     @type int|string $relationId
      * }
      */
     public function __construct($data = NULL) {
@@ -376,6 +386,50 @@ class BaseMaterielHistory extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 commitType = 14;</code>
+     * @return int|string
+     */
+    public function getCommitType()
+    {
+        return $this->commitType;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 commitType = 14;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setCommitType($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->commitType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 relationId = 15;</code>
+     * @return int|string
+     */
+    public function getRelationId()
+    {
+        return $this->relationId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 relationId = 15;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setRelationId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->relationId = $var;
 
         return $this;
     }

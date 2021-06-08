@@ -9,6 +9,12 @@ use Yinge\Grpc\Util\Algorithm\WeightedRoundRobin;
 class EtcdManage {
 
 
+    /** @var string[] 网关列表 */
+    const ETCD_GATEWAY_LIST = [
+        'http://172.16.4.78:2379',
+        'http://172.16.162.82:2379',
+        'http://172.16.5.38:2379',
+    ];
 
     /** @var string etcd 网关地址 */
     const ETCD_GATEWAY = 'etcd.yinge.tech:2379';
@@ -21,6 +27,8 @@ class EtcdManage {
     const DefaultServerQpmPrefix = '/v1/grpc/server/qpm/';
     /** @var string qpm */
     const DefaultServerFnPrefix = '/v1/grpc/server/fn/';
+    // QPM 服务块
+    const DefaultServerQpmServiceBlockPrefix = '/v1/grpc/server/qpm-service-block/';
 
     /** @var string webtest环境 前缀 */
     const EnvWebTestPrefix = '/webtest';
@@ -40,9 +48,11 @@ class EtcdManage {
         self::DefaultServerPCPrefix,
         self::DefaultServerQpmPrefix,
         self::DefaultServerFnPrefix,
+        self::DefaultServerQpmServiceBlockPrefix,
         self::EnvWebTestPrefix.self::DefaultServerPCPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
         self::EnvWebTestPrefix.self::DefaultServerFnPrefix,
+        self::EnvWebTestPrefix.self::DefaultServerQpmServiceBlockPrefix,
 
         self::EnvQAPrefix.self::DefaultServerPCPrefix,
         self::EnvQAPrefix.self::DefaultServerQpmPrefix,
@@ -62,12 +72,21 @@ class EtcdManage {
      */
     private $client = null;
 
+    /**
+     * @return string
+     */
+    public function getEtcdHost() {
+        $currentEtcd = self::ETCD_GATEWAY_LIST[array_rand(self::ETCD_GATEWAY_LIST)];
+        \Log::info('-- current etcd url --'.$currentEtcd);
+        return $currentEtcd;
+    }
+
     public function __construct (string $prefix) {
         if (!in_array($prefix,self::AllowPrefixList)) {
             throw new GrpcException('invalid etcd prefix: ' . $prefix);
         }
         $this->currentPrefix = $prefix;
-        $this->client = new Client(self::ETCD_GATEWAY,'v3alpha');
+        $this->client = new Client($this->getEtcdHost(),'v3alpha');
 
         $this->robin = new WeightedRoundRobin();
         $this->hosts = $this->getAllServer();

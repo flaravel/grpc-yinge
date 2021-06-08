@@ -16,6 +16,9 @@ service Product {
   // 根据筛选条件 获取sku列表
   rpc GetSkuList(SkuRequest) returns (SkuResult) {}
 
+  // 根据筛选条件获取基础sku列表
+  rpc GetBaseSkuList(SkuBaseRequest) returns (SkuResult) {}
+
   // 根据分类id 获取属性与属性值
   rpc GetAttrAndValByCId(GetAttrAndValRequest) returns (GetAttrAndValResponse){}
 
@@ -27,6 +30,14 @@ service Product {
 
   // 获取sku详情
   rpc GetSkuDetail(SkuDetailReq) returns(SkuDetailRep) {}
+
+  // sku详情 附带 物料列表
+  rpc GetSkuDetailWithMateriel(SkuDetailReq) returns(SkuDetailWithMateriel) {}
+}
+
+message SkuBaseRequest {
+    int64 spuId = 1;
+    string keyword = 2;
 }
 
 message SpuDetailReq{
@@ -43,6 +54,26 @@ message SpuDetailRep {
 
 message SkuDetailRep {
   repeated Sku skuInfo = 1;
+}
+
+message SkuDetailWithMateriel {
+  repeated SkuWithMateriel items = 1;
+}
+
+
+message SkuWithMateriel {
+  Sku skuInfo = 1;
+  repeated Materiel materiel = 2;
+}
+
+message Materiel {
+  uint64 skuId = 1;
+  string skuName = 2;
+  int64 total = 3;
+  string produceCode = 4;
+  float weight = 6;
+  string unit = 7;
+  int64 productType = 8;
 }
 
 // spu列表请求参数
@@ -98,6 +129,8 @@ message SkuRequest {
   repeated AttrAndValFlat attrParam = 4;
   repeated int64 exceptList = 5;
   bool hiddenAttr = 6;
+  int64 cid = 7; // 分类id
+  int64 organization_id = 8; // 组织ID
 }
 
 // sku 列表返回参数
@@ -116,6 +149,14 @@ message Sku {
   // 生产编码
   string produceCode = 6;
   uint64 cid = 7;
+  float weight = 8;
+  // 单位
+  string unit = 9;
+  int64 productType = 10;
+  string img = 11;
+  string length = 12;
+  string width = 13;
+  string height = 14;
 }
 
 // 分类基础参数
@@ -135,6 +176,9 @@ message Spu {
 
   repeated AttrAndValRelation attrList = 7;
   int64 productType = 8;
+
+  int64 organizationId = 9;
+  string organizationName = 10;
 }
 
 // 属性与属性值关联[扁平[
@@ -153,11 +197,13 @@ message AttrAndValRelation {
 message Attr {
   uint64 attrId = 1;
   string attrName = 2;
+  int64 sort = 3;
 }
 // 属性值-参数
 message AttrVal {
   uint64 valId = 3;
   string valName = 4;
+  int64 sort = 5;
 }
 
 // 第三方sku请求
@@ -165,4 +211,3 @@ message ThirdPartySkuRequest {
   string skuName = 1;
   string spuName = 2;
 }
-

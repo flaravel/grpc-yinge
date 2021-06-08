@@ -47,6 +47,14 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 status = 8;</code>
      */
     protected $status = 0;
+    /**
+     * Generated from protobuf field <code>int64 relationCheckId = 9;</code>
+     */
+    protected $relationCheckId = 0;
+    /**
+     * Generated from protobuf field <code>bool removeRelationId = 10;</code>
+     */
+    protected $removeRelationId = false;
 
     /**
      * Constructor.
@@ -62,6 +70,8 @@ class SMHReq extends \Google\Protobuf\Internal\Message
      *     @type int|string $factoryId
      *     @type int|string $mid
      *     @type int|string $status
+     *     @type int|string $relationCheckId
+     *     @type bool $removeRelationId
      * }
      */
     public function __construct($data = NULL) {
@@ -241,6 +251,50 @@ class SMHReq extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 relationCheckId = 9;</code>
+     * @return int|string
+     */
+    public function getRelationCheckId()
+    {
+        return $this->relationCheckId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 relationCheckId = 9;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setRelationCheckId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->relationCheckId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool removeRelationId = 10;</code>
+     * @return bool
+     */
+    public function getRemoveRelationId()
+    {
+        return $this->removeRelationId;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool removeRelationId = 10;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setRemoveRelationId($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->removeRelationId = $var;
 
         return $this;
     }

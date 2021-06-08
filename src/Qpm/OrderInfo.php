@@ -57,6 +57,10 @@ class OrderInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string extends = 11;</code>
      */
     protected $extends = '';
+    /**
+     * Generated from protobuf field <code>int32 pretend = 12;</code>
+     */
+    protected $pretend = 0;
 
     /**
      * Constructor.
@@ -75,6 +79,7 @@ class OrderInfo extends \Google\Protobuf\Internal\Message
      *     @type int $produceStatus
      *     @type string $extra
      *     @type string $extends
+     *     @type int $pretend
      * }
      */
     public function __construct($data = NULL) {
@@ -320,6 +325,28 @@ class OrderInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->extends = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 pretend = 12;</code>
+     * @return int
+     */
+    public function getPretend()
+    {
+        return $this->pretend;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 pretend = 12;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setPretend($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->pretend = $var;
 
         return $this;
     }
