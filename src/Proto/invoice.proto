@@ -28,6 +28,7 @@ message InvoiceApplyDetail {
     int32 count = 2;
     float price = 3;
     int32 skuId = 4;
+    float subtotal = 5;
 }
 //专票信息
 message SpecialInfo {
