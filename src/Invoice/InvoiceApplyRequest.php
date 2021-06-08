@@ -53,6 +53,10 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int32 titleType = 10;</code>
      */
     protected $titleType = 0;
+    /**
+     * Generated from protobuf field <code>.Invoice.Operator operator = 11;</code>
+     */
+    protected $operator = null;
 
     /**
      * Constructor.
@@ -70,6 +74,7 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
      *     @type \Yinge\Grpc\Invoice\InvoiceApplyDetail[]|\Google\Protobuf\Internal\RepeatedField $details
      *     @type \Yinge\Grpc\Invoice\SpecialInfo $specialInfo
      *     @type int $titleType
+     *     @type \Yinge\Grpc\Invoice\Operator $operator
      * }
      */
     public function __construct($data = NULL) {
@@ -293,6 +298,28 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->titleType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Invoice.Operator operator = 11;</code>
+     * @return \Yinge\Grpc\Invoice\Operator
+     */
+    public function getOperator()
+    {
+        return $this->operator;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Invoice.Operator operator = 11;</code>
+     * @param \Yinge\Grpc\Invoice\Operator $var
+     * @return $this
+     */
+    public function setOperator($var)
+    {
+        GPBUtil::checkMessage($var, \Yinge\Grpc\Invoice\Operator::class);
+        $this->operator = $var;
 
         return $this;
     }

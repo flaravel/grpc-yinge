@@ -21,6 +21,7 @@ message InvoiceApplyRequest {
     repeated InvoiceApplyDetail details = 8;
     SpecialInfo specialInfo = 9;
     int32 titleType = 10;
+    Operator operator = 11;
 }
 //开票明细
 message InvoiceApplyDetail {
@@ -36,6 +37,11 @@ message SpecialInfo {
     string bankCardNum = 2;
     string registerAddress = 3;
     string registerPhone = 4;
+}
+
+message Operator {
+    int32 id = 1;
+    string name = 2;
 }
 
 message Response {
