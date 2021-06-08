@@ -31,7 +31,7 @@ message InvoiceApplyDetail {
 //专票信息
 message SpecialInfo {
     string bankName = 1;
-    string bankCardNum = 3;
+    string bankCardNum = 2;
     string registerAddress = 3;
     string registerPhone = 4;
 }
