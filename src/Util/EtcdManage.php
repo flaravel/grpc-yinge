@@ -27,6 +27,7 @@ class EtcdManage {
     const DefaultServerQpmPrefix = '/v1/grpc/server/qpm/';
     /** @var string qpm */
     const DefaultServerFnPrefix = '/v1/grpc/server/fn/';
+    const DefaultServerInvoicePrefix = '/v1/grpc/server/invoice/';
     // QPM 服务块
     const DefaultServerQpmServiceBlockPrefix = '/v1/grpc/server/qpm-service-block/';
 
