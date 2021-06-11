@@ -13,6 +13,7 @@ service Invoice {
 message InvoiceApplyRequest {
     string outBizNo = 1;
     int32 invoiceType = 2;
+    string customerName = 12;
     float amount = 3;
     string title = 4;
     string taxNum = 5;
