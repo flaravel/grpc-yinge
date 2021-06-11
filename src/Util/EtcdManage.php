@@ -55,9 +55,11 @@ class EtcdManage {
         self::EnvWebTestPrefix.self::DefaultServerQpmPrefix,
         self::EnvWebTestPrefix.self::DefaultServerFnPrefix,
         self::EnvWebTestPrefix.self::DefaultServerQpmServiceBlockPrefix,
+        self::EnvWebTestPrefix.self::DefaultServerInvoicePrefix,
 
         self::EnvQAPrefix.self::DefaultServerPCPrefix,
         self::EnvQAPrefix.self::DefaultServerQpmPrefix,
+        self::EnvQAPrefix.self::DefaultServerInvoicePrefix,
     ];
 
     /** @var string  */
