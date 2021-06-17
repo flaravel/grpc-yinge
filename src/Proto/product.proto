@@ -157,6 +157,7 @@ message Sku {
   string length = 12;
   string width = 13;
   string height = 14;
+  bool isDeleted = 15;
 }
 
 // 分类基础参数
