@@ -49,6 +49,10 @@ class BillsQuery extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 merchantType = 9;</code>
      */
     protected $merchantType = 0;
+    /**
+     * Generated from protobuf field <code>repeated int64 orderIds = 10;</code>
+     */
+    private $orderIds;
 
     /**
      * Constructor.
@@ -65,6 +69,7 @@ class BillsQuery extends \Google\Protobuf\Internal\Message
      *     @type int|string $pageSize
      *     @type int|string $originId
      *     @type int|string $merchantType
+     *     @type int[]|string[]|\Google\Protobuf\Internal\RepeatedField $orderIds
      * }
      */
     public function __construct($data = NULL) {
@@ -266,6 +271,28 @@ class BillsQuery extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->merchantType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated int64 orderIds = 10;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getOrderIds()
+    {
+        return $this->orderIds;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated int64 orderIds = 10;</code>
+     * @param int[]|string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setOrderIds($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT64);
+        $this->orderIds = $arr;
 
         return $this;
     }
