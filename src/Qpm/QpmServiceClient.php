@@ -469,4 +469,18 @@ class QpmServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 批量查询订单的物流单号
+     * @param \Yinge\Grpc\Qpm\BatchOrderRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function BatchQueryExpressNumber(\Yinge\Grpc\Qpm\BatchOrderRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/BatchQueryExpressNumber',
+        $argument,
+        ['\Yinge\Grpc\Qpm\ExpressList', 'decode'],
+        $metadata, $options);
+    }
+
 }
