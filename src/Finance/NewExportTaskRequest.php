@@ -30,9 +30,9 @@ class NewExportTaskRequest extends \Google\Protobuf\Internal\Message
      */
     protected $creatorId = 0;
     /**
-     * Generated from protobuf field <code>map<string, string> params = 5;</code>
+     * Generated from protobuf field <code>string params = 5;</code>
      */
-    private $params;
+    protected $params = '';
 
     /**
      * Constructor.
@@ -44,7 +44,7 @@ class NewExportTaskRequest extends \Google\Protobuf\Internal\Message
      *     @type string $source
      *     @type string $taskName
      *     @type int|string $creatorId
-     *     @type array|\Google\Protobuf\Internal\MapField $params
+     *     @type string $params
      * }
      */
     public function __construct($data = NULL) {
@@ -141,8 +141,8 @@ class NewExportTaskRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> params = 5;</code>
-     * @return \Google\Protobuf\Internal\MapField
+     * Generated from protobuf field <code>string params = 5;</code>
+     * @return string
      */
     public function getParams()
     {
@@ -150,14 +150,14 @@ class NewExportTaskRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> params = 5;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
+     * Generated from protobuf field <code>string params = 5;</code>
+     * @param string $var
      * @return $this
      */
     public function setParams($var)
     {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->params = $arr;
+        GPBUtil::checkString($var, True);
+        $this->params = $var;
 
         return $this;
     }

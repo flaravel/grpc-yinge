@@ -78,7 +78,7 @@ message NewExportTaskRequest {
   string source = 2;
   string taskName = 3;
   int64 creatorId = 4;
-  map<string, string> params = 5;
+  string params = 5;
 }
 
 message WithdrawExportRequest {
