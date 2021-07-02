@@ -503,4 +503,18 @@ class MerchantClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 新建账单导出任务
+     * @param \Yinge\Grpc\Finance\NewExportTaskRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function NewExportTask(\Yinge\Grpc\Finance\NewExportTaskRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/NewExportTask',
+        $argument,
+        ['\Yinge\Grpc\Finance\EmptyResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }
