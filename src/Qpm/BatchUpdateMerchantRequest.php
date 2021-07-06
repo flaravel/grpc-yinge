@@ -17,6 +17,10 @@ class BatchUpdateMerchantRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string orderIds = 1;</code>
      */
     protected $orderIds = '';
+    /**
+     * Generated from protobuf field <code>int64 merchantId = 2;</code>
+     */
+    protected $merchantId = 0;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class BatchUpdateMerchantRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $orderIds
+     *     @type int|string $merchantId
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,28 @@ class BatchUpdateMerchantRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->orderIds = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 merchantId = 2;</code>
+     * @return int|string
+     */
+    public function getMerchantId()
+    {
+        return $this->merchantId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 merchantId = 2;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMerchantId($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->merchantId = $var;
 
         return $this;
     }

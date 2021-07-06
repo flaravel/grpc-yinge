@@ -259,6 +259,7 @@ message TryDispatchRequest {
 
 message BatchUpdateMerchantRequest{
     string orderIds = 1;
+    int64 merchantId = 2;
 }
 
 message TryDispatchResponse {
