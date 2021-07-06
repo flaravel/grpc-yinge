@@ -510,9 +510,9 @@ class QpmServiceClient extends \Grpc\BaseStub {
      * @param array $options call options
      * @return \Yinge\Grpc\Qpm\Response
      */
-    public function FixMerchantId(\Yinge\Grpc\Qpm\BatchUpdateMerchantRequest $argument,
+    public function FixOrderMerchantId(\Yinge\Grpc\Qpm\BatchUpdateMerchantRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/Qpm.QpmService/FixMerchantId',
+        return $this->_simpleRequest('/Qpm.QpmService/FixOrderMerchantId',
         $argument,
         ['\Yinge\Grpc\Qpm\Response', 'decode'],
         $metadata, $options);

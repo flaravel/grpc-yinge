@@ -55,7 +55,7 @@ service QpmService {
     //拉取次品订单数最多的25个spu
     rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
     //更新qpm端的merchant_id  (临时用)
-    rpc FixMerchantId(BatchUpdateMerchantRequest) returns(Response){}
+    rpc FixOrderMerchantId(BatchUpdateMerchantRequest) returns(Response){}
 }
 
 message ProduceCheckRequest {
