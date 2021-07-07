@@ -56,6 +56,23 @@ service QpmService {
     rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
     //更新qpm端的merchant_id  (临时用)
     rpc FixOrderMerchantId(BatchUpdateMerchantRequest) returns(Response){}
+    // 批量查询订单的物流单号
+    rpc BatchQueryExpressNumber(BatchOrderRequest) returns(ExpressList){}
+    // 停发配置停发更新
+    rpc DeliveryStopConfigChanged(DeliveryStopConfigChangedRequest) returns(Response){}
+}
+
+
+message DeliveryStopConfigChangedRequest {
+     string id = 1;
+}
+
+message BatchOrderRequest {
+    repeated int64 orderIds = 1;
+}
+
+message ExpressList {
+    map<int64, string> Items = 1;
 }
 
 message ProduceCheckRequest {
