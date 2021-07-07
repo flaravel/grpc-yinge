@@ -33,6 +33,12 @@ class SpuListReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string keyword = 4;</code>
      */
     protected $keyword = '';
+    /**
+     * 只返回ID和Name
+     *
+     * Generated from protobuf field <code>bool onlySimpleFiled = 5;</code>
+     */
+    protected $onlySimpleFiled = false;
 
     /**
      * Constructor.
@@ -45,6 +51,8 @@ class SpuListReq extends \Google\Protobuf\Internal\Message
      *     @type bool $noPage
      *           不分页标识
      *     @type string $keyword
+     *     @type bool $onlySimpleFiled
+     *           只返回ID和Name
      * }
      */
     public function __construct($data = NULL) {
@@ -140,6 +148,32 @@ class SpuListReq extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->keyword = $var;
+
+        return $this;
+    }
+
+    /**
+     * 只返回ID和Name
+     *
+     * Generated from protobuf field <code>bool onlySimpleFiled = 5;</code>
+     * @return bool
+     */
+    public function getOnlySimpleFiled()
+    {
+        return $this->onlySimpleFiled;
+    }
+
+    /**
+     * 只返回ID和Name
+     *
+     * Generated from protobuf field <code>bool onlySimpleFiled = 5;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setOnlySimpleFiled($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->onlySimpleFiled = $var;
 
         return $this;
     }
