@@ -56,6 +56,13 @@ service QpmService {
     rpc GetTopDefectiveSpu(DefectiveSearchRequest) returns (DefectiveSpuResponse){}
     // 批量查询订单的物流单号
     rpc BatchQueryExpressNumber(BatchOrderRequest) returns(ExpressList){}
+    // 停发配置停发更新
+    rpc DeliveryStopConfigChanged(DeliveryStopConfigChangedRequest) returns(Response){}
+}
+
+
+message DeliveryStopConfigChangedRequest {
+     string id = 1;
 }
 
 message BatchOrderRequest {

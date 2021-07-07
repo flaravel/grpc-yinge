@@ -483,4 +483,18 @@ class QpmServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 停发配置停发更新
+     * @param \Yinge\Grpc\Qpm\DeliveryStopConfigChangedRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function DeliveryStopConfigChanged(\Yinge\Grpc\Qpm\DeliveryStopConfigChangedRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Qpm.QpmService/DeliveryStopConfigChanged',
+        $argument,
+        ['\Yinge\Grpc\Qpm\Response', 'decode'],
+        $metadata, $options);
+    }
+
 }
