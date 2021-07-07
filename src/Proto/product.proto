@@ -82,6 +82,7 @@ message SpuListReq {
   PageParam pageParam = 2;
   bool noPage = 3; // 不分页标识
   string keyword = 4;
+  bool onlySimpleFiled = 5; // 只返回ID和Name
 }
 
 // spu 列表返回
