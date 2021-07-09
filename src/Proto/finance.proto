@@ -68,6 +68,17 @@ service Merchant {
   // 批量查询商户冻结资金
   rpc FrozenAmount(FrozenAmountRequest) returns (FrozenAmountResponse) {}
 
+  // 新建账单导出任务
+  rpc NewExportTask(NewExportTaskRequest) returns (EmptyResponse){}
+
+}
+
+message NewExportTaskRequest {
+  SingleMerchantQuery merchantInfo = 1;
+  string source = 2;
+  string taskName = 3;
+  int64 creatorId = 4;
+  string params = 5;
 }
 
 message WithdrawExportRequest {
@@ -357,6 +368,7 @@ message BillsQuery {
   int64 pageSize = 7;
   int64 originId = 8;
   int64 merchantType = 9;
+  repeated int64 orderIds = 10;
 }
 
 message BillList {

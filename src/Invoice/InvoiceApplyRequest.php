@@ -22,6 +22,10 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
      */
     protected $invoiceType = 0;
     /**
+     * Generated from protobuf field <code>string customerName = 12;</code>
+     */
+    protected $customerName = '';
+    /**
      * Generated from protobuf field <code>float amount = 3;</code>
      */
     protected $amount = 0.0;
@@ -66,6 +70,7 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $outBizNo
      *     @type int $invoiceType
+     *     @type string $customerName
      *     @type float $amount
      *     @type string $title
      *     @type string $taxNum
@@ -122,6 +127,28 @@ class InvoiceApplyRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->invoiceType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string customerName = 12;</code>
+     * @return string
+     */
+    public function getCustomerName()
+    {
+        return $this->customerName;
+    }
+
+    /**
+     * Generated from protobuf field <code>string customerName = 12;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setCustomerName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->customerName = $var;
 
         return $this;
     }
