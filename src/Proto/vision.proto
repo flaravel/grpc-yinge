@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package Vision;
+
+option php_metadata_namespace = "Yinge\\Grpc\\Vision\\GPBMetadata";
+option php_namespace = "Yinge\\Grpc\\Vision";
+
+service Vision {
+
+  // ---- 渲染中心(RenderCenter) -----
+  
+  // 预览模板
+  rpc RCPreview(RCPreviewRequest) returns (RCPreviewResponse);
+  // 保存模板
+  rpc RCSave(RCSaveRequest) returns (EmptyResp);
+  // 生成预览图
+  rpc RCGenerate(RCGenerateRequest) returns (RCGenerateResponse);
+
+
+}
+
+
+message ImageInfo {
+  string url = 1;
+  string hash = 2;
+  int32 width = 3;
+  int32 height = 4;
+}
+
+message EmptyResp {}
+
+
+// --- 渲染中心 ----
+
+// 渲染中心模板配置
+message TPLData {
+  message Scene {
+    string url = 1;
+  }
+  message Mask {
+    string maskUrl = 1;
+    string coverUrl = 2;
+    string meshUrl = 3;
+  }
+  message Shadow {
+    string url = 1;
+    int32 effect = 2;
+  }
+
+  Scene scene = 1;
+  repeated Mask maskList = 2;
+  repeated Shadow shadowList = 3;
+}
+
+message RCPreviewRequest {
+  TPLData data = 1;
+  repeated string imageUrlList = 2;
+  string config = 3;
+}
+
+message RCPreviewResponse {
+  ImageInfo imageInfo = 1;
+}
+
+message RCSaveRequest {
+  int32 id = 1;
+  TPLData data = 2;
+}
+
+message RCGenerateRequest {
+  int32 id = 1;
+  repeated string imageUrlList = 2;
+}
+
+message RCGenerateResponse {
+  ImageInfo imageInfo = 1;
+}
+
+// --- 渲染中心 ----
+

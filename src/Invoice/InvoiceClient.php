@@ -21,7 +21,6 @@ class InvoiceClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Invoice\InvoiceApplyRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Yinge\Grpc\Invoice\Response
      */
     public function SubmitApply(\Yinge\Grpc\Invoice\InvoiceApplyRequest $argument,
       $metadata = [], $options = []) {

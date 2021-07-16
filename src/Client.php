@@ -12,6 +12,7 @@ use Yinge\Grpc\Product\ProductClient;
 use Yinge\Grpc\Qpm\QpmServiceClient;
 use Yinge\Grpc\QpmServiceBlock\QpmServiceBlockClient;
 use Yinge\Grpc\Util\EtcdManage;
+use Yinge\Grpc\Vision\VisionClient;
 
 class Client
 {
@@ -62,6 +63,9 @@ class Client
                 break;
             case InvoiceClient::class:
                 $etcdPrefix = EtcdManage::DefaultServerInvoicePrefix;
+                break;
+            case VisionClient::class:
+                $etcdPrefix = EtcdManage::DefaultServerVisionPrefix;
                 break;
             default:
                 throw new GrpcException('invalid grpc class');
