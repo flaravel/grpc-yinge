@@ -60,8 +60,11 @@ service QpmService {
     rpc BatchQueryExpressNumber(BatchOrderRequest) returns(ExpressList){}
     // 停发配置停发更新
     rpc DeliveryStopConfigChanged(DeliveryStopConfigChangedRequest) returns(Response){}
+    // 云仓发货商品
+    rpc GetWmsDeliverProducts(EmptyRequest) returns(Response){}
 }
 
+message EmptyRequest {}
 
 message DeliveryStopConfigChangedRequest {
      string id = 1;

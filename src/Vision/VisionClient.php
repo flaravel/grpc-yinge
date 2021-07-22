@@ -23,6 +23,7 @@ class VisionClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Vision\RCPreviewRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Vision\RCPreviewResponse
      */
     public function RCPreview(\Yinge\Grpc\Vision\RCPreviewRequest $argument,
       $metadata = [], $options = []) {
@@ -37,6 +38,7 @@ class VisionClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Vision\RCSaveRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Vision\EmptyResp
      */
     public function RCSave(\Yinge\Grpc\Vision\RCSaveRequest $argument,
       $metadata = [], $options = []) {
@@ -51,6 +53,7 @@ class VisionClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Vision\RCGenerateRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\Vision\RCGenerateResponse
      */
     public function RCGenerate(\Yinge\Grpc\Vision\RCGenerateRequest $argument,
       $metadata = [], $options = []) {
