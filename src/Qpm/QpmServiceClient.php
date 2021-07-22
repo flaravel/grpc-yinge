@@ -553,13 +553,13 @@ class QpmServiceClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Qpm\EmptyRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Yinge\Grpc\Qpm\Response
+     * @return \Yinge\Grpc\Qpm\WmsDeliverProductsResp
      */
     public function GetWmsDeliverProducts(\Yinge\Grpc\Qpm\EmptyRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/Qpm.QpmService/GetWmsDeliverProducts',
         $argument,
-        ['\Yinge\Grpc\Qpm\Response', 'decode'],
+        ['\Yinge\Grpc\Qpm\WmsDeliverProductsResp', 'decode'],
         $metadata, $options);
     }
 

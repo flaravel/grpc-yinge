@@ -61,7 +61,7 @@ service QpmService {
     // 停发配置停发更新
     rpc DeliveryStopConfigChanged(DeliveryStopConfigChangedRequest) returns(Response){}
     // 云仓发货商品
-    rpc GetWmsDeliverProducts(EmptyRequest) returns(Response){}
+    rpc GetWmsDeliverProducts(EmptyRequest) returns(WmsDeliverProductsResp){}
 }
 
 message EmptyRequest {}
@@ -540,4 +540,13 @@ message OrderCostDetail {
 }
 message OrderCostDetailsResponse {
     repeated OrderCostDetail costDetails = 1;
+}
+
+message WmsDeliverProductsResp {
+    repeated WmsDeliverConfig configs = 1;
+}
+
+message WmsDeliverConfig {
+    int32  factoryId = 1;
+    repeated int32 spuId = 2;
 }
