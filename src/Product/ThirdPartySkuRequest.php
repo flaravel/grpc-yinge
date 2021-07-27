@@ -23,6 +23,10 @@ class ThirdPartySkuRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string spuName = 2;</code>
      */
     protected $spuName = '';
+    /**
+     * Generated from protobuf field <code>string skuCode = 3;</code>
+     */
+    protected $skuCode = '';
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class ThirdPartySkuRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $skuName
      *     @type string $spuName
+     *     @type string $skuCode
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +84,28 @@ class ThirdPartySkuRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->spuName = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string skuCode = 3;</code>
+     * @return string
+     */
+    public function getSkuCode()
+    {
+        return $this->skuCode;
+    }
+
+    /**
+     * Generated from protobuf field <code>string skuCode = 3;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setSkuCode($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->skuCode = $var;
 
         return $this;
     }

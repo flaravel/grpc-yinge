@@ -79,6 +79,10 @@ class Sku extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool isDeleted = 15;</code>
      */
     protected $isDeleted = false;
+    /**
+     * Generated from protobuf field <code>string skuCode = 16;</code>
+     */
+    protected $skuCode = '';
 
     /**
      * Constructor.
@@ -103,6 +107,7 @@ class Sku extends \Google\Protobuf\Internal\Message
      *     @type string $width
      *     @type string $height
      *     @type bool $isDeleted
+     *     @type string $skuCode
      * }
      */
     public function __construct($data = NULL) {
@@ -444,6 +449,28 @@ class Sku extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->isDeleted = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string skuCode = 16;</code>
+     * @return string
+     */
+    public function getSkuCode()
+    {
+        return $this->skuCode;
+    }
+
+    /**
+     * Generated from protobuf field <code>string skuCode = 16;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setSkuCode($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->skuCode = $var;
 
         return $this;
     }
