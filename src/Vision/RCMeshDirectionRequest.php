@@ -21,10 +21,6 @@ class RCMeshDirectionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string testImgUrl = 2;</code>
      */
     protected $testImgUrl = '';
-    /**
-     * Generated from protobuf field <code>int32 direction = 3;</code>
-     */
-    protected $direction = 0;
 
     /**
      * Constructor.
@@ -34,7 +30,6 @@ class RCMeshDirectionRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $maskUrl
      *     @type string $testImgUrl
-     *     @type int $direction
      * }
      */
     public function __construct($data = NULL) {
@@ -82,28 +77,6 @@ class RCMeshDirectionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->testImgUrl = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>int32 direction = 3;</code>
-     * @return int
-     */
-    public function getDirection()
-    {
-        return $this->direction;
-    }
-
-    /**
-     * Generated from protobuf field <code>int32 direction = 3;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setDirection($var)
-    {
-        GPBUtil::checkInt32($var);
-        $this->direction = $var;
 
         return $this;
     }

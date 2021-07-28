@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class RCMeshDirectionResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.Vision.ImageInfo imageInfo = 1;</code>
+     * Generated from protobuf field <code>repeated .Vision.RCMeshDirectionResponse.TestImage list = 1;</code>
      */
-    protected $imageInfo = null;
+    private $list;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class RCMeshDirectionResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Yinge\Grpc\Vision\ImageInfo $imageInfo
+     *     @type \Yinge\Grpc\Vision\RCMeshDirectionResponse\TestImage[]|\Google\Protobuf\Internal\RepeatedField $list
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +33,23 @@ class RCMeshDirectionResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.Vision.ImageInfo imageInfo = 1;</code>
-     * @return \Yinge\Grpc\Vision\ImageInfo
+     * Generated from protobuf field <code>repeated .Vision.RCMeshDirectionResponse.TestImage list = 1;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getImageInfo()
+    public function getList()
     {
-        return $this->imageInfo;
+        return $this->list;
     }
 
     /**
-     * Generated from protobuf field <code>.Vision.ImageInfo imageInfo = 1;</code>
-     * @param \Yinge\Grpc\Vision\ImageInfo $var
+     * Generated from protobuf field <code>repeated .Vision.RCMeshDirectionResponse.TestImage list = 1;</code>
+     * @param \Yinge\Grpc\Vision\RCMeshDirectionResponse\TestImage[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setImageInfo($var)
+    public function setList($var)
     {
-        GPBUtil::checkMessage($var, \Yinge\Grpc\Vision\ImageInfo::class);
-        $this->imageInfo = $var;
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Yinge\Grpc\Vision\RCMeshDirectionResponse\TestImage::class);
+        $this->list = $arr;
 
         return $this;
     }

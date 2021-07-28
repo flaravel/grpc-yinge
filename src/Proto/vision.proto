@@ -38,11 +38,15 @@ message EmptyResp {}
 message RCMeshDirectionRequest {
   string maskUrl = 1;
   string testImgUrl = 2;
-  int32 direction = 3;
 }
 
 message RCMeshDirectionResponse {
-  ImageInfo imageInfo = 1;
+  message TestImage {
+    int32 direction = 1;
+    ImageInfo imageInfo = 2;
+  }
+
+  repeated TestImage list = 1;
 }
 
 // 渲染中心模板配置
