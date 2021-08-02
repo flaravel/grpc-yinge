@@ -74,4 +74,17 @@ class VisionClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * @param \Yinge\Grpc\Vision\RCBatchRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function RCBatchGenerate(\Yinge\Grpc\Vision\RCBatchRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Vision.Vision/RCBatchGenerate',
+        $argument,
+        ['\Yinge\Grpc\Vision\RCBatchResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

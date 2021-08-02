@@ -19,6 +19,8 @@ service Vision {
   // 生成预览图
   rpc RCGenerate(RCGenerateRequest) returns (RCGenerateResponse);
 
+  rpc RCBatchGenerate(RCBatchRequest) returns (RCBatchResponse);
+
 
 }
 
@@ -34,6 +36,19 @@ message EmptyResp {}
 
 
 // --- 渲染中心 ----
+
+message RCBatchRequest {
+  message Block {
+    int32 id = 1;
+    repeated string imageUrlList = 2;
+  }
+
+  repeated Block blockList = 1;
+}
+
+message RCBatchResponse {
+  repeated ImageInfo imageList = 1;
+}
 
 message RCMeshDirectionRequest {
   string maskUrl = 1;
