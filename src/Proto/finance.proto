@@ -29,13 +29,6 @@ service Merchant {
   // 发起分账
   rpc AutoSplit(SplitRequest) returns(EmptyResponse) {}
   rpc Refund(RefundRequest) returns(EmptyResponse) {}
-  // 分账规则
-  rpc SplitRules(SplitRulesRequest) returns (SplitRulesResponse){}
-  // 查找没有配置分账比例的spu
-  rpc NoSplitSpu(IdList) returns (IdList) {}
-  rpc BatchUpdateSplitRules(BatchRules) returns (BatchUpdateResult) {}
-  // 分账比例修改历史
-  rpc SplitRuleHistory(SplitRuleHistoryRequest) returns (SplitRuleHistories) {}
 
   rpc BankList(EmptyResponse) returns (BankListResponse) {}
   // 绑定银行卡-废弃
@@ -58,6 +51,15 @@ service Merchant {
   rpc VerifyMemberTransferSms(VerifyMemberTransferSmsRequest) returns (EmptyResponse) {}
   rpc TransferDetail(TransferDetailRequest) returns (TransferDetailResponse) {}
 
+  // 分账规则
+  rpc SplitRules(SplitRulesRequest) returns (SplitRulesResponse){}
+  // 查找没有配置分账比例的spu
+  rpc NoSplitSpu(IdList) returns (IdList) {}
+  rpc BatchUpdateSplitRules(BatchRules) returns (BatchUpdateResult) {}
+  // 批量修改云仓分账金额
+  rpc BatchUpdateYuncangRules(BatchRules) returns (BatchUpdateResult) {}
+  // 分账比例修改历史
+  rpc SplitRuleHistory(SplitRuleHistoryRequest) returns (SplitRuleHistories) {}
   // 查询分账明细
   rpc SplitDetails(SplitQueryRequest) returns(SplitDetailsResponse) {}
   // 批量查询分账明细
