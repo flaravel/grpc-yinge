@@ -218,61 +218,6 @@ class MerchantClient extends \Grpc\BaseStub {
     }
 
     /**
-     * 分账规则
-     * @param \Yinge\Grpc\Finance\SplitRulesRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     */
-    public function SplitRules(\Yinge\Grpc\Finance\SplitRulesRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/finance.Merchant/SplitRules',
-        $argument,
-        ['\Yinge\Grpc\Finance\SplitRulesResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * 查找没有配置分账比例的spu
-     * @param \Yinge\Grpc\Finance\IdList $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     */
-    public function NoSplitSpu(\Yinge\Grpc\Finance\IdList $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/finance.Merchant/NoSplitSpu',
-        $argument,
-        ['\Yinge\Grpc\Finance\IdList', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Yinge\Grpc\Finance\BatchRules $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     */
-    public function BatchUpdateSplitRules(\Yinge\Grpc\Finance\BatchRules $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/finance.Merchant/BatchUpdateSplitRules',
-        $argument,
-        ['\Yinge\Grpc\Finance\BatchUpdateResult', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * 分账比例修改历史
-     * @param \Yinge\Grpc\Finance\SplitRuleHistoryRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     */
-    public function SplitRuleHistory(\Yinge\Grpc\Finance\SplitRuleHistoryRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/finance.Merchant/SplitRuleHistory',
-        $argument,
-        ['\Yinge\Grpc\Finance\SplitRuleHistories', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
      * @param \Yinge\Grpc\Finance\EmptyResponse $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -444,6 +389,75 @@ class MerchantClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/finance.Merchant/TransferDetail',
         $argument,
         ['\Yinge\Grpc\Finance\TransferDetailResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 分账规则
+     * @param \Yinge\Grpc\Finance\SplitRulesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SplitRules(\Yinge\Grpc\Finance\SplitRulesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SplitRules',
+        $argument,
+        ['\Yinge\Grpc\Finance\SplitRulesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 查找没有配置分账比例的spu
+     * @param \Yinge\Grpc\Finance\IdList $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function NoSplitSpu(\Yinge\Grpc\Finance\IdList $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/NoSplitSpu',
+        $argument,
+        ['\Yinge\Grpc\Finance\IdList', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Finance\BatchRules $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function BatchUpdateSplitRules(\Yinge\Grpc\Finance\BatchRules $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/BatchUpdateSplitRules',
+        $argument,
+        ['\Yinge\Grpc\Finance\BatchUpdateResult', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 批量修改云仓分账金额
+     * @param \Yinge\Grpc\Finance\BatchRules $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function BatchUpdateYuncangRules(\Yinge\Grpc\Finance\BatchRules $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/BatchUpdateYuncangRules',
+        $argument,
+        ['\Yinge\Grpc\Finance\BatchUpdateResult', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 分账比例修改历史
+     * @param \Yinge\Grpc\Finance\SplitRuleHistoryRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function SplitRuleHistory(\Yinge\Grpc\Finance\SplitRuleHistoryRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/finance.Merchant/SplitRuleHistory',
+        $argument,
+        ['\Yinge\Grpc\Finance\SplitRuleHistories', 'decode'],
         $metadata, $options);
     }
 

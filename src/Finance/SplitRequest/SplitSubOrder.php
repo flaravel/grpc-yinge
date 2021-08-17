@@ -45,6 +45,10 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 Postage = 8;</code>
      */
     protected $Postage = 0;
+    /**
+     * Generated from protobuf field <code>map<string, string> Extra = 9;</code>
+     */
+    private $Extra;
 
     /**
      * Constructor.
@@ -60,6 +64,7 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
      *     @type int|string $SubOrderId
      *     @type string $Remark
      *     @type int|string $Postage
+     *     @type array|\Google\Protobuf\Internal\MapField $Extra
      * }
      */
     public function __construct($data = NULL) {
@@ -239,6 +244,28 @@ class SplitSubOrder extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->Postage = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> Extra = 9;</code>
+     * @return \Google\Protobuf\Internal\MapField
+     */
+    public function getExtra()
+    {
+        return $this->Extra;
+    }
+
+    /**
+     * Generated from protobuf field <code>map<string, string> Extra = 9;</code>
+     * @param array|\Google\Protobuf\Internal\MapField $var
+     * @return $this
+     */
+    public function setExtra($var)
+    {
+        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->Extra = $arr;
 
         return $this;
     }
