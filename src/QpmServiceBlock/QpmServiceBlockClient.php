@@ -21,12 +21,27 @@ class QpmServiceBlockClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\QpmServiceBlock\OrderInfo $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
+     * @return \Yinge\Grpc\QpmServiceBlock\Response
      */
     public function UpdateAddress(\Yinge\Grpc\QpmServiceBlock\OrderInfo $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/QpmServiceBlock.QpmServiceBlock/UpdateAddress',
         $argument,
         ['\Yinge\Grpc\QpmServiceBlock\Response', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\QpmServiceBlock\SpuIdList $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Yinge\Grpc\QpmServiceBlock\SpuCapacityResponse
+     */
+    public function GetSpuCapacity(\Yinge\Grpc\QpmServiceBlock\SpuIdList $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/QpmServiceBlock.QpmServiceBlock/GetSpuCapacity',
+        $argument,
+        ['\Yinge\Grpc\QpmServiceBlock\SpuCapacityResponse', 'decode'],
         $metadata, $options);
     }
 
