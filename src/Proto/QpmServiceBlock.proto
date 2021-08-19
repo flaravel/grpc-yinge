@@ -9,6 +9,7 @@ option go_package = "/storage/grpc";
 service QpmServiceBlock {
   // 更新用户地址
   rpc UpdateAddress(OrderInfo) returns (Response) {}
+  rpc GetSpuCapacity(SpuIdList) returns(SpuCapacityResponse){}
 }
 
 message OrderInfo {
@@ -34,6 +35,19 @@ message OrderItem {
   int32 produceId = 1;
   int32 skuId = 2;
   string detail = 3;
+}
+
+message SpuIdList {
+  repeated int32 spuIdList = 1;
+}
+
+message SpuCapacityResponse{
+  repeated SpuCapacity capacityList = 1;
+}
+
+message SpuCapacity {
+  int32 spuId = 1;
+  int32 produceCapacity = 2;
 }
 
 message Response {
