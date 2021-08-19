@@ -25,6 +25,10 @@ class Mask extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string meshUrl = 3;</code>
      */
     protected $meshUrl = '';
+    /**
+     * Generated from protobuf field <code>int32 direction = 4;</code>
+     */
+    protected $direction = 0;
 
     /**
      * Constructor.
@@ -35,6 +39,7 @@ class Mask extends \Google\Protobuf\Internal\Message
      *     @type string $maskUrl
      *     @type string $coverUrl
      *     @type string $meshUrl
+     *     @type int $direction
      * }
      */
     public function __construct($data = NULL) {
@@ -104,6 +109,28 @@ class Mask extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->meshUrl = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 direction = 4;</code>
+     * @return int
+     */
+    public function getDirection()
+    {
+        return $this->direction;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 direction = 4;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setDirection($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->direction = $var;
 
         return $this;
     }

@@ -159,6 +159,7 @@ message Sku {
   string width = 13;
   string height = 14;
   bool isDeleted = 15;
+  string skuCode = 16;
 }
 
 // 分类基础参数
@@ -212,4 +213,5 @@ message AttrVal {
 message ThirdPartySkuRequest {
   string skuName = 1;
   string spuName = 2;
+  string skuCode = 3;
 }

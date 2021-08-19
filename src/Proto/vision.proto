@@ -8,13 +8,18 @@ option php_namespace = "Yinge\\Grpc\\Vision";
 service Vision {
 
   // ---- 渲染中心(RenderCenter) -----
-  
+
+  // 测试蒙层方向
+  rpc RCMeshDirection(RCMeshDirectionRequest) returns (RCMeshDirectionResponse);
+
   // 预览模板
   rpc RCPreview(RCPreviewRequest) returns (RCPreviewResponse);
   // 保存模板
   rpc RCSave(RCSaveRequest) returns (EmptyResp);
   // 生成预览图
   rpc RCGenerate(RCGenerateRequest) returns (RCGenerateResponse);
+
+  rpc RCBatchGenerate(RCBatchRequest) returns (RCBatchResponse);
 
 
 }
@@ -32,6 +37,33 @@ message EmptyResp {}
 
 // --- 渲染中心 ----
 
+message RCBatchRequest {
+  message Block {
+    int32 id = 1;
+    repeated string imageUrlList = 2;
+  }
+
+  repeated Block blockList = 1;
+}
+
+message RCBatchResponse {
+  repeated ImageInfo imageList = 1;
+}
+
+message RCMeshDirectionRequest {
+  string maskUrl = 1;
+  string testImgUrl = 2;
+}
+
+message RCMeshDirectionResponse {
+  message TestImage {
+    int32 direction = 1;
+    ImageInfo imageInfo = 2;
+  }
+
+  repeated TestImage list = 1;
+}
+
 // 渲染中心模板配置
 message TPLData {
   message Scene {
@@ -41,6 +73,7 @@ message TPLData {
     string maskUrl = 1;
     string coverUrl = 2;
     string meshUrl = 3;
+    int32 direction = 4;
   }
   message Shadow {
     string url = 1;

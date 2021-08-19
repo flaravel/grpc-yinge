@@ -19,11 +19,24 @@ class VisionClient extends \Grpc\BaseStub {
     /**
      * ---- 渲染中心(RenderCenter) -----
      *
+     * 测试蒙层方向
+     * @param \Yinge\Grpc\Vision\RCMeshDirectionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function RCMeshDirection(\Yinge\Grpc\Vision\RCMeshDirectionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Vision.Vision/RCMeshDirection',
+        $argument,
+        ['\Yinge\Grpc\Vision\RCMeshDirectionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * 预览模板
      * @param \Yinge\Grpc\Vision\RCPreviewRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Yinge\Grpc\Vision\RCPreviewResponse
      */
     public function RCPreview(\Yinge\Grpc\Vision\RCPreviewRequest $argument,
       $metadata = [], $options = []) {
@@ -38,7 +51,6 @@ class VisionClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Vision\RCSaveRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Yinge\Grpc\Vision\EmptyResp
      */
     public function RCSave(\Yinge\Grpc\Vision\RCSaveRequest $argument,
       $metadata = [], $options = []) {
@@ -53,13 +65,25 @@ class VisionClient extends \Grpc\BaseStub {
      * @param \Yinge\Grpc\Vision\RCGenerateRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Yinge\Grpc\Vision\RCGenerateResponse
      */
     public function RCGenerate(\Yinge\Grpc\Vision\RCGenerateRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/Vision.Vision/RCGenerate',
         $argument,
         ['\Yinge\Grpc\Vision\RCGenerateResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Yinge\Grpc\Vision\RCBatchRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function RCBatchGenerate(\Yinge\Grpc\Vision\RCBatchRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/Vision.Vision/RCBatchGenerate',
+        $argument,
+        ['\Yinge\Grpc\Vision\RCBatchResponse', 'decode'],
         $metadata, $options);
     }
 

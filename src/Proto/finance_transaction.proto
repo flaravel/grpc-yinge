@@ -16,6 +16,7 @@ message SplitRequest {
     int64 SubOrderId = 6;
     string Remark = 7;
     int64 Postage = 8;
+    map<string, string> Extra = 9;
   }
 
   string orderId = 1;
