@@ -15,7 +15,7 @@
         "grpc/grpc": "^1.27",
         "ext-grpc": "*",
         "google/protobuf": "^3.11",
-        "start-point/etcd-php": "^1.1"
+        "xxxxx/etcd-php": "^1.2"
     },
     "autoload": {
         "psr-4": {
